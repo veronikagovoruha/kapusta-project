@@ -1,7 +1,8 @@
 import s from './Section.module.css';
 
 const Section = ({ children }) => {
-  const isAuth = true;
+  // перемикач від якого залежить відображення фону
+  const isAuth = false;
 
   return (
     <div className={!isAuth ? s.section : s.sectionAuth}>
@@ -11,8 +12,7 @@ const Section = ({ children }) => {
           <p className={s.subtitle}>Smart Finance</p>
         </>
       )}
-
-      {children}
+      <div className={s.container}>{children}</div>
     </div>
   );
 };
