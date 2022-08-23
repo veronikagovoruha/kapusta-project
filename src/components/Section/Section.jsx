@@ -5,15 +5,17 @@ const Section = ({ children }) => {
   const isAuth = false;
 
   return (
-    <div className={!isAuth ? s.section : s.sectionAuth}>
-      {!isAuth && (
-        <>
-          <h1 className={s.title}>Kapu&#36;ta</h1>
-          <p className={s.subtitle}>Smart Finance</p>
-        </>
-      )}
-      <div className={s.container}>{children}</div>
-    </div>
+    <section className={!isAuth ? s.section : s.sectionAuth}>
+      <div className={s.container}>
+        {!isAuth && (
+          <>
+            <h1 className={s.title}>Kapu&#36;ta</h1>
+            <p className={s.subtitle}>Smart Finance</p>
+          </>
+        )}
+        {children}
+      </div>
+    </section>
   );
 };
 

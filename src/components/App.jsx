@@ -1,11 +1,5 @@
-import Section from './Section/Section';
-
 const App = () => {
-  return (
-    <div>
-      <Section></Section>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
