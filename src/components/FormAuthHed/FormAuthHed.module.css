@@ -1,0 +1,140 @@
+.navForm {
+  width: 260px;
+  /* height: 552px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  margin: 0 auto;
+  padding: 83px 56px;
+  background: #ffffff;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+}
+
+.navForm h2 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+
+  margin-bottom: 20px;
+
+  color: #52555f;
+  @media screen and (max-width: 768px) {
+    margin-top: 56px;
+  }
+}
+.navForm p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  margin: 0;
+  margin-bottom: 20px;
+
+  color: #52555f;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 32px;
+
+  letter-spacing: 0.04em;
+
+  color: #000000;
+}
+
+.input {
+  margin-top: 12px;
+  width: 273px;
+  height: 52px;
+  font-size: 20px;
+  padding: 1px 15px;
+  border-radius: 30px;
+  border: none;
+  outline-color: rgb(38, 255, 0);
+  background: #f6f7fb;
+}
+.navForm__btnGoogle {
+  position: relative;
+  height: 40px;
+  padding: 10px 19px;
+  /* margin: 0 auto; */
+  border: none;
+  margin-bottom: 32px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  background: #f6f7fb;
+
+  border-radius: 26px;
+  letter-spacing: 0.02em;
+}
+.navForm__btnGoogle svg {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url(../../assets/imegeGoogle/google-symbol.svg);
+}
+.navForm__btnGoogle span {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  background: #f6f7fb;
+  letter-spacing: 0.02em;
+  color: #000000;
+  margin-left: 28px;
+}
+
+.boxButton {
+  display: flex;
+  margin-top: 8px;
+}
+.navForm__btn {
+  height: 40px;
+  padding: 10px 19px;
+
+  border: none;
+  border-radius: 26px;
+}
+.navForm__btn:last-child {
+  margin-left: 10px;
+}
+.navForm__btn:hover,
+.navForm__btnGoogle:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
+    0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .navForm {
+    width: 240px;
+    padding: 40px 20px;
+  }
+  .input {
+    width: 225px;
+  }
+}

@@ -5,15 +5,15 @@ import './index.css';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import store, { persistor } from 'redux/store';
-// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        {/* <BrowserRouter basename="/kapusta-project/"> */}
+         <BrowserRouter basename="/kapusta-project/"> 
         <App />
-        {/* </BrowserRouter> */}
+         </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>
