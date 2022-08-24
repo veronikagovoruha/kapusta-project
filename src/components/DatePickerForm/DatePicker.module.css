@@ -1,0 +1,25 @@
+.calendarblock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.calendaricon {
+  display: flex;
+  cursor: pointer;
+}
+
+.calendar {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #52555f;
+  width: 74px;
+  margin-left: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
