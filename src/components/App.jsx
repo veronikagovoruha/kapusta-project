@@ -1,10 +1,5 @@
-// import DatePicker from './DatePickerForm/DatePicker';
-
-
 const App = () => {
-  return <div>  
-    {/* <DatePicker/> */}
-  </div>;
+  return <div></div>;
 };
 
 export default App;
