@@ -1,0 +1,24 @@
+{
+  "auth": {
+    "accessToken": null,
+    "refreshToken": null,
+    "sid": null
+  },
+  "userData": {
+    "email": null,
+    "balance": 0,
+    "id": null
+  },
+  "transactions": {
+    "expense": [],
+    "income": []
+  },
+  "monthStats": {
+    "expense": {},
+    "income": {}
+  },
+  "categories": {
+    "expense": [],
+    "income": []
+  }
+}

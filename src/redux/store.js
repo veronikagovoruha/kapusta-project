@@ -1,0 +1,43 @@
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import authReducer from './auth/authSlice';
+import userDataReducer from './userData/userDataSlice';
+import transactionsReducer from './transactions/transactionsSlice';
+import categoriesReducer from './categories/categoriesSlice';
+import monthStatsReducer from './monthStats/monthStatsSlice';
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['accessToken', 'sid'],
+};
+
+const store = configureStore({
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    userData: userDataReducer,
+    transactions: transactionsReducer,
+    monthStats: monthStatsReducer,
+    categories: categoriesReducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);
+
+export default store;
