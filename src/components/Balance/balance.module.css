@@ -1,0 +1,123 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    letter-spacing: 0.04em;
+
+    color: rgba(82, 85, 95, 0.7);
+}
+
+.wapperBalance{
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.text{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    padding-bottom: 8px;
+
+    color: rgba(82, 85, 95, 0.7);
+}
+
+.input{
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: right;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    background-color: transparent;
+    max-width: 125px;
+
+    padding: 12px 20px;
+
+    border: 2px solid #FFFFFF;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+
+    color: #000000;
+}
+
+::placeholder {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.button{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background-color: transparent;
+    max-width: 125px;
+
+    padding: 12px 30px;
+
+    border: 2px solid #FFFFFF;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    color: rgba(82, 85, 95, 0.7);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper{
+        flex-direction: row-reverse;
+        align-items: baseline;
+    }
+
+    .link{
+        margin-left: auto;
+    }
+
+    .wapperBalance{
+        display: flex;
+        align-items: baseline;
+        margin-left: 65px;
+    }
+
+    .text{
+        padding-right: 20px;
+    }
+
+    .input{
+        margin-right: 15px;
+        border-radius: 16px;
+    }
+
+    .button{
+        border-radius: 16px; 
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .link{
+        margin-right: 90px;
+        margin-left: 0;
+    }
+
+    .wapperBalance{
+        margin: 0 auto;
+    }
+}
