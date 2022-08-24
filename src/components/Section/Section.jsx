@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
+import { getLoggedIn } from 'redux/auth/authSelectors';
 import s from './Section.module.css';
 
 const Section = ({ children }) => {
   // перемикач від якого залежить відображення фону
-  const isAuth = false;
+  const isAuth = useSelector(getLoggedIn);
 
   return (
     <section className={!isAuth ? s.section : s.sectionAuth}>

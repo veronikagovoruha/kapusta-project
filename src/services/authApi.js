@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { logInThunk } from 'redux/auth/authOperations';
 
 axios.defaults.baseURL = 'https://kapusta-backend.goit.global';
 
@@ -13,7 +14,7 @@ export const saveToken = {
 
 export const registerApi = async userData => {
   const { data } = await axios.post('/auth/register', userData);
-  logInApi(data);
+  logInThunk(data);
   return data;
 };
 
@@ -27,5 +28,3 @@ export const logOutApi = async () => {
   await axios.post('/auth/logout');
   saveToken.unset();
 };
-
-
