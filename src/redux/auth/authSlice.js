@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
 import { logInThunk, logOutThunk, registerThunk } from './authOperations';
 
 const initialState = {
@@ -59,6 +60,10 @@ const authSlice = createSlice({
     [logOutThunk.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
+    },
+
+    [getCurrentUserThunk.fulfilled](state, { payload }) {
+      state.isLoggedIn = true;
     },
   },
 });

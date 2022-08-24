@@ -20,6 +20,7 @@ export const logInThunk = createAsyncThunk(
       const data = logInApi(userData);
       return data;
     } catch (error) {
+      console.log(error.message);
       return rejectWithValue(error.message);
     }
   }
