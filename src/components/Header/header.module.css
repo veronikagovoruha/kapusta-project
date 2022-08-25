@@ -5,6 +5,11 @@
     padding: 12px 20px;
 }
 
+.exit{
+    border: none;
+    background-color: transparent;
+}
+
 .wrapperRigth{
     display: flex;
     align-items: center;

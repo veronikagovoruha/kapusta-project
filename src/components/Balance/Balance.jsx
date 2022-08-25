@@ -1,38 +1,54 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import sprite from '../../assets/icons/sprite.svg';
+import { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './balance.module.css';
+import Reports from 'components/Reports';
+import NumberFormat from 'react-number-format';
+import { getUserBalance } from 'redux/userData/userDataSelectors';
+import { setBalance as setBalanceValue } from 'redux/userData/userDataSlice';
 
 const Balance = () => {
-   const location = useLocation();
   let [isTooltip, setIsTooltip] = useState(true);
+  let [balance, setBalance] = useState(useSelector(getUserBalance)); 
+  const dispatch = useDispatch();
 
-  const handleInput = ({ target }) => {
-    setIsTooltip(!(target.value && target.value > 0));
+
+  const submitBalance = useCallback((balance) => {
+        dispatch(setBalanceValue(balance));
+    }, [dispatch]);
+
+  const handleBalanceInput = ({formattedValue, value}) => {
+    setIsTooltip(!formattedValue > 0);
+    setBalance(value);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitBalance(balance);
+}
 
   return (
     <div className={styles.wrapper}>
-      <Link to={'/report'} state={location} className={styles.link}>
-        <span data-text="Thanks" className={styles.textLink}>
-          Reports
-        </span>
-        <svg className={styles.icon} width="24" height="24">
-          <use href={sprite + '#icon-reports'}></use>
-        </svg>
-      </Link>
+        <Reports />
 
       <div className={styles.wrapperBalance}>
         <p className={styles.text}>Balance: </p>
         <div className={styles.inputWrapper}>
-          <input
-            onInput={handleInput}
-            className={styles.input}
-            type="number"
-            placeholder="00.00 UAH"
-            pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
-          />
-          <button className={styles.button}>Confirm</button>
+            <form onSubmit={handleSubmit}>
+                <NumberFormat
+                    className={styles.input}
+                    value={balance}
+                    suffix={' UAH'}
+                    thousandSeparator={" "}
+                    fixedDecimalScale={true}
+                    allowNegative={false}
+                    allowLeadingZeros={false}
+                    decimalScale={2}
+                    onValueChange={handleBalanceInput}
+                    placeholder="0.00 UAH"
+                />
+                <button className={styles.button}>Confirm</button>
+            </form>
+           
           {isTooltip ? <div className={styles.tooltipArrow}></div> : ''}
           {isTooltip ? (
             <div className={styles.tooltipContainment}>

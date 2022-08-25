@@ -1,13 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logOutThunk } from 'redux/auth/authOperations';
+import { getLoggedIn } from 'redux/auth/authSelectors';
+import { getUserEmail } from 'redux/userData/userDataSelectors';
 import sprite from '../../assets/icons/sprite.svg';
 import styles from './header.module.css';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const isLogin = true;
-  const user = 'User';
+  const isLogin = useSelector(getLoggedIn);
+  const userEmail = useSelector(getUserEmail);
 
   const handleLogOut = e => dispatch(logOutThunk());
 
@@ -24,21 +26,21 @@ const Header = () => {
       {isLogin && (
         <div className={styles.wrapperRigth}>
           <div className={styles.iconName}>
-            <p className={styles.user}>{user.charAt(0)}</p>
+            <p className={styles.user}>{userEmail.charAt(0)}</p>
           </div>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <p className={styles.userName}>{user}</p>
+              <p className={styles.userName}>{userEmail}</p>
             </li>
-            <li className={styles.exit}>
-              <button type="button" onClick={handleLogOut}>
+            <li>
+              <button className={styles.exit} type="button" onClick={handleLogOut}>
                 Exit
               </button>
             </li>
           </ul>
           <div>
             <button
-              className={styles.logout}
+              className={`${styles.logout} ${styles.exit}`}
               type="button"
               onClick={handleLogOut}
             >
