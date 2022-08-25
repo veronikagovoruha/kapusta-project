@@ -7,9 +7,10 @@ import { getUserBalance } from 'redux/userData/userDataSelectors';
 import { setBalance as setBalanceValue } from 'redux/userData/userDataSlice';
 
 const Balance = () => {
-  let [isTooltip, setIsTooltip] = useState(true);
-  let [balance, setBalance] = useState(useSelector(getUserBalance)); 
   const dispatch = useDispatch();
+  const stateBalance = useSelector(getUserBalance);
+  let [isTooltip, setIsTooltip] = useState(true);
+  let [balance, setBalance] = useState(stateBalance > 0 ? stateBalance : undefined); 
 
 
   const submitBalance = useCallback((balance) => {
