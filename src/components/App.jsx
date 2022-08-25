@@ -1,5 +1,11 @@
+import CategoryForm from '../components/CategoryForm/CategoryForm';
+
 const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <CategoryForm />
+    </div>
+  );
 };
 
 export default App;
