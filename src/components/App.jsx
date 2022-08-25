@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
 import Header from './Header';
+
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
