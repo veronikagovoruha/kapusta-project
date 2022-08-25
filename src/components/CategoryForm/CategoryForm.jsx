@@ -1,37 +1,62 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import {
+  addExpenseTransactionThunk,
+  addIncomeTransactionThunk,
+} from '../../redux/transactions/transactionsOperations';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
+
+import { useLocation } from 'react-router-dom';
 
 const CategoryForm = () => {
   const [date, setDate] = useState('');
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
-  const [amount, setAmount] = useState('0.00');
+  const [amount, setAmount] = useState('');
 
-  const options = [
-    { value: 'transport', label: 'Transport' },
-    { value: 'products', label: 'Products' },
-    { value: 'health', label: 'Health' },
-    { value: 'alcohol', label: 'Alcohol' },
-    { value: 'entertainment', label: 'Entertainment' },
-    { value: 'housing', label: 'Housing' },
-    { value: 'technique', label: 'Technique' },
-    { value: 'communalCommunication', label: 'Communal, communication' },
-    { value: 'sportsHobbies', label: 'Sports, hobbies' },
-    { value: 'education', label: 'Education' },
-    { value: 'other', label: 'Other' },
+  const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  const optionsExpenses = [
+    { value: 'Транспорт', label: 'Transport' },
+    { value: 'Продукты', label: 'Products' },
+    { value: 'Здоровье', label: 'Health' },
+    { value: 'Алкоголь', label: 'Alcohol' },
+    { value: 'Развлечения', label: 'Entertainment' },
+    { value: 'Всё для дома', label: 'Housing' },
+    { value: 'Техника', label: 'Technique' },
+    { value: 'Коммуналка и связь', label: 'Communal, communication' },
+    { value: 'Спорт и хобби', label: 'Sports, hobbies' },
+    { value: 'Образование', label: 'Education' },
+    { value: 'Прочее', label: 'Other' },
+  ];
+
+  const optionsIncomes = [
+    { value: 'З/П', label: 'Salary' },
+    { value: 'Доп. доход', label: 'Extra earn' },
   ];
 
   const customStyles = {
     control: base => ({
       ...base,
-      width: 169,
+      width: 280,
       height: 44,
-      marginRight: -2,
+      // marginRight: -2,
       borderRadius: 0,
       border: '0 solid #FFF',
+
       fontSize: 12,
     }),
+  };
+
+  const transactionData = {
+    description,
+    amount,
+    date,
+    category: selectedOption.value,
   };
 
   const handleChangeInput = e => {
@@ -54,10 +79,10 @@ const CategoryForm = () => {
     }
   };
 
-  const handleResetClick = e => {
+  const handleResetClick = () => {
     reset();
 
-    console.log({ date, description, selectedOption, amount });
+    console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -68,29 +93,33 @@ const CategoryForm = () => {
       return;
     }
 
+    location.pathname === '/balance/expenses'
+      ? dispatch(addExpenseTransactionThunk(transactionData))
+      : dispatch(addIncomeTransactionThunk(transactionData));
+
     reset();
 
-    console.log({ date }, { description }, { selectedOption }, { amount });
+    console.log(transactionData);
   };
 
   const reset = () => {
     setDate('');
     setDescription('');
     setSelectedOption('');
-    setAmount('0.00');
+    setAmount('');
   };
 
   return (
     <form className={s.form} onSubmit={handleSubmitClick}>
-      {/* <input
+      <input
         type="date"
         className={s.dateTransaction}
         name="date"
         value={date}
         required
         onChange={handleChangeInput}
-      /> */}
-      <div className={s.inputContainer}>
+      />
+      <div className={s.wrapperInput}>
         <input
           type="text"
           className={s.descr}
@@ -102,7 +131,11 @@ const CategoryForm = () => {
         />
         <Select
           defaultValue={selectedOption}
-          options={options}
+          options={
+            location.pathname === '/balance/expenses'
+              ? optionsExpenses
+              : optionsIncomes
+          }
           onChange={setSelectedOption}
           className={s.categorySelect}
           name="selectedOption"
@@ -116,13 +149,13 @@ const CategoryForm = () => {
             className={s.amount}
             name="amount"
             value={amount}
-            min={0.01}
-            step="0.01"
+            placeholder="0.00 UAH"
+            pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
             required
             onChange={handleChangeInput}
           />
-          <svg className={s.icon}>
-            <use href="./images/icons.svg#icon-mail"></use>
+          <svg className={s.icon} width="20" height="20">
+            <use href={sprite + 'icon-calculator'}></use>
           </svg>
         </div>
       </div>
