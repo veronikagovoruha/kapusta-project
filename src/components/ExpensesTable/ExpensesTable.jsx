@@ -1,9 +1,11 @@
 import s from './ExpensesTable.module.css';
 import sprit from '../../assets/icons/sprite.svg';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getExpenseTransactions } from 'redux/transactions/transactionsSelectors';
 
 function ExpensesTable(props) {
-  //   const date = useSelector();
+  const data = useSelector(getExpenseTransactions);
+  console.log(data);
   return (
     <div className={s.table}>
       <h3 className={s.categori}>
@@ -12,129 +14,165 @@ function ExpensesTable(props) {
         <span className={s.category}>category</span>
         <span className={s.sums}>Sum</span> <span></span>
       </h3>
-      <ul className={s['inform-list']}>
-        <li className={s.inform}>
-          <span className={s.date}>05.09.2019</span>
-          <span className={s.desc}>Моя зп</span>
+      <div className={s.container}>
+        <ul className={s['inform-list']}>
+          <li className={s.inform}>
+            <div className={s['wrap-modil']}>
+              <span className={s['desc-mobil']}>Мояfdsbwrзп</span>
 
-          <span className={s.categ}>Зп</span>
-          <span className={s.sum}>20 000.00 грн.</span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
+              <div className={s.flex}>
+                <span className={s.date}>05.09.2019</span>
+                <span className={s.desc}>Мояfdsbwrзп</span>
+                <span className={s.categ}>Зп</span>
+              </div>
+            </div>
+            <span className={s.sum}>20 000.00 грн.</span>
+            <button className={s.btn} type="button">
+              <svg width="18" height="18">
+                <use href={sprit + '#icon-delete'}></use>
+              </svg>
+            </button>
+          </li>
+          <div className={s['empty-line']}>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-        <li className={s.inform}>
-          <span className={s.date}>05.09.2019</span>
-          <span className={s.desc}>% на остаток на карте</span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}>Доп.доходы</span>
-          <span className={s.sum}>500.00 грн.</span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+            <li className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}></span>
 
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
-
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-        <li className={s.inform}>
-          <span className={s.date}></span>
-          <span className={s.desc}></span>
-
-          <span className={s.categ}></span>
-          <span className={s.sum}></span>
-          <button className={s.btn} type="button">
-            <svg width="18" height="18">
-              <use href={sprit + '#icon-delete'}></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
+                <div className={s.flex}>
+                  <span className={s.date}></span>
+                  <span className={s.desc}></span>
+                  <span className={s.categ}></span>
+                </div>
+              </div>
+              <span className={s.sum}></span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+          </div>
+        </ul>
+      </div>
     </div>
   );
 }
