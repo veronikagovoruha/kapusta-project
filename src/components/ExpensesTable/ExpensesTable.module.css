@@ -1,13 +1,13 @@
 /* Стили для скролла */
-::-webkit-scrollbar {
+.inform-list::-webkit-scrollbar {
   width: 6.2px;
   height: 30px;
 }
-::-webkit-scrollbar-track {
+.inform-list::-webkit-scrollbar-track {
   background: #f5f6fb;
 }
 
-::-webkit-scrollbar-thumb {
+.inform-list::-webkit-scrollbar-thumb {
   background: #ff751d;
   border-radius: 2px;
 }
@@ -123,7 +123,7 @@
   text-align: right;
   letter-spacing: 0.04em;
 
-  color: #407946;
+  color: #e7192e;
 }
 .btn {
   width: 18px;
@@ -160,7 +160,6 @@
     border-top: 2px solid #f5f6fb;
     border-bottom: 2px solid #f5f6fb;
     border-left: 2px solid #f5f6fb;
-    overflow-y: auto;
   }
   .inform {
     height: 40px;
