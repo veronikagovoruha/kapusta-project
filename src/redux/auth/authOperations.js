@@ -10,7 +10,7 @@ export const registerThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const logInThunk = createAsyncThunk(
@@ -22,7 +22,7 @@ export const logInThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const logOutThunk = createAsyncThunk(
@@ -33,5 +33,5 @@ export const logOutThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );

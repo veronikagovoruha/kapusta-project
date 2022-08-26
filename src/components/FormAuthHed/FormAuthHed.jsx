@@ -1,8 +1,11 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { logInThunk, registerThunk } from 'redux/auth/authOperations';
 import s from './FormAuthHed.module.css';
 
 const AuthForm = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,13 +16,23 @@ const AuthForm = () => {
     if (name === 'password') setPassword(value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmitRegistration = e => {
     e.preventDefault();
 
-    // register === true
-    //   ? cbSubmit({  email, password })
-    //   : cbSubmit({ email, password });
+    dispatch(registerThunk({ email, password }));
 
+    setEmail('');
+    setPassword('');
+    resetForm();
+  };
+
+  const handleSubmitLogIn = e => {
+    e.preventDefault();
+
+    dispatch(logInThunk({ email: email, password: password }));
+
+    setEmail('');
+    setPassword('');
     resetForm();
   };
 
@@ -30,7 +43,7 @@ const AuthForm = () => {
 
   return (
     <div className={s.box}>
-      <form className={s.navForm} onSubmit={handleSubmit}>
+      <form className={s.navForm}>
         <h2>You can log in with your Google Account:</h2>
         <button className={s.navForm__btnGoogle} type="submit">
           <svg></svg>
@@ -60,10 +73,18 @@ const AuthForm = () => {
           />
         </label>
         <div className={s.boxButton}>
-          <button className={s.navForm__btn} type="submit">
+          <button
+            className={s.navForm__btn}
+            type="submit"
+            onClick={handleSubmitLogIn}
+          >
             Log in
           </button>
-          <button className={s.navForm__btn} type="submit">
+          <button
+            className={s.navForm__btn}
+            type="submit"
+            onClick={handleSubmitRegistration}
+          >
             Registration
           </button>
         </div>
@@ -71,12 +92,5 @@ const AuthForm = () => {
     </div>
   );
 };
-
-// import TabForm from './TabForm/TabForm';
-// import FormAuthHed from './FormAuthHed/FormAuthHed';
-// import ModalPopUp from './ModalPopUp/ModalPopUp';
-// <TabForm />
-// <FormAuthHed />
-// <ModalPopUp />
 
 export default AuthForm;
