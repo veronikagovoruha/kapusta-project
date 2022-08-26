@@ -10,7 +10,7 @@ const WorkSpacePage = () => {
   const navigate = useNavigate();
 
   const switcherNames = useMemo(() => {
-    return ["expenses", "incomes"]
+    return ["incomes", "expenses"]
   }, []) ;
 
   const [switcherIndex, setSwitcherIndex] = useState(0);

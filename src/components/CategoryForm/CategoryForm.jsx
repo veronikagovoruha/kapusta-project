@@ -129,7 +129,7 @@ const CategoryForm = () => {
         setSelectedOption(value);
         break;
       case 'amount':
-        setAmount(value);
+        setAmount(parseInt(value));
         break;
       default:
         break;
