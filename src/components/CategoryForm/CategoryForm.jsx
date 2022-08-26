@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import MediaQuery from 'react-responsive';
+import moment from 'moment';
 import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
@@ -109,6 +110,10 @@ const CategoryForm = () => {
     }),
   };
 
+  const getDate = date => {
+    setDate(moment(date).format('YYYY-MM-DD'));
+  };
+
   const transactionData = {
     description,
     amount,
@@ -169,15 +174,9 @@ const CategoryForm = () => {
   return (
     <form className={s.form} onSubmit={handleSubmitClick}>
       <div className={s.inputWrapper}>
-        {/* <DatePicker /> */}
-        <input
-          type="date"
-          className={s.dateTransaction}
-          name="date"
-          value={date}
-          required
-          onChange={handleChangeInput}
-        />
+        <MediaQuery minWidth={768}>
+          <DatePicker getDate={getDate} />
+        </MediaQuery>
         <input
           type="text"
           className={s.descr}
