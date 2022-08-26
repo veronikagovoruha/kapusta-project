@@ -9,41 +9,12 @@ const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const [emailLogIn, setEmailLogIn] = useState('');
-  // const [passwordLogIn, setPasswordLogIn] = useState('');
-
   const handleChange = e => {
     const { name, value } = e.target;
 
     if (name === 'email') setEmail(value);
     if (name === 'password') setPassword(value);
-    // if (name === 'email') setEmailLogIn(value);
-    // if (name === 'password') setPasswordLogIn(value);
   };
-
-  // const handleChangeLogIn = e => {
-  //   const { name, value } = e.target;
-
-  //   if (name === 'email') setEmailLogIn(value);
-  //   if (name === 'password') setPasswordLogIn(value);
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   dispatch(logInThunk({ email: emailLogIn, password: passwordLogIn }));
-  //   dispatch(registerThunk({ email, password }));
-
-  //   register === true
-  //     ? cbSubmit({ email, password })
-  //     : cbSubmit({ email: emailLogIn, password: passwordLogIn });
-
-  //   setEmail('');
-  //   setPassword('');
-  //   setEmailLogIn('');
-  //   setPasswordLogIn('');
-  //   resetForm();
-  // };
 
   const handleSubmitRegistration = e => {
     e.preventDefault();
@@ -63,13 +34,7 @@ const AuthForm = () => {
     setEmail('');
     setPassword('');
     resetForm();
-
-    // setEmailLogIn('');
-    // setPasswordLogIn('');
-    // resetForm();
   };
-
-  // const handleLogOut = e => dispatch(logOutThunk());
 
   const resetForm = () => {
     setEmail('');
