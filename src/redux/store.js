@@ -15,6 +15,7 @@ import userDataReducer from './userData/userDataSlice';
 import transactionsReducer from './transactions/transactionsSlice';
 import categoriesReducer from './categories/categoriesSlice';
 import monthStatsReducer from './monthStats/monthStatsSlice';
+import periodDataReducer from './periodData/periodDataSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,6 +30,7 @@ const store = configureStore({
     transactions: transactionsReducer,
     monthStats: monthStatsReducer,
     categories: categoriesReducer,
+    periodData: periodDataReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
