@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
 import AuthFormTest from './AuthFormTest/AuthFormTest';
 
+
 const App = () => {
   const dispatch = useDispatch();
 
@@ -12,6 +13,7 @@ const App = () => {
 
   return (
     <div>
+      
       <AuthFormTest />
     </div>
   );

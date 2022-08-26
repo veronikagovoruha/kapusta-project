@@ -38,7 +38,7 @@ ChartJS.register(
     },
 
     tooltip:{
-      enabled: false
+      enabled: true
     },
 
   },
