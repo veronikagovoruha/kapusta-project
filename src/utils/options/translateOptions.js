@@ -42,6 +42,14 @@ const translateOptions = {
     'Прочее' : {
         name: 'Other',
         icon: '#other'
+    },
+    'З/П' : {
+        name: 'Salary',
+        icon: '#salary'
+    },
+    'Доп. доход' : {
+        name: 'additional income',
+        icon: '#additional income'
     }
 }
 
