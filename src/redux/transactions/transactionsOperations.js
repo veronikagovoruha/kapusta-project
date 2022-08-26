@@ -7,7 +7,7 @@ import {
 } from 'services/transactionsApi';
 
 export const addIncomeTransactionThunk = createAsyncThunk(
-  'transagtion/addIncome',
+  'transaction/addIncome',
   async (transaction, { rejectWithValue }) => {
     try {
       const data = await addIncomeTransactionApi(transaction);
@@ -19,7 +19,7 @@ export const addIncomeTransactionThunk = createAsyncThunk(
 );
 
 export const getIncomeTransactionThunk = createAsyncThunk(
-  'transagtion/getIncome',
+  'transaction/getIncome',
   async (_, { rejectWithValue }) => {
     try {
       const data = await getIncomeTransactionApi();
@@ -31,7 +31,7 @@ export const getIncomeTransactionThunk = createAsyncThunk(
 );
 
 export const addExpenseTransactionThunk = createAsyncThunk(
-  'transagtion/addExpense',
+  'transaction/addExpense',
   async (transaction, { rejectWithValue }) => {
     try {
       const data = await addExpenseTransactionApi(transaction);
@@ -43,7 +43,7 @@ export const addExpenseTransactionThunk = createAsyncThunk(
 );
 
 export const getExpenseTransactionThunk = createAsyncThunk(
-  'transagtion/getExpense',
+  'transaction/getExpense',
   async (_, { rejectWithValue }) => {
     try {
       const data = await getExpenseTransactionApi();
@@ -55,7 +55,7 @@ export const getExpenseTransactionThunk = createAsyncThunk(
 );
 
 export const removeTransactionThunk = createAsyncThunk(
-  'transagtion/remove',
+  'transaction/remove',
   async (id, { rejectWithValue }) => {
     try {
       await getExpenseTransactionApi(id);
