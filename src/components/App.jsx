@@ -15,37 +15,9 @@ const ReportPage = lazy(() => import('pages/ReportPage'));
 const App = () => {
   const dispatch = useDispatch();
 
-  const expenses = {
-    total: 5200,
-    incomesData: {
-      Транспорт: {
-        total: 4000,
-        СТО: 3500,
-        Мойка: 500,
-      },
-      'Всё для дома': {
-        total: 1200,
-        Вазон: 150,
-        'Шкаф-купе': 1050,
-      },
-    },
-  };
-
-  const prepareData = data => {
-    const dataType = Object.entries(data.incomesData).map(([type, data]) => ({
-      type,
-      ...data,
-    }));
-    const totalRes = data.total;
-    console.log({ totalRes, totalRes });
-    return { totalRes, totalRes };
-  };
-
-  prepareData(expenses);
-
   useEffect(() => {
     dispatch(getCurrentUserThunk());
-    dispatch(getPeriodDataThunk('2022-11'));
+    dispatch(getPeriodDataThunk('2022-08'));
   }, [dispatch]);
 
   return (

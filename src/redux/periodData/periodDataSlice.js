@@ -25,11 +25,10 @@ const periodDataSlice = createSlice({
       state.error = null;
     },
     [getPeriodDataThunk.fulfilled](state, { payload }) {
-      console.log(payload);
-      state.expenses.total = payload.expenses.expenseTotal;
-      state.expenses.expensesData = [...payload.expenses.expensesData];
-      state.incomes.total = payload.incomes.incomesTotal;
-      state.incomes.incomesData = [...payload.incomes.incomesData];
+      state.expenses.total = payload.expenses.total;
+      state.expenses.expensesData = [...payload.expenses.preparedData];
+      state.incomes.total = payload.incomes.total;
+      state.incomes.incomesData = [...payload.incomes.preparedData];
       state.isLoading = false;
     },
     [getPeriodDataThunk.rejected](state, { payload }) {
