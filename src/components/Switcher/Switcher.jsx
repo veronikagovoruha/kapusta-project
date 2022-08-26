@@ -27,26 +27,3 @@ const Switcher = (props) => {
 }
 
 export default Switcher;
-
-/*
-***************************
-*** Month switcher code ***
-***************************
-
-const [date, setDate] = useState(new Date());
-
-const monthNames = useMemo(() => {
-  return ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
-    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
-  ]
-}, []) ;
-
-const monthHandler = (direction) => {
-    setDate(new Date(date.setMonth(date.getMonth() + direction)));
-}
-
-const switcherMonthValue = `${monthNames[date.getMonth()]} ${date.getFullYear()}`
-
-
-<Switcher value={switcherMonthValue} label="Current period" onChange={monthHandler}/>
-*/

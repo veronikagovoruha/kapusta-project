@@ -18,13 +18,6 @@ const initialState = {
 const userDataSlice = createSlice({
   name: 'userData',
   initialState,
-  reducers: {
-    setBalance: {
-      reducer(state, { payload }) {
-        state.balance = payload;
-      },
-    },
-  },
   extraReducers: {
     [getCurrentUserThunk.pending](state) {
       state.isLoading = true;
@@ -75,7 +68,5 @@ const userDataSlice = createSlice({
     },
   },
 });
-
-export const { setBalance } = userDataSlice.actions;
 
 export default userDataSlice.reducer;

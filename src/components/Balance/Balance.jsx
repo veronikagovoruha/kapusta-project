@@ -4,19 +4,20 @@ import styles from './balance.module.css';
 import ReportsLink from 'components/ReportsLink';
 import NumberFormat from 'react-number-format';
 import { getUserBalance } from 'redux/userData/userDataSelectors';
-import { setBalance as setBalanceValue } from 'redux/userData/userDataSlice';
+import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
 
 const Balance = () => {
   const dispatch = useDispatch();
   const stateBalance = useSelector(getUserBalance);
-  let [isTooltip, setIsTooltip] = useState(true);
+  const balanceExists = stateBalance > 0;
+  let [isTooltip, setIsTooltip] = useState(!balanceExists);
   let [balance, setBalance] = useState(
-    stateBalance > 0 ? stateBalance : undefined
+    balanceExists ? stateBalance : undefined
   );
 
   const submitBalance = useCallback(
     balance => {
-      dispatch(setBalanceValue(balance));
+      dispatch(addUserBalanceThunk({ newBalance: balance }));
     },
     [dispatch]
   );
