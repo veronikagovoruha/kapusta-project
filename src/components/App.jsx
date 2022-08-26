@@ -8,7 +8,7 @@ import PublicRoute from './PublicRoute';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const BalancePage = lazy(() => import('pages/BalancePage'));
-const ReportPage = lazy(() => import('pages/MainPage'));
+const ReportPage = lazy(() => import('pages/ReportPage'));
 
 const App = () => {
   const dispatch = useDispatch();

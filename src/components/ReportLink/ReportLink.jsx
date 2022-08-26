@@ -1,7 +1,7 @@
 import sprite from '../../assets/icons/sprite.svg';
-import styles from "./mainPageLink.module.css"
+import styles from "./reportLink.module.css"
 
-const MainPageLink = () => {
+const ReportLink = () => {
     return(
         <div className={styles.wrapper}>
             <svg className={styles.icon} width="24" height="24">
@@ -13,4 +13,4 @@ const MainPageLink = () => {
     )
 }
 
-export default MainPageLink;
+export default ReportLink;

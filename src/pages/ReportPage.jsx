@@ -1,7 +1,7 @@
 import ChartBar from 'components/chartBar/ChartBar';
 import Section from 'components/Section/Section';
 import { Link, useLocation } from 'react-router-dom';
-import MainPageLink from 'components/MainPageLink';
+import MainPageLink from 'components/ReportLink';
 
 const ReportPage = () => {
   const location = useLocation();

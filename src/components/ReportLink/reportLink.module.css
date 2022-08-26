@@ -1,6 +1,15 @@
 .wrapper{
     display: flex;
     align-items: center;
+    padding-top: 40px;
+    padding-bottom: 32px;
+    
+}
+
+@media screen and (max-width: 768px){
+    .wrapperBalance{
+        padding-top: 32px;
+    }    
 }
 
 .text{

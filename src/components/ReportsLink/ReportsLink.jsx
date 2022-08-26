@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import sprite from '../../assets/icons/sprite.svg';
 import styles from "./reports.module.css"
 
-const Reports = () => {
+const ReportsLink = () => {
     const location = useLocation();
     return(
         <Link to={'/report'} state={location} className={styles.link}>
@@ -16,4 +16,4 @@ const Reports = () => {
     )
 }
 
-export default Reports ;
+export default ReportsLink ;
