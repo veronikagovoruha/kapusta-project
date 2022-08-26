@@ -7,10 +7,10 @@ import {
 } from 'services/transactionsApi';
 
 export const addIncomeTransactionThunk = createAsyncThunk(
-  'transagtion/addIncome',
+  'transaction/addIncome',
   async (transaction, { rejectWithValue }) => {
     try {
-      const data = addIncomeTransactionApi(transaction);
+      const data = await addIncomeTransactionApi(transaction);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -19,10 +19,10 @@ export const addIncomeTransactionThunk = createAsyncThunk(
 );
 
 export const getIncomeTransactionThunk = createAsyncThunk(
-  'transagtion/getIncome',
+  'transaction/getIncome',
   async (_, { rejectWithValue }) => {
     try {
-      const data = getIncomeTransactionApi();
+      const data = await getIncomeTransactionApi();
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -31,10 +31,10 @@ export const getIncomeTransactionThunk = createAsyncThunk(
 );
 
 export const addExpenseTransactionThunk = createAsyncThunk(
-  'transagtion/addExpense',
+  'transaction/addExpense',
   async (transaction, { rejectWithValue }) => {
     try {
-      const data = addExpenseTransactionApi(transaction);
+      const data = await addExpenseTransactionApi(transaction);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -43,10 +43,10 @@ export const addExpenseTransactionThunk = createAsyncThunk(
 );
 
 export const getExpenseTransactionThunk = createAsyncThunk(
-  'transagtion/getExpense',
+  'transaction/getExpense',
   async (_, { rejectWithValue }) => {
     try {
-      const data = getExpenseTransactionApi();
+      const data = await getExpenseTransactionApi();
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -55,10 +55,10 @@ export const getExpenseTransactionThunk = createAsyncThunk(
 );
 
 export const removeTransactionThunk = createAsyncThunk(
-  'transagtion/remove',
+  'transaction/remove',
   async (id, { rejectWithValue }) => {
     try {
-      getExpenseTransactionApi(id);
+      await getExpenseTransactionApi(id);
       return id;
     } catch (error) {
       return rejectWithValue(error.message);

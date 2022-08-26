@@ -1,10 +1,12 @@
-import AuthFormTest from 'components/AuthFormTest/AuthFormTest';
+// import AuthFormTest from 'components/AuthFormTest/AuthFormTest';
+import AuthForm from 'components/FormAuthHed/FormAuthHed';
 import Section from 'components/Section/Section';
 
 const HomePage = () => {
   return (
     <Section>
-      <AuthFormTest />
+      {/* <AuthFormTest /> */}
+      <AuthForm />
     </Section>
   );
 };

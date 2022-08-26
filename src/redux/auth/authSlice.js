@@ -21,7 +21,7 @@ const authSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-    [registerThunk.fulfilled](state) {
+    [registerThunk.fulfilled](state, { payload }) {
       state.isLoggedIn = true;
       state.isLoading = false;
     },

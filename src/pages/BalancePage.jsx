@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Balance from 'components/Balance';
-import Section from 'components/Section/Section';
 import Switcher from 'components/Switcher';
+import Section from 'components/Section/Section';
+import Balance from 'components/Balance';
+import CategoryForm from 'components/CategoryForm/CategoryForm';
 
 const WorkSpacePage = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const WorkSpacePage = () => {
     <Section>
       <Balance />
       <Switcher value={switcherValue} onChange={switcherHandler}/>
+      <CategoryForm />
     </Section>
   );
 };
