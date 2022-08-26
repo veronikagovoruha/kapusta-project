@@ -1,27 +1,75 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { logInThunk, registerThunk } from 'redux/auth/authOperations';
 import s from './FormAuthHed.module.css';
 
 const AuthForm = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // const [emailLogIn, setEmailLogIn] = useState('');
+  // const [passwordLogIn, setPasswordLogIn] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.target;
 
     if (name === 'email') setEmail(value);
     if (name === 'password') setPassword(value);
+    // if (name === 'email') setEmailLogIn(value);
+    // if (name === 'password') setPasswordLogIn(value);
   };
 
-  const handleSubmit = e => {
+  // const handleChangeLogIn = e => {
+  //   const { name, value } = e.target;
+
+  //   if (name === 'email') setEmailLogIn(value);
+  //   if (name === 'password') setPasswordLogIn(value);
+  // };
+
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+
+  //   dispatch(logInThunk({ email: emailLogIn, password: passwordLogIn }));
+  //   dispatch(registerThunk({ email, password }));
+
+  //   register === true
+  //     ? cbSubmit({ email, password })
+  //     : cbSubmit({ email: emailLogIn, password: passwordLogIn });
+
+  //   setEmail('');
+  //   setPassword('');
+  //   setEmailLogIn('');
+  //   setPasswordLogIn('');
+  //   resetForm();
+  // };
+
+  const handleSubmitRegistration = e => {
     e.preventDefault();
 
-    // register === true
-    //   ? cbSubmit({  email, password })
-    //   : cbSubmit({ email, password });
+    dispatch(registerThunk({ email, password }));
 
+    setEmail('');
+    setPassword('');
     resetForm();
   };
+
+  const handleSubmitLogIn = e => {
+    e.preventDefault();
+
+    dispatch(logInThunk({ email: email, password: password }));
+
+    setEmail('');
+    setPassword('');
+    resetForm();
+
+    // setEmailLogIn('');
+    // setPasswordLogIn('');
+    // resetForm();
+  };
+
+  // const handleLogOut = e => dispatch(logOutThunk());
 
   const resetForm = () => {
     setEmail('');
@@ -30,7 +78,7 @@ const AuthForm = () => {
 
   return (
     <div className={s.box}>
-      <form className={s.navForm} onSubmit={handleSubmit}>
+      <form className={s.navForm}>
         <h2>You can log in with your Google Account:</h2>
         <button className={s.navForm__btnGoogle} type="submit">
           <svg></svg>
@@ -60,10 +108,18 @@ const AuthForm = () => {
           />
         </label>
         <div className={s.boxButton}>
-          <button className={s.navForm__btn} type="submit">
+          <button
+            className={s.navForm__btn}
+            type="submit"
+            onClick={handleSubmitLogIn}
+          >
             Log in
           </button>
-          <button className={s.navForm__btn} type="submit">
+          <button
+            className={s.navForm__btn}
+            type="submit"
+            onClick={handleSubmitRegistration}
+          >
             Registration
           </button>
         </div>
@@ -71,12 +127,5 @@ const AuthForm = () => {
     </div>
   );
 };
-
-// import TabForm from './TabForm/TabForm';
-// import FormAuthHed from './FormAuthHed/FormAuthHed';
-// import ModalPopUp from './ModalPopUp/ModalPopUp';
-// <TabForm />
-// <FormAuthHed />
-// <ModalPopUp />
 
 export default AuthForm;

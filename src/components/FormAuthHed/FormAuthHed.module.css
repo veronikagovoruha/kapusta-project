@@ -1,4 +1,7 @@
 .navForm {
+  position: absolute;
+  top: 173px;
+  left: 763px;
   width: 260px;
   /* height: 552px; */
   display: flex;
@@ -6,8 +9,8 @@
   align-items: center;
   font-size: 40px;
   margin-bottom: 30px;
-  margin: 0 auto;
-  padding: 83px 56px;
+  /* margin: 0 auto; */
+  padding: 56px 83px;
   background: #ffffff;
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
