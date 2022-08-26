@@ -5,7 +5,6 @@ import { getExpenseTransactions } from 'redux/transactions/transactionsSelectors
 
 function ExpensesTable(props) {
   const data = useSelector(getExpenseTransactions);
-  console.log(data);
 
   return (
     <div className={s.table}>
