@@ -5,6 +5,7 @@ import Switcher from 'components/Switcher';
 import Section from 'components/Section/Section';
 import Balance from 'components/Balance';
 import CategoryForm from 'components/CategoryForm/CategoryForm';
+import ExpensesTable from 'components/ExpensesTable/ExpensesTable';
 
 const WorkSpacePage = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const WorkSpacePage = () => {
       <Balance />
       <Switcher value={switcherValue} onChange={switcherHandler}/>
       <CategoryForm />
+      <ExpensesTable />
     </Section>
   );
 };

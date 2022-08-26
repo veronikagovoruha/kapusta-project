@@ -6,6 +6,7 @@ import { getExpenseTransactions } from 'redux/transactions/transactionsSelectors
 function ExpensesTable(props) {
   const data = useSelector(getExpenseTransactions);
   console.log(data);
+
   return (
     <div className={s.table}>
       <h3 className={s.categori}>
@@ -16,24 +17,27 @@ function ExpensesTable(props) {
       </h3>
       <div className={s.container}>
         <ul className={s['inform-list']}>
-          <li className={s.inform}>
-            <div className={s['wrap-modil']}>
-              <span className={s['desc-mobil']}>Мояfdsbwrзп</span>
+          {data.map(({ amount, category, date, description, _id }) => (
+            <li key={_id} className={s.inform}>
+              <div className={s['wrap-modil']}>
+                <span className={s['desc-mobil']}>{description}</span>
 
-              <div className={s.flex}>
-                <span className={s.date}>05.09.2019</span>
-                <span className={s.desc}>Мояfdsbwrзп</span>
-                <span className={s.categ}>Зп</span>
+                <div className={s.flex}>
+                  <span className={s.date}>{date}</span>
+                  <span className={s.desc}>{description}</span>
+                  <span className={s.categ}>{category}</span>
+                </div>
               </div>
-            </div>
-            <span className={s.sum}>20 000.00 грн.</span>
-            <button className={s.btn} type="button">
-              <svg width="18" height="18">
-                <use href={sprit + '#icon-delete'}></use>
-              </svg>
-            </button>
-          </li>
-          <div className={s['empty-line']}>
+              <span className={s.sum}>{` - ${amount} грн`}</span>
+              <button className={s.btn} type="button">
+                <svg width="18" height="18">
+                  <use href={sprit + '#icon-delete'}></use>
+                </svg>
+              </button>
+            </li>
+          ))}
+
+          {/* <div className={s['empty-line']}>
             <li className={s.inform}>
               <div className={s['wrap-modil']}>
                 <span className={s['desc-mobil']}></span>
@@ -170,7 +174,7 @@ function ExpensesTable(props) {
                 </svg>
               </button>
             </li>
-          </div>
+          </div> */}
         </ul>
       </div>
     </div>
