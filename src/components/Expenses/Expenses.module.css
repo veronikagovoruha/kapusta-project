@@ -1,0 +1,138 @@
+.wrapper{
+    background-color: #ffffff;
+    width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+
+
+    height: 630px;
+}
+
+@media screen and (min-width:768px) {
+    .wrapper{
+        width: 704px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 20px;
+        border-radius: 30px;
+
+        height: 348px;
+    }
+ }
+
+ @media screen and (min-width:1280px) {
+    .wrapper{
+        /* width: 1034px; */
+        padding-left: 205px;
+        padding-right: 205px;
+        padding-bottom: 20px;
+    }
+ }
+
+ .svg{
+    width: 56px;
+    height: 56px;
+    margin-bottom: 5px;
+ }
+
+ .list{
+    display: grid;
+    grid-template-columns: 84px 84px 84px;
+    justify-content: space-around; 
+    row-gap: 40px;
+    
+}
+
+ .item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    
+ }
+
+ .sum{
+    margin-bottom: 5px;
+    color: #52555F;
+ }
+
+ @media screen and (max-width:767px) {
+    .item::after{
+        content: "";
+        display: block;
+        height: 1px;
+        width: 128%;
+        background-color: #E0E5EB;
+        position: absolute;
+        top: 125px;
+     }
+    
+     .item:last-child::after{
+        content: "";
+        display: block;
+        height: 1px;
+        width: 320px;
+        background-color: #E0E5EB;
+        position: absolute;
+        top: 125px;
+     }
+
+}
+
+
+
+ .categorieName{
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.16;
+    color: #52555F;
+ }
+
+ .svg{
+    fill: #071F41;
+    position: relative;
+    z-index: 2;
+ }
+
+ .svg:hover{
+    fill: #FF751D;
+ }
+
+
+
+  @media screen and (min-width:768px) {
+    .list{
+        display: flex;
+        flex-wrap: wrap;  
+    }
+
+    .item{
+        width: calc((100% - 102px) / 6);
+    }
+ }
+
+ .span{
+    width: 52px;
+    height: 47px;
+    background-color: #F5F6FB;
+    position: absolute;
+    border-radius: 20px;
+    top: 33px;
+    left: 16px;
+ }
+
+ @media screen and (min-width: 768px) {
+    .span{
+        left: 23px;
+    }
+    
+ }
+
+ .svg:hover ~.span{
+    background-color: #FFDAC0;
+ }
+
+
+ 
