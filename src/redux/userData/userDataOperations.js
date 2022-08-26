@@ -12,7 +12,7 @@ export const getCurrentUserThunk = createAsyncThunk(
     }
 
     try {
-      const data = getCurrentUserApi(persistedToken);
+      const data = await getCurrentUserApi(persistedToken);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -24,7 +24,7 @@ export const addUserBalanceThunk = createAsyncThunk(
   'user/balance',
   async (newBalance, { rejectWithValue }) => {
     try {
-      const data = addUserBalance(newBalance);
+      const data = await addUserBalance(newBalance);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
