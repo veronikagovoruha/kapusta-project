@@ -1,0 +1,31 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapperValue{
+    display: flex;
+    align-items: center;
+}
+
+.text{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #000000;
+
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+.label{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: rgba(82, 85, 95, 0.7);
+}

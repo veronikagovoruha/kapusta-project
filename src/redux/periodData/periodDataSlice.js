@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { logOutThunk } from 'redux/auth/authOperations';
 import { getPeriodDataThunk } from './periodDataOperations';
 
 const initialState = {
@@ -34,6 +35,13 @@ const periodDataSlice = createSlice({
     [getPeriodDataThunk.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
+    },
+
+    [logOutThunk.fulfilled](state) {
+      state.expenses.total = 0;
+      state.expenses.expensesData = [];
+      state.incomes.total = 0;
+      state.incomes.incomesData = [];
     },
   },
 });

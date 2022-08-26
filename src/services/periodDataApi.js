@@ -1,11 +1,26 @@
 import axios from 'axios';
 
+const preparePeriodDataByTransaction = data => {
+  const { total, ...transactions } = data;
+  const transactionsData = Object.entries(transactions).map(
+    ([description, total]) => ({
+      description,
+      total,
+    })
+  );
+  return { total, transactionsData };
+};
+
 const prepareData = (data, typeData) => {
-  const preparedData = Object.entries(data[typeData]).map(([type, data]) => ({
-    type,
-    ...data,
-  }));
+  const preparedData = Object.entries(data[typeData]).map(([type, data]) => {
+    const transactions = preparePeriodDataByTransaction(data);
+    return {
+      type,
+      transactions,
+    };
+  });
   let total = 0;
+
   if (typeData === 'incomesData') {
     total = data.incomeTotal;
   } else {
