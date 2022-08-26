@@ -11,46 +11,50 @@ const Balance = () => {
   const stateBalance = useSelector(getUserBalance);
   const balanceExists = stateBalance > 0;
   let [isTooltip, setIsTooltip] = useState(!balanceExists);
-  let [balance, setBalance] = useState(balanceExists ? stateBalance : undefined); 
+  let [balance, setBalance] = useState(
+    balanceExists ? stateBalance : undefined
+  );
 
+  const submitBalance = useCallback(
+    balance => {
+      dispatch(addUserBalanceThunk({ newBalance: balance }));
+    },
+    [dispatch]
+  );
 
-  const submitBalance = useCallback((balance) => {
-        dispatch(addUserBalanceThunk({newBalance: balance}));
-    }, [dispatch]);
-
-  const handleBalanceInput = ({formattedValue, value}) => {
+  const handleBalanceInput = ({ formattedValue, value }) => {
     setIsTooltip(!formattedValue > 0);
     setBalance(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     submitBalance(balance);
-}
+  };
 
   return (
     <div className={styles.wrapper}>
-        <ReportsLink />
+      <ReportsLink />
 
       <div className={styles.wrapperBalance}>
         <p className={styles.text}>Balance: </p>
         <div className={styles.inputWrapper}>
-            <form onSubmit={handleSubmit}>
-                <NumberFormat
-                    className={styles.input}
-                    value={balance}
-                    suffix={' UAH'}
-                    thousandSeparator={" "}
-                    fixedDecimalScale={true}
-                    allowNegative={false}
-                    allowLeadingZeros={false}
-                    decimalScale={2}
-                    onValueChange={handleBalanceInput}
-                    placeholder="0.00 UAH"
-                />
-                <button className={styles.button}>Confirm</button>
-            </form>
-           
+          <form onSubmit={handleSubmit}>
+            <NumberFormat
+              className={styles.input}
+              value={balance}
+              suffix={' UAH'}
+              thousandSeparator={' '}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              allowLeadingZeros={false}
+              decimalScale={2}
+              onValueChange={handleBalanceInput}
+              placeholder="0.00 UAH"
+            />
+            <button className={styles.button}>Confirm</button>
+          </form>
+
           {isTooltip ? <div className={styles.tooltipArrow}></div> : ''}
           {isTooltip ? (
             <div className={styles.tooltipContainment}>

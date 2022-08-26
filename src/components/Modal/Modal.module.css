@@ -10,6 +10,7 @@
   z-index: 15;
 }
 .modal {
+  box-sizing: border-box;
   position: relative;
   top: 50%;
   left: 50%;
@@ -50,7 +51,7 @@
 }
 .btn_consent {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .activ {
   font-family: 'Roboto';
