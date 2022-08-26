@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import MediaQuery from 'react-responsive';
-import moment from 'moment';
+import { useMediaQuery } from 'react-responsive';
 import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
@@ -12,9 +11,10 @@ import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
 
 import { useLocation } from 'react-router-dom';
+import moment from 'moment';
 
 const CategoryForm = () => {
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [amount, setAmount] = useState('');
@@ -41,6 +41,9 @@ const CategoryForm = () => {
     { value: 'З/П', label: 'Salary' },
     { value: 'Доп. доход', label: 'Extra earn' },
   ];
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktopOrTablet = useMediaQuery({ minWidth: 768 });
 
   const customStylesMobile = {
     control: base => ({
@@ -124,9 +127,6 @@ const CategoryForm = () => {
   const handleChangeInput = e => {
     const { name, value } = e.target;
     switch (name) {
-      case 'date':
-        setDate(value);
-        break;
       case 'description':
         setDescription(value);
         break;
@@ -155,9 +155,16 @@ const CategoryForm = () => {
       return;
     }
 
-    location.pathname === '/balance/expenses'
-      ? dispatch(addExpenseTransactionThunk(transactionData))
-      : dispatch(addIncomeTransactionThunk(transactionData));
+    switch (location.pathname) {
+      case '/balance/expenses':
+        dispatch(addExpenseTransactionThunk(transactionData));
+        break;
+      case '/balance/incomes':
+        dispatch(addIncomeTransactionThunk(transactionData));
+        break;
+      default:
+        alert('Please choose Transaction category');
+    }
 
     reset();
 
@@ -165,7 +172,7 @@ const CategoryForm = () => {
   };
 
   const reset = () => {
-    setDate('');
+    setDate(moment().format('YYYY-MM-DD'));
     setDescription('');
     setSelectedOption('');
     setAmount('');
@@ -174,9 +181,7 @@ const CategoryForm = () => {
   return (
     <form className={s.form} onSubmit={handleSubmitClick}>
       <div className={s.inputWrapper}>
-        <MediaQuery minWidth={768}>
-          <DatePicker getDate={getDate} />
-        </MediaQuery>
+        <DatePicker getDate={getDate} />
         <input
           type="text"
           className={s.descr}
@@ -186,72 +191,40 @@ const CategoryForm = () => {
           required
           onChange={handleChangeInput}
         />
-        <MediaQuery maxWidth={767}>
-          <Select
-            defaultValue={selectedOption}
-            options={
-              location.pathname === '/balance/expenses'
-                ? optionsExpenses
-                : optionsIncomes
-            }
-            onChange={setSelectedOption}
-            className={s.categorySelect}
-            name="selectedOption"
-            value={selectedOption}
-            placeholder="Product category"
-            styles={customStylesMobile}
+        <Select
+          defaultValue={selectedOption}
+          options={
+            location.pathname === '/balance/expenses'
+              ? optionsExpenses
+              : optionsIncomes
+          }
+          onChange={setSelectedOption}
+          className={s.categorySelect}
+          name="selectedOption"
+          value={selectedOption}
+          placeholder="Product category"
+          styles={
+            (isMobile && customStylesMobile) ||
+            (isDesktopOrTablet && customStylesTablet)
+          }
+        />
+        <div className={s.amountWrapper}>
+          <input
+            type="number"
+            className={s.amount}
+            name="amount"
+            value={amount}
+            placeholder="00.00 UAH"
+            pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+            required
+            onChange={handleChangeInput}
           />
-          <div className={s.amountWrapper}>
-            <input
-              type="number"
-              className={s.amount}
-              name="amount"
-              value={amount}
-              placeholder="00.00 UAH"
-              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
-              required
-              onChange={handleChangeInput}
-            />
-            <div className={s.iconWrapper}>
-              <svg className={s.icon} width="32" height="32">
-                <use href={sprite + '#icon-calculator'}></use>
-              </svg>
-            </div>
+          <div className={s.iconWrapper}>
+            <svg className={s.icon} width="32" height="32">
+              <use href={sprite + '#icon-calculator'}></use>
+            </svg>
           </div>
-        </MediaQuery>
-        <MediaQuery minWidth={768}>
-          <Select
-            defaultValue={selectedOption}
-            options={
-              location.pathname === '/balance/expenses'
-                ? optionsExpenses
-                : optionsIncomes
-            }
-            onChange={setSelectedOption}
-            className={s.categorySelect}
-            name="selectedOption"
-            value={selectedOption}
-            placeholder="Product category"
-            styles={customStylesTablet}
-          />
-          <div className={s.amountWrapper}>
-            <input
-              type="number"
-              className={s.amount}
-              name="amount"
-              value={amount}
-              placeholder="0.00"
-              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
-              required
-              onChange={handleChangeInput}
-            />
-            <div className={s.iconWrapper}>
-              <svg className={s.icon} width="32" height="32">
-                <use href={sprite + '#icon-calculator'}></use>
-              </svg>
-            </div>
-          </div>
-        </MediaQuery>
+        </div>
       </div>
       <div className={s.btnWrapper}>
         <button type="sudmit" className={s.btn}>
