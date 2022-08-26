@@ -6,7 +6,7 @@ import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
 } from '../../redux/transactions/transactionsOperations';
-// import DatePicker from '../DatePickerForm/DatePicker';
+import DatePicker from '../DatePickerForm/DatePicker';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
 
