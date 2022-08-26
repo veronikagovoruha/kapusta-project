@@ -1,37 +1,119 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import MediaQuery from 'react-responsive';
+import {
+  addExpenseTransactionThunk,
+  addIncomeTransactionThunk,
+} from '../../redux/transactions/transactionsOperations';
+// import DatePicker from '../DatePickerForm/DatePicker';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
+
+import { useLocation } from 'react-router-dom';
 
 const CategoryForm = () => {
   const [date, setDate] = useState('');
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
-  const [amount, setAmount] = useState('0.00');
+  const [amount, setAmount] = useState('');
 
-  const options = [
-    { value: 'transport', label: 'Transport' },
-    { value: 'products', label: 'Products' },
-    { value: 'health', label: 'Health' },
-    { value: 'alcohol', label: 'Alcohol' },
-    { value: 'entertainment', label: 'Entertainment' },
-    { value: 'housing', label: 'Housing' },
-    { value: 'technique', label: 'Technique' },
-    { value: 'communalCommunication', label: 'Communal, communication' },
-    { value: 'sportsHobbies', label: 'Sports, hobbies' },
-    { value: 'education', label: 'Education' },
-    { value: 'other', label: 'Other' },
+  const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  const optionsExpenses = [
+    { value: 'Транспорт', label: 'Transport' },
+    { value: 'Продукты', label: 'Products' },
+    { value: 'Здоровье', label: 'Health' },
+    { value: 'Алкоголь', label: 'Alcohol' },
+    { value: 'Развлечения', label: 'Entertainment' },
+    { value: 'Всё для дома', label: 'Housing' },
+    { value: 'Техника', label: 'Technique' },
+    { value: 'Коммуналка и связь', label: 'Communal, communication' },
+    { value: 'Спорт и хобби', label: 'Sports, hobbies' },
+    { value: 'Образование', label: 'Education' },
+    { value: 'Прочее', label: 'Other' },
   ];
 
-  const customStyles = {
+  const optionsIncomes = [
+    { value: 'З/П', label: 'Salary' },
+    { value: 'Доп. доход', label: 'Extra earn' },
+  ];
+
+  const customStylesMobile = {
     control: base => ({
       ...base,
-      width: 169,
-      height: 44,
-      marginRight: -2,
-      borderRadius: 0,
-      border: '0 solid #FFF',
-      fontSize: 12,
+      width: 240,
+      minHeight: 10,
+      paddingLeft: 0,
+      textAlign: 'left',
+      border: 'none',
+      backgroundColor: '#F5F6FB',
     }),
+    indicatorSeparator: base => ({
+      ...base,
+      width: 0,
+    }),
+    placeholder: base => ({
+      ...base,
+      paddingLeft: 0,
+      color: '#C7CCDC',
+    }),
+    container: base => ({
+      ...base,
+      paddingLeft: 18,
+    }),
+    valueContainer: base => ({
+      ...base,
+      paddingLeft: 0,
+    }),
+    input: base => ({
+      ...base,
+      marginLeft: 0,
+      paddingLeft: 2,
+    }),
+  };
+
+  const customStylesTablet = {
+    control: base => ({
+      ...base,
+      width: 150,
+      minHeight: 10,
+      paddingLeft: 0,
+      textAlign: 'left',
+      border: 'none',
+      backgroundColor: '#FFF',
+    }),
+    indicatorSeparator: base => ({
+      ...base,
+      width: 0,
+    }),
+    placeholder: base => ({
+      ...base,
+      paddingLeft: 0,
+      color: '#C7CCDC',
+    }),
+    container: base => ({
+      ...base,
+      paddingLeft: 18,
+    }),
+    valueContainer: base => ({
+      ...base,
+      paddingLeft: 0,
+    }),
+    input: base => ({
+      ...base,
+      marginLeft: 0,
+      paddingLeft: 2,
+    }),
+  };
+
+  const transactionData = {
+    description,
+    amount,
+    date,
+    category: selectedOption.value,
   };
 
   const handleChangeInput = e => {
@@ -54,10 +136,10 @@ const CategoryForm = () => {
     }
   };
 
-  const handleResetClick = e => {
+  const handleResetClick = () => {
     reset();
 
-    console.log({ date, description, selectedOption, amount });
+    console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -68,29 +150,34 @@ const CategoryForm = () => {
       return;
     }
 
+    location.pathname === '/balance/expenses'
+      ? dispatch(addExpenseTransactionThunk(transactionData))
+      : dispatch(addIncomeTransactionThunk(transactionData));
+
     reset();
 
-    console.log({ date }, { description }, { selectedOption }, { amount });
+    console.log(transactionData);
   };
 
   const reset = () => {
     setDate('');
     setDescription('');
     setSelectedOption('');
-    setAmount('0.00');
+    setAmount('');
   };
 
   return (
     <form className={s.form} onSubmit={handleSubmitClick}>
-      {/* <input
-        type="date"
-        className={s.dateTransaction}
-        name="date"
-        value={date}
-        required
-        onChange={handleChangeInput}
-      /> */}
-      <div className={s.inputContainer}>
+      <div className={s.inputWrapper}>
+        {/* <DatePicker /> */}
+        <input
+          type="date"
+          className={s.dateTransaction}
+          name="date"
+          value={date}
+          required
+          onChange={handleChangeInput}
+        />
         <input
           type="text"
           className={s.descr}
@@ -100,33 +187,74 @@ const CategoryForm = () => {
           required
           onChange={handleChangeInput}
         />
-        <Select
-          defaultValue={selectedOption}
-          options={options}
-          onChange={setSelectedOption}
-          className={s.categorySelect}
-          name="selectedOption"
-          value={selectedOption}
-          placeholder="Product category"
-          styles={customStyles}
-        />
-        <div className={s.amountContainer}>
-          <input
-            type="number"
-            className={s.amount}
-            name="amount"
-            value={amount}
-            min={0.01}
-            step="0.01"
-            required
-            onChange={handleChangeInput}
+        <MediaQuery maxWidth={767}>
+          <Select
+            defaultValue={selectedOption}
+            options={
+              location.pathname === '/balance/expenses'
+                ? optionsExpenses
+                : optionsIncomes
+            }
+            onChange={setSelectedOption}
+            className={s.categorySelect}
+            name="selectedOption"
+            value={selectedOption}
+            placeholder="Product category"
+            styles={customStylesMobile}
           />
-          <svg className={s.icon}>
-            <use href="./images/icons.svg#icon-mail"></use>
-          </svg>
-        </div>
+          <div className={s.amountWrapper}>
+            <input
+              type="number"
+              className={s.amount}
+              name="amount"
+              value={amount}
+              placeholder="00.00 UAH"
+              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+              required
+              onChange={handleChangeInput}
+            />
+            <div className={s.iconWrapper}>
+              <svg className={s.icon} width="32" height="32">
+                <use href={sprite + '#icon-calculator'}></use>
+              </svg>
+            </div>
+          </div>
+        </MediaQuery>
+        <MediaQuery minWidth={768}>
+          <Select
+            defaultValue={selectedOption}
+            options={
+              location.pathname === '/balance/expenses'
+                ? optionsExpenses
+                : optionsIncomes
+            }
+            onChange={setSelectedOption}
+            className={s.categorySelect}
+            name="selectedOption"
+            value={selectedOption}
+            placeholder="Product category"
+            styles={customStylesTablet}
+          />
+          <div className={s.amountWrapper}>
+            <input
+              type="number"
+              className={s.amount}
+              name="amount"
+              value={amount}
+              placeholder="0.00"
+              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+              required
+              onChange={handleChangeInput}
+            />
+            <div className={s.iconWrapper}>
+              <svg className={s.icon} width="32" height="32">
+                <use href={sprite + '#icon-calculator'}></use>
+              </svg>
+            </div>
+          </div>
+        </MediaQuery>
       </div>
-      <div className={s.btnContainer}>
+      <div className={s.btnWrapper}>
         <button type="sudmit" className={s.btn}>
           Input
         </button>
