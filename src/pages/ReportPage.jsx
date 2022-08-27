@@ -1,4 +1,4 @@
-import ChartBar from 'components/chartBar/ChartBar';
+// import ChartBar from 'components/chartBar/ChartBar';
 import Expenses from 'components/Expenses/Expenses';
 import Section from 'components/Section/Section';
 import { Link, useLocation } from 'react-router-dom';
@@ -14,8 +14,7 @@ const ReportPage = () => {
             <ReportLink />
         </Link>
       <Expenses />
-      <Income />
-      <ChartBar />
+      {/* <Income /> */}
     </Section>
   );
 };
