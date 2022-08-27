@@ -1,7 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { getPeriodDataThunk } from 'redux/periodData/periodDataOperations';
+// import { getPeriodDataThunk } from 'redux/periodData/periodDataOperations';
 import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
 import Header from './Header';
 
@@ -17,7 +17,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getCurrentUserThunk());
-    dispatch(getPeriodDataThunk('2022-08'));
+    // dispatch(getPeriodDataThunk('2022-08'));
   }, [dispatch]);
 
   return (

@@ -23,7 +23,7 @@ export default function CreateDatePicker({ children, getDate }) {
         selected={startDate}
         onChange={date => {
           setStartDate(date);
-          getDate(startDate);
+          getDate(date);
         }}
         dateFormat="dd.MM.yyyy"
       />
