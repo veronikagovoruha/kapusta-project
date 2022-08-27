@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
+import NumberFormat from 'react-number-format';
 import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
@@ -208,7 +209,7 @@ const CategoryForm = () => {
           }
         />
         <div className={s.amountWrapper}>
-          <input
+          {/* <input
             type="number"
             className={s.amount}
             name="amount"
@@ -217,6 +218,20 @@ const CategoryForm = () => {
             pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
             required
             onChange={handleChangeInput}
+          /> */}
+          <NumberFormat
+            className={s.amount}
+            name="amount"
+            value={amount}
+            suffix={' UAH'}
+            thousandSeparator={' '}
+            fixedDecimalScale={true}
+            allowNegative={false}
+            allowLeadingZeros={false}
+            decimalScale={2}
+            onValueChange={handleChangeInput}
+            placeholder="0.00 UAH"
+            required
           />
           <div className={s.iconWrapper}>
             <svg className={s.icon} width="32" height="32">
