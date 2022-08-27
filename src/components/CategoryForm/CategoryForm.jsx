@@ -135,11 +135,15 @@ const CategoryForm = () => {
         setSelectedOption(value);
         break;
       case 'amount':
-        setAmount(parseFloat(value));
+        setAmount(value);
         break;
       default:
         break;
     }
+  };
+
+  const handleChangeAmountInput = ({ value }) => {
+    setAmount(parseFloat(value));
   };
 
   const handleResetClick = () => {
@@ -196,7 +200,7 @@ const CategoryForm = () => {
           defaultValue={selectedOption}
           options={
             (location.pathname === '/balance/expenses' && optionsExpenses) ||
-            (location.pathname === '/balance/expenses' && optionsIncomes)
+            (location.pathname === '/balance/incomes' && optionsIncomes)
           }
           onChange={setSelectedOption}
           className={s.categorySelect}
@@ -209,19 +213,8 @@ const CategoryForm = () => {
           }
         />
         <div className={s.amountWrapper}>
-          {/* <input
-            type="number"
-            className={s.amount}
-            name="amount"
-            value={amount}
-            placeholder="00.00 UAH"
-            pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
-            required
-            onChange={handleChangeInput}
-          /> */}
           <NumberFormat
             className={s.amount}
-            name="amount"
             value={amount}
             suffix={' UAH'}
             thousandSeparator={' '}
@@ -229,7 +222,7 @@ const CategoryForm = () => {
             allowNegative={false}
             allowLeadingZeros={false}
             decimalScale={2}
-            onValueChange={handleChangeInput}
+            onValueChange={handleChangeAmountInput}
             placeholder="0.00 UAH"
             required
           />
