@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import NumberFormat from 'react-number-format';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
 import {
@@ -134,7 +135,7 @@ const CategoryForm = () => {
         setSelectedOption(value);
         break;
       case 'amount':
-        setAmount(value);
+        setAmount(parseFloat(value));
         break;
       default:
         break;
