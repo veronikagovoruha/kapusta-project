@@ -4,6 +4,7 @@ import {
   addIncomeTransactionApi,
   getExpenseTransactionApi,
   getIncomeTransactionApi,
+  removeTransactionApi,
 } from 'services/transactionsApi';
 
 export const addIncomeTransactionThunk = createAsyncThunk(
@@ -58,7 +59,7 @@ export const removeTransactionThunk = createAsyncThunk(
   'transaction/remove',
   async (id, { rejectWithValue }) => {
     try {
-      await getExpenseTransactionApi(id);
+      await removeTransactionApi(id);
       return id;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -73,21 +73,21 @@ const transactionsSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
-    ////////////////////////////////////////////////////////////////////////////
+
     [removeTransactionThunk.pending](state) {
       state.isLoading = true;
       state.error = null;
     },
     [removeTransactionThunk.fulfilled](state, { payload }) {
-      state.income = state.income.filter(el => el.id !== payload);
-      state.expense = state.expense.filter(el => el.id !== payload);
+      state.income = state.income.filter(el => el._id !== payload);
+      state.expense = state.expense.filter(el => el._id !== payload);
       state.isLoading = false;
     },
     [removeTransactionThunk.rejected](state, { payload }) {
       state.isLoading = false;
       state.error = payload;
     },
-    /////////////////////////////////////////////////////////////////////////////
+
     [logInThunk.fulfilled](state, { payload }) {
       state.expense = payload.userData.transactions;
       //   state.income = payload.userData.transactions;

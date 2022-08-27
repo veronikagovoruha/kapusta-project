@@ -25,6 +25,6 @@ export const getExpenseTransactionApi = async () => {
 };
 
 export const removeTransactionApi = async id => {
-  await axios.delete('/transaction', id);
+  await axios.delete(`/transaction/${id}`);
   return id;
 };
