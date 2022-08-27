@@ -9,6 +9,7 @@ import Income from '../components/Income/Income';
 import Switcher from '../components/Switcher/Switcher';
 import { getPeriodDataThunk } from 'redux/periodData/periodDataOperations';
 import MonthSummary from 'components/MonthSummary';
+import Balance from 'components/Balance';
 import { getPeriodDataTotalIncomes, getPeriodDataTotalExpenses } from "redux/periodData/periodDataSelectors";
 
 const ReportPage = () => {
@@ -38,6 +39,7 @@ const ReportPage = () => {
       <Link to={location.state ?? '/balance'} >
           <ReportLink />
       </Link>
+      <Balance />
       <Switcher value={switcherMonthValue} label="Current period" onChange={monthHandler}/>
       <MonthSummary incomes={incomes} expenses={expenses}/>
       <Expenses />
