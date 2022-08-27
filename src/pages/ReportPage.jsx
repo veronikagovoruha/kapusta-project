@@ -1,11 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import ChartBar from 'components/chartBar/ChartBar';
 import Expenses from 'components/Expenses/Expenses';
 import Section from 'components/Section/Section';
 import { Link, useLocation } from 'react-router-dom';
 import ReportLink from 'components/ReportLink';
-import Income from '../components/Income/Income';
 import Switcher from '../components/Switcher/Switcher';
 import { getPeriodDataThunk } from 'redux/periodData/periodDataOperations';
 import MonthSummary from 'components/MonthSummary';
@@ -14,6 +10,10 @@ import {
   getPeriodDataTotalIncomes,
   getPeriodDataTotalExpenses,
 } from 'redux/periodData/periodDataSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useMemo } from 'react';
+import { useEffect } from 'react';
 
 const ReportPage = () => {
   const location = useLocation();
@@ -67,8 +67,7 @@ const ReportPage = () => {
       />
       <MonthSummary incomes={incomes} expenses={expenses} />
       <Expenses />
-      <Income />
-      <ChartBar />
+      {/* <Income /> */}
     </Section>
   );
 };

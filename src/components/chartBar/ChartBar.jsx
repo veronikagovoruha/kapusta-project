@@ -12,8 +12,18 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import s from './chartBar.module.css';
+import { useEffect } from 'react';
 
-const ChartBar = ()=> {
+const ChartBar = (dataForChart)=> {
+ const arrayDescr =  dataForChart.dataForChart.map(descr =>{
+  return descr.description
+ })
+
+ const arrayTotal =  dataForChart.dataForChart.map(descr =>{
+  return descr.total
+ })
+
+  
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -22,6 +32,8 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+
 
 
  const options = {
@@ -111,14 +123,14 @@ ChartJS.register(
   
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = arrayDescr;
 
  const data = {
   labels,
   datasets: [
     {
       label: '',
-      data: [577,987,354,122,998,654,765],
+      data: arrayTotal,
       backgroundColor: ['#FF751D', '#FED9BF', '#FED9BF']
 
     },
@@ -131,7 +143,6 @@ const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 };
 
 
-// console.log(data);
 
 
 return (
