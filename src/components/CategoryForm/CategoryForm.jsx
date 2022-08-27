@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import NumberFormat from 'react-number-format';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
 import {
