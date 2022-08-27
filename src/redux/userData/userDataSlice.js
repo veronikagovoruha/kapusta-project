@@ -18,7 +18,6 @@ const initialState = {
 const userDataSlice = createSlice({
   name: 'userData',
   initialState,
-
   extraReducers: {
     [getCurrentUserThunk.pending](state) {
       state.isLoading = true;

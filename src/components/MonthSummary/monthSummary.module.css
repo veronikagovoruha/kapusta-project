@@ -1,0 +1,151 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #FFFFFF;
+
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+
+    margin-bottom: 32px;
+}
+
+.wrapperExpenses{
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.wrapperIncome{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 30px;
+}
+
+.wrapperExpenses::after{
+    position: absolute;
+    bottom: 8%;
+    content: "";
+    border: 1px solid #E0E5EB;
+    height: 60px;
+    margin-left: 15px;
+}
+
+.text{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    color: #52555F;
+    text-align: center;
+}
+
+.value{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+.expenses{
+    color: #E53935;
+}
+
+.income{
+    color: #407946;
+}
+
+@media screen and (min-width: 768px){
+    .wrapper{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .wrapperExpenses{
+        display: flex;
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .wrapperIncome{
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-left: 0;
+    }
+
+    .wrapperExpenses::after{
+        position: static;
+        content: "";
+        border: 1px solid #E0E5EB;
+        height: 36px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    
+    .wrapperIncome{
+        display: flex;
+        align-items: center;
+    }
+
+    .text{
+        padding-right: 15px;
+    }
+}
+
+/* 
+.wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #FFFFFF;
+
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.wrapperExpenses{
+    display: flex;
+    align-items: center;
+}
+
+.wrapperIncome{
+    display: flex;
+    align-items: center;
+}
+
+.text{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    color: #52555F;
+
+    padding-left: 20px;
+}
+
+.text:first-child{
+    padding-left: 0;
+}
+
+.value{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    padding-right: 20px;
+}
+
+.expenses{
+    color: #E53935;
+}
+
+.income{
+    color: #407946;
+}
+
+ */

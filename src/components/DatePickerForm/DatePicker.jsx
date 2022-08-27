@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { registerLocale } from 'react-datepicker';
-import ru from 'date-fns/locale/ru';
 import s from './DatePicker.module.css';
-import Icons from '../../Icons/Icons';
+import Icons from './Icons';
 
-registerLocale('ru', ru);
-
-export default function CreateDatePicker({ children }) {
+export default function CreateDatePicker({ children, getDate }) {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -27,10 +23,9 @@ export default function CreateDatePicker({ children }) {
         selected={startDate}
         onChange={date => {
           setStartDate(date);
-          // onChangeTime(date);
+          getDate(startDate);
         }}
         dateFormat="dd.MM.yyyy"
-        locale="ru"
       />
     </div>
   );

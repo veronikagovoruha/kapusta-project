@@ -19,22 +19,6 @@
     }
 }
 
-.dateTransaction{
-    min-width: 104px;
-    height: 44px;
-    margin-right: 32px;
-
-    border: 0;
-    background-color: #F5F6FB;
-}
-
-@media screen and (min-width: 768px) {
-       .dateTransaction {
-            margin-right: 44px;
-            background-color: #FFF;
-    }
-}
-
 .inputWrapper{
     display: flex;
     justify-content: center;
@@ -63,6 +47,7 @@
     width: 260px;
     height: 40px;    
     margin-bottom: -2px;
+    margin-left: 0;
     padding: 0;
     padding-left: 20px;
 
@@ -96,10 +81,10 @@
             width: 160px;
             margin-right: -2px;
             margin-bottom: 0;
+            margin-left: 32px;
 
             background-color: #FFF;
-            /* border: 2px solid #F6F7FC; */
-            border: 2px solid #F00;
+            border: 2px solid #F6F7FC;
             border-top-right-radius: 0;
         }
     }
@@ -130,10 +115,8 @@
             margin-right: -2px;
             margin-bottom: 0;
 
-
             background-color: #FFF;
-            /* border: 2px solid #F6F7FC; */
-            border: 2px solid #F00;
+            border: 2px solid #F6F7FC;
             border-bottom-right-radius: 0;
     }
 }
@@ -143,8 +126,6 @@
             width: 172px;
     }
 }
-
-
 
 .amountWrapper {
     display: flex;
@@ -164,24 +145,21 @@
        .amountWrapper {
             width:110px;
 
-           border-top-right-radius: 16px;
-           border-bottom-right-radius: 16px;
-           border-bottom-left-radius: 0;
-           border-top-left-radius: 0;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
 
-           background-color: #FFF;
-            /* border: 2px solid #F6F7FC; */
-            border: 2px solid #F00;
-
+            background-color: #FFF;
+            border: 2px solid #F6F7FC;
     }
 }
 
 
     @media screen and (min-width: 1280px) {
        .amountWrapper {
-           width:119px;
+            width:119px;
             margin-right: 32px;
-
     }
 }
 
