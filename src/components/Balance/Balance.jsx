@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './balance.module.css';
-import ReportsLink from 'components/ReportsLink';
 import NumberFormat from 'react-number-format';
 import { getUserBalance } from 'redux/userData/userDataSelectors';
 import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
@@ -34,8 +33,6 @@ const Balance = () => {
 
   return (
     <div className={styles.wrapper}>
-      <ReportsLink />
-
       <div className={styles.wrapperBalance}>
         <p className={styles.text}>Balance: </p>
         <div className={styles.inputWrapper}>

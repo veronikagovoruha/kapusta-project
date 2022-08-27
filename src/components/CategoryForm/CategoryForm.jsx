@@ -134,7 +134,7 @@ const CategoryForm = () => {
         setSelectedOption(value);
         break;
       case 'amount':
-        setAmount(value);
+        setAmount(parseFloat(value));
         break;
       default:
         break;
