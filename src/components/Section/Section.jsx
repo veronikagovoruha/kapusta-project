@@ -7,15 +7,17 @@ const Section = ({ children }) => {
   const isAuth = useSelector(getLoggedIn);
 
   return (
-    <section className={!isAuth ? s.section : s.sectionAuth}>
-      <div className={s.container}>
-        {!isAuth && (
-          <>
-            <h1 className={s.title}>Kapu&#36;ta</h1>
-            <p className={s.subtitle}>Smart Finance</p>
-          </>
-        )}
-        {children}
+    <section className={s.boxSection}>
+      <div className={!isAuth ? s.section : s.sectionAuth}>
+        <div className={s.container}>
+          {!isAuth && (
+            <>
+              <h1 className={s.title}>Kapu&#36;ta</h1>
+              <p className={s.subtitle}>Smart Finance</p>
+            </>
+          )}
+          {children}
+        </div>
       </div>
     </section>
   );
