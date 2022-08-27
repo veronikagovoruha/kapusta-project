@@ -5,8 +5,8 @@
 
 .wrapperBalance{
     margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 32px;
+    /* padding-top: 40px;
+    padding-bottom: 32px; */
     position: relative;
 }
 
@@ -183,7 +183,7 @@ input::-webkit-inner-spin-button {
     .tooltipContainment{
         width: 238px;
         margin-left: 15px;
-        padding: 40px 30px;
+        padding: 40px 25px;
     }
 }
 

@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import s from './DatePicker.module.css';
 import Icons from './Icons';
 
-export default function CreateDatePicker({ children }) {
+export default function CreateDatePicker({ children, getDate }) {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -23,11 +23,10 @@ export default function CreateDatePicker({ children }) {
         selected={startDate}
         onChange={date => {
           setStartDate(date);
-          // onChangeTime(date);
+          getDate(date);
         }}
-        dateFormat="dd.MM.yyyy"        
+        dateFormat="dd.MM.yyyy"
       />
     </div>
   );
 }
-

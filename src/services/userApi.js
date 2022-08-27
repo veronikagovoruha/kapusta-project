@@ -8,6 +8,6 @@ export const getCurrentUserApi = async persistedToken => {
 };
 
 export const addUserBalance = async balance => {
-  const response = await axios.patch('/user/balance', balance);
-  return response;
+  const { data } = await axios.patch('/user/balance', balance);
+  return data;
 };
