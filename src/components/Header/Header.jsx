@@ -33,7 +33,11 @@ const Header = () => {
               <p className={styles.userName}>{userEmail}</p>
             </li>
             <li>
-              <button className={styles.exit} type="button" onClick={handleLogOut}>
+              <button
+                className={styles.exit}
+                type="button"
+                onClick={handleLogOut}
+              >
                 Exit
               </button>
             </li>
