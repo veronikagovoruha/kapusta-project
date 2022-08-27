@@ -181,7 +181,7 @@ const CategoryForm = () => {
   return (
     <form className={s.form} onSubmit={handleSubmitClick}>
       <div className={s.inputWrapper}>
-        <DatePicker getDate={getDate} />
+        {!isMobile && <DatePicker getDate={getDate} />}
         <input
           type="text"
           className={s.descr}
@@ -194,9 +194,8 @@ const CategoryForm = () => {
         <Select
           defaultValue={selectedOption}
           options={
-            location.pathname === '/balance/expenses'
-              ? optionsExpenses
-              : optionsIncomes
+            (location.pathname === '/balance/expenses' && optionsExpenses) ||
+            (location.pathname === '/balance/expenses' && optionsIncomes)
           }
           onChange={setSelectedOption}
           className={s.categorySelect}
