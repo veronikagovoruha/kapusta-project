@@ -13,18 +13,18 @@ const Balance = () => {
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-    setBalance(stateBalance.toFixed(2).toString())
-  }, [stateBalance])
+    setBalance(stateBalance.toFixed(2).toString());
+  }, [stateBalance]);
 
   const submitBalance = useCallback(
     balance => {
-      dispatch(addUserBalanceThunk({ newBalance: balance }));
+      dispatch(addUserBalanceThunk({ newBalance: Number(balance) }));
     },
     [dispatch]
   );
 
   const handleBalanceInput = ({ formattedValue, value }) => {
-    if(value !== balance) {
+    if (value !== balance) {
       setIsTooltip(!formattedValue > 0);
       setBalance(value);
     }
