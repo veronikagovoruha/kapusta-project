@@ -13,12 +13,17 @@ import s from './CategoryForm.module.css';
 
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
+import { useEffect } from 'react';
 
-const CategoryForm = () => {
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+const CategoryForm = ({ dateValue }) => {
+  const [date, setDate] = useState(moment(dateValue).format('YYYY-MM-DD'));
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [amount, setAmount] = useState('');
+
+  useEffect(() => {
+    setDate(moment(dateValue).format('YYYY-MM-DD'));
+  }, [dateValue]);
 
   const dispatch = useDispatch();
 
@@ -164,7 +169,13 @@ const CategoryForm = () => {
       case '/balance/expenses':
         dispatch(addExpenseTransactionThunk(transactionData));
         break;
+      case '/balance/expenses-mob':
+        dispatch(addExpenseTransactionThunk(transactionData));
+        break;
       case '/balance/incomes':
+        dispatch(addIncomeTransactionThunk(transactionData));
+        break;
+      case '/balance/incomes-mob':
         dispatch(addIncomeTransactionThunk(transactionData));
         break;
       default:
@@ -200,7 +211,10 @@ const CategoryForm = () => {
           defaultValue={selectedOption}
           options={
             (location.pathname === '/balance/expenses' && optionsExpenses) ||
-            (location.pathname === '/balance/incomes' && optionsIncomes)
+            (location.pathname === '/balance/expenses-mob' &&
+              optionsExpenses) ||
+            (location.pathname === '/balance/incomes' && optionsIncomes) ||
+            (location.pathname === '/balance/incomes-mob' && optionsIncomes)
           }
           onChange={setSelectedOption}
           className={s.categorySelect}
