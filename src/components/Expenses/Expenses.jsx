@@ -20,7 +20,6 @@ const Expenses = () => {
 
   const [chartData, setChartData] = useState(firstData);
   const [isActive, setIsActive] = useState(0);
-  // console.log(firstData);
 
   useEffect(() => {
     dispatch(getCurrentUserThunk());

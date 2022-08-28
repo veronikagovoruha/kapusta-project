@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import s from './Income.module.css';
 import {getCurrentUserThunk} from '../../redux/userData/userDataOperations';
-import {getPeriodDataThunk} from '../../redux/periodData/periodDataOperations';
 import sprite from "../../assets/icons/sprite.svg";
 import translateOptions from '../../utils/options/translateOptions';
 import ChartBar from '../chartBar/ChartBar';
@@ -23,7 +22,6 @@ const Income = () => {
 
     useEffect(()=>{
         dispatch(getCurrentUserThunk());
-        dispatch(getPeriodDataThunk());
     }, [dispatch])
 
     const handleClick = (dataForChart, index) => {
