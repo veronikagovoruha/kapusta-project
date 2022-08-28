@@ -19,7 +19,10 @@ import { useEffect } from 'react';
 const ReportPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+
   const [date, setDate] = useState(new Date());
+  const [switcherIndex, setSwitcherIndex] = useState(0);
+
   const incomes = useSelector(getPeriodDataTotalIncomes);
   const expenses = useSelector(getPeriodDataTotalExpenses);
 
@@ -40,6 +43,10 @@ const ReportPage = () => {
     ];
   }, []);
 
+  const switcherNames = useMemo(() => {
+    return ['expenses', 'incomes'];
+  }, []);
+
   const monthHandler = direction => {
     setDate(new Date(date.setMonth(date.getMonth() + direction)));
   };
@@ -55,6 +62,15 @@ const ReportPage = () => {
   const switcherMonthValue = `${
     monthNames[date.getMonth()]
   } ${date.getFullYear()}`;
+
+  const switcherHandler = direction => {
+    const newIndex = Math.abs(switcherIndex + direction) % 2;
+    setSwitcherIndex(newIndex);
+    // navigate(`/report/${switcherNames[newIndex]}`);
+  };
+
+  const switcherValue = switcherNames[switcherIndex];
+
   return (
     <Section>
       <Link to={location.state ?? '/balance'}>
@@ -67,8 +83,8 @@ const ReportPage = () => {
         onChange={monthHandler}
       />
       <MonthSummary incomes={incomes} expenses={expenses} />
-      <Expenses />
-      <Income />
+      <Switcher value={switcherValue} onChange={switcherHandler} />
+      {switcherValue === 'expenses' ? <Expenses /> : <Income />}
     </Section>
   );
 };
