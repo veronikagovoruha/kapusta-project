@@ -11,15 +11,29 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import s from './chartBar.module.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const ChartBar = dataForChart => {
-  const arrayDescr = dataForChart.dataForChart.map(descr => {
-    return descr.description;
-  });
 
-  const arrayTotal = dataForChart.dataForChart.map(descr => {
-    return descr.total;
-  });
+  const [arrayDescr, setArrayDescr] = useState()
+  const [arrayTotal, setArrayTotal] = useState()
+
+  useEffect(()=> {
+    setArrayDescr(dataForChart.dataForChart.map(descr => {
+        return descr.description;
+      }));
+      setArrayTotal(dataForChart.dataForChart.map(descr => {
+          return descr.total;
+        }))
+  },[dataForChart])
+  // const arrayDescr = dataForChart.dataForChart.map(descr => {
+  //   return descr.description;
+  // });
+
+  // const arrayTotal = dataForChart.dataForChart.map(descr => {
+  //   return descr.total;
+  // });
 
   ChartJS.register(
     CategoryScale,

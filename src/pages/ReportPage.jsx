@@ -1,4 +1,5 @@
 import Expenses from 'components/Expenses/Expenses';
+import Income from 'components/Income/Income';
 import Section from 'components/Section/Section';
 import { Link, useLocation } from 'react-router-dom';
 import ReportLink from 'components/ReportLink';
@@ -67,7 +68,7 @@ const ReportPage = () => {
       />
       <MonthSummary incomes={incomes} expenses={expenses} />
       <Expenses />
-      {/* <Income /> */}
+      <Income />
     </Section>
   );
 };
