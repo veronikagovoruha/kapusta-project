@@ -7,6 +7,7 @@ import {
 const initialState = {
   expense: {},
   income: {},
+  
 };
 
 const monthStatsSlice = createSlice({
@@ -15,6 +16,7 @@ const monthStatsSlice = createSlice({
 
   extraReducers: {
     [getExpenseTransactionThunk.fulfilled](state, { payload }) {
+      // console.log(payload);
       state.expense = { ...payload.monthsStats };
     },
 
