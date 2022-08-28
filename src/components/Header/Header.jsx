@@ -1,5 +1,3 @@
-import Modal from 'components/Modal/Modal';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logOutThunk } from 'redux/auth/authOperations';
@@ -12,7 +10,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector(getLoggedIn);
   const userEmail = useSelector(getUserEmail);
-  const [showModal, setShowModal] = useState(true);
 
   const handleLogOut = e => dispatch(logOutThunk());
 
@@ -54,7 +51,6 @@ const Header = () => {
           </div>
         </div>
       )}
-      {/* {isLogin && showModal && (<Modal />)} */}
     </div>
   );
 };
