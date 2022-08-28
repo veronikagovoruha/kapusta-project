@@ -15,8 +15,7 @@ const monthStatsSlice = createSlice({
   initialState,
 
   extraReducers: {
-    [getExpenseTransactionThunk.fulfilled](state, { payload }) {
-      // console.log(payload);
+    [getExpenseTransactionThunk.fulfilled](state, { payload }) {     
       state.expense = { ...payload.monthsStats };
     },
 
