@@ -12,6 +12,7 @@ import {
 const initialState = {
   expense: [],
   income: [],
+  allTransactions: [],
 
   isLoading: false,
   error: null,
@@ -89,18 +90,17 @@ const transactionsSlice = createSlice({
     },
 
     [logInThunk.fulfilled](state, { payload }) {
-      state.expense = payload.userData.transactions;
-      //   state.income = payload.userData.transactions;
+      state.allTransactions = payload.userData.transactions;
     },
 
     [logOutThunk.fulfilled](state) {
       state.expense = [];
       state.income = [];
+      state.allTransactions = [];
     },
 
     [getCurrentUserThunk.fulfilled](state, { payload }) {
-      state.expense = payload.transactions;
-      //   state.income = payload.userData.transactions;
+      state.allTransactions = payload.transactions;
     },
   },
 });
