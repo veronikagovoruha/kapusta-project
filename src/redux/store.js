@@ -16,6 +16,7 @@ import transactionsReducer from './transactions/transactionsSlice';
 import categoriesReducer from './categories/categoriesSlice';
 import monthStatsReducer from './monthStats/monthStatsSlice';
 import periodDataReducer from './periodData/periodDataSlice';
+import dynamicDataReducer from './dynamicData/dynamicDataReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -31,6 +32,7 @@ const store = configureStore({
     monthStats: monthStatsReducer,
     categories: categoriesReducer,
     periodData: periodDataReducer,
+    dynamicData: dynamicDataReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

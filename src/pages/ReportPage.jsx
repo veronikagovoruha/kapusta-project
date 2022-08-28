@@ -1,7 +1,7 @@
 import Expenses from 'components/Expenses/Expenses';
 import Income from 'components/Income/Income';
 import Section from 'components/Section/Section';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReportLink from 'components/ReportLink';
 import Switcher from '../components/Switcher/Switcher';
 import { getPeriodDataThunk } from 'redux/periodData/periodDataOperations';
@@ -18,7 +18,6 @@ import { useEffect } from 'react';
 
 const ReportPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [date, setDate] = useState(new Date());
@@ -45,8 +44,8 @@ const ReportPage = () => {
   }, []);
 
   const switcherNames = useMemo(() => {
-    return ["expenses", "incomes"]
-  }, []) ;
+    return ['expenses', 'incomes'];
+  }, []);
 
   const monthHandler = direction => {
     setDate(new Date(date.setMonth(date.getMonth() + direction)));
@@ -64,11 +63,11 @@ const ReportPage = () => {
     monthNames[date.getMonth()]
   } ${date.getFullYear()}`;
 
-  const switcherHandler = (direction) => {
-    const newIndex = (Math.abs(switcherIndex + direction)) % 2;
+  const switcherHandler = direction => {
+    const newIndex = Math.abs(switcherIndex + direction) % 2;
     setSwitcherIndex(newIndex);
     // navigate(`/report/${switcherNames[newIndex]}`);
-  }
+  };
 
   const switcherValue = switcherNames[switcherIndex];
 
@@ -84,7 +83,7 @@ const ReportPage = () => {
         onChange={monthHandler}
       />
       <MonthSummary incomes={incomes} expenses={expenses} />
-      <Switcher value={switcherValue} onChange={switcherHandler}/>
+      <Switcher value={switcherValue} onChange={switcherHandler} />
       {switcherValue === 'expenses' ? <Expenses /> : <Income />}
     </Section>
   );
