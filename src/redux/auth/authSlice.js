@@ -7,6 +7,7 @@ const initialState = {
   refreshToken: null,
   sid: null,
 
+  isRegistered: false,
   isLoggedIn: false,
   isLoading: false,
   error: null,
@@ -21,8 +22,8 @@ const authSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-    [registerThunk.fulfilled](state, { payload }) {
-      state.isLoggedIn = true;
+    [registerThunk.fulfilled](state) {
+      state.isRegistered = true;
       state.isLoading = false;
     },
     [registerThunk.rejected](state, { payload }) {
@@ -38,6 +39,7 @@ const authSlice = createSlice({
       state.accessToken = payload.accessToken;
       state.refreshToken = payload.refreshToken;
       state.sid = payload.sid;
+      state.isRegistered = true;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -54,6 +56,7 @@ const authSlice = createSlice({
       state.accessToken = null;
       state.refreshToken = null;
       state.sid = null;
+      state.isRegistered = false;
       state.isLoggedIn = false;
       state.isLoading = false;
     },

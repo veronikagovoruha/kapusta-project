@@ -1,8 +1,5 @@
-import { lazy, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { getPeriodDataThunk } from 'redux/periodData/periodDataOperations';
-import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
 import Header from './Header';
 
 import PrivateRoute from './PrivateRoute';
@@ -13,13 +10,6 @@ const BalancePage = lazy(() => import('pages/BalancePage'));
 const ReportPage = lazy(() => import('pages/ReportPage'));
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCurrentUserThunk());
-    dispatch(getPeriodDataThunk('2022-08'));
-  }, [dispatch]);
-
   return (
     <>
       <Header />

@@ -1,10 +1,15 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logInThunk, registerThunk } from 'redux/auth/authOperations';
+import { getLoggedIn, getRegistered } from 'redux/auth/authSelectors';
 import s from './FormAuthHed.module.css';
 
 const AuthForm = () => {
   const dispatch = useDispatch();
+
+  const isRegistered = useSelector(getRegistered);
+  const isLoggedIn = useSelector(getLoggedIn);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,10 +25,6 @@ const AuthForm = () => {
     e.preventDefault();
 
     dispatch(registerThunk({ email, password }));
-
-    setEmail('');
-    setPassword('');
-    resetForm();
   };
 
   const handleSubmitLogIn = e => {
@@ -31,8 +32,6 @@ const AuthForm = () => {
 
     dispatch(logInThunk({ email: email, password: password }));
 
-    setEmail('');
-    setPassword('');
     resetForm();
   };
 
@@ -40,6 +39,13 @@ const AuthForm = () => {
     setEmail('');
     setPassword('');
   };
+
+  useEffect(() => {
+    if (isRegistered && !isLoggedIn && email && password) {
+      dispatch(logInThunk({ email: email, password: password }));
+      resetForm();
+    }
+  }, [dispatch, email, isLoggedIn, isRegistered, password]);
 
   return (
     <div className={s.box}>
