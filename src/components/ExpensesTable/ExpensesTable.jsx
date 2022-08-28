@@ -1,10 +1,14 @@
 import s from './ExpensesTable.module.css';
 import sprit from '../../assets/icons/sprite.svg';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getExpenseTransactions } from 'redux/transactions/transactionsSelectors';
+import { removeTransactionThunk } from 'redux/transactions/transactionsOperations';
 
-function ExpensesTable(props) {
+function ExpensesTable() {
+  const dispatch = useDispatch();
   const data = useSelector(getExpenseTransactions);
+
+  const removeTransaction = id => dispatch(removeTransactionThunk(id));
 
   return (
     <div className={s.table}>
@@ -28,7 +32,11 @@ function ExpensesTable(props) {
                 </div>
               </div>
               <span className={s.sum}>{` - ${amount} грн`}</span>
-              <button className={s.btn} type="button">
+              <button
+                className={s.btn}
+                type="button"
+                onClick={() => removeTransaction(_id)}
+              >
                 <svg width="18" height="18">
                   <use href={sprit + '#icon-delete'}></use>
                 </svg>

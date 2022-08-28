@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import s from './Expenses.module.css';
 import {getCurrentUserThunk} from '../../redux/userData/userDataOperations';
-import {getPeriodDataThunk} from '../../redux/periodData/periodDataOperations';
 import sprite from "../../assets/icons/sprite.svg";
 import translateOptions from '../../utils/options/translateOptions';
 import ChartBar from '../chartBar/ChartBar';
@@ -27,7 +26,6 @@ const Expenses = () => {
 
     useEffect(()=>{
         dispatch(getCurrentUserThunk());
-        dispatch(getPeriodDataThunk());
     }, [dispatch])
 
 
