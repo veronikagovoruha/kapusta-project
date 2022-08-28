@@ -1,3 +1,5 @@
+
+
 .wrapper{
     background-color: #fff;
     width: 320px;
@@ -104,4 +106,10 @@
 
  .svg:hover ~.span{
     background-color: #FFDAC0;
+ }
+
+ .warn{
+   color: #52555F;
+   text-align: center;
+   text-transform: uppercase;
  }

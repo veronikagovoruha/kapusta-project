@@ -11,18 +11,31 @@ const Income = () => {
     
 
     const dispatch = useDispatch();
-    const categories = useSelector(state=>state.periodData.incomes.incomesData)
-    const firstData = categories.map((cat)=>{
-        return cat.transactions.transactionsData[0]
-    })
-
-    const [chartData, setChartData] = useState(firstData)
-    const [isActive, setIsActive] = useState(0)
-
 
     useEffect(()=>{
         dispatch(getCurrentUserThunk());
     }, [dispatch])
+
+
+    const categories = useSelector(state=>state.periodData.incomes.incomesData)
+    // const firstData = categories.map((cat)=>{
+    //     return cat.transactions.transactionsData[0]
+    // })
+
+    useEffect(()=>{
+        if(categories.length !==0){
+            const ar = categories[0]
+            // console.log(ar);
+            setChartData(ar.transactions.transactionsData
+            )
+        }
+       },[categories])
+
+    const [chartData, setChartData] = useState([])
+    const [isActive, setIsActive] = useState(0)
+
+
+    
 
     const handleClick = (dataForChart, index) => {
         setChartData(dataForChart)
@@ -33,6 +46,7 @@ const Income = () => {
     return(
         <>
         <div className={s.wrapper}>
+        {categories.length ===0 && <h2 className={s.warn}>You didn't enter data for this period</h2>}
             <ul className={s.list}>
                 {categories.map((categorie, index)=>(
                     <li onClick={()=> handleClick( categorie.transactions.transactionsData, index)} className={s.item} key={index}>
@@ -58,7 +72,7 @@ const Income = () => {
                 ))}
             </ul>
         </div>
-            <ChartBar dataForChart={chartData} />
+        {categories.length !==0 && <ChartBar dataForChart={chartData} />}
         </>
     )
 
