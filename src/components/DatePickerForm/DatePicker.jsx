@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './DatePicker.module.css';
@@ -6,6 +7,10 @@ import Icons from './Icons';
 
 export default function CreateDatePicker({ children, getDate }) {
   const [startDate, setStartDate] = useState(new Date());
+
+  // useEffect(() => {
+  //   dispatch(addDynamicDate('20-08-2022'));
+  // }, [dispatch]);
 
   return (
     <div className={s.calendarblock}>
