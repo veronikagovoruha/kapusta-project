@@ -3,9 +3,19 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './DatePicker.module.css';
 import Icons from './Icons';
+import { addDynamicDate } from '../../redux/dynamicData/dynamicDataActions';
+import moment from 'moment';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export default function CreateDatePicker({ children, getDate }) {
   const [startDate, setStartDate] = useState(new Date());
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addDynamicDate(moment(startDate).format('YYYY-MM-DD')));
+  }, [dispatch, startDate]);
 
   return (
     <div className={s.calendarblock}>
@@ -24,6 +34,8 @@ export default function CreateDatePicker({ children, getDate }) {
         onChange={date => {
           setStartDate(date);
           getDate(date);
+
+          dispatch(addDynamicDate(moment(date).format('YYYY-MM-DD')));
         }}
         dateFormat="dd.MM.yyyy"
       />

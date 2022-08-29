@@ -9,7 +9,7 @@ import {
 import DatePicker from '../DatePickerForm/DatePicker';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
-
+import NumberFormat from 'react-number-format';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
 
@@ -144,7 +144,7 @@ const CategoryForm = () => {
   const handleResetClick = () => {
     reset();
 
-    console.log(transactionData);
+    // console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -168,7 +168,7 @@ const CategoryForm = () => {
 
     reset();
 
-    console.log(transactionData);
+    // console.log(transactionData);
   };
 
   const reset = () => {
@@ -210,15 +210,18 @@ const CategoryForm = () => {
             }
           />
           <div className={s.amountWrapper}>
-            <input
-              type="number"
+            <NumberFormat
               className={s.amount}
-              name="amount"
               value={amount}
-              placeholder="00.00 UAH"
-              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+              suffix={' UAH'}
+              thousandSeparator={' '}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              allowLeadingZeros={false}
+              decimalScale={2}
+              onValueChange={handleChangeInput}
+              placeholder="0.00 UAH"
               required
-              onChange={handleChangeInput}
             />
             <div className={s.iconWrapper}>
               <svg className={s.icon} width="32" height="32">
