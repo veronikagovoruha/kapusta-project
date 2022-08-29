@@ -54,7 +54,7 @@ const Summary = () => {
             <li key={index} className={styles.summaryItem}>
               <p>{`${translateMonths[el1].name}`}</p>
               <p className={styles.summaryDescription}>            
-                {el2 === 'N/A' ? '00' : el2} .00 UAH               
+                {el2 === 'N/A' ? '00' : el2}.00 UAH               
               </p>           
             </li>
           ))}
