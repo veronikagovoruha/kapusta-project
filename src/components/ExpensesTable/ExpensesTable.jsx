@@ -8,6 +8,7 @@ import {
 import { removeTransactionThunk } from 'redux/transactions/transactionsOperations';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Summary from 'components/Summary/Summary';
 
 function ExpensesTable() {
   const dispatch = useDispatch();
@@ -204,7 +205,8 @@ function ExpensesTable() {
           </ul>
         </div>
       </div>
-      <div className={s.plugBox}></div>
+      <Summary />
+      {/* <div className={s.plugBox}></div> */}
     </div>
   );
 }
