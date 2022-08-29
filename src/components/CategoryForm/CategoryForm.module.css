@@ -205,6 +205,7 @@
   border-left: 2px solid #fff;
 }
 
+
 @media screen and (min-width: 768px) {
   .iconWrapper {
     width: 48px;
@@ -252,17 +253,14 @@
 .btn {
   width: 132px;
   height: 40px;
-
+  cursor: pointer;
   font-weight: 700;
   text-transform: uppercase;
-
   color: #52555f;
-
   background-color: #f5f6fb;
   box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
   border-radius: 16px;
   border: 0;
-
   transition: color background-color 500ms linear;
 }
 

@@ -49,6 +49,7 @@
   text-align: center;
   position: relative;
   width: 84px;
+  cursor: pointer;
 }
 
 .sum {

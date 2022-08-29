@@ -113,7 +113,7 @@
 .navForm__btn {
   height: 40px;
   padding: 10px 19px;
-
+  cursor: pointer;
   border: none;
   border-radius: 26px;
 }
