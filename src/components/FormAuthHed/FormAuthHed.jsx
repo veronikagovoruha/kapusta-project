@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logInThunk, registerThunk } from 'redux/auth/authOperations';
 import { getLoggedIn, getRegistered } from 'redux/auth/authSelectors';
@@ -51,7 +50,10 @@ const AuthForm = () => {
     <div className={s.box}>
       <form className={s.navForm}>
         <h2>You can log in with your Google Account:</h2>
-        <a className={s.navForm__btnGoogle} href="https://kapusta-backend.goit.global/auth/google">
+        <a
+          className={s.navForm__btnGoogle}
+          href="https://kapusta-backend.goit.global/auth/google"
+        >
           <svg></svg>
           <span> Google</span>
         </a>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MediaQuery from 'react-responsive';
 import {
   Chart as ChartJS,
@@ -11,8 +11,6 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import s from './chartBar.module.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 const ChartBar = dataForChart => {
   const [arrayDescr, setArrayDescr] = useState();
