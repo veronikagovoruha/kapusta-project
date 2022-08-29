@@ -8,7 +8,7 @@ import {
   addIncomeTransactionThunk,
 } from '../../redux/transactions/transactionsOperations';
 import DatePicker from '../DatePickerForm/DatePicker';
-// import sprite from '../../assets/icons/sprite.svg';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
 
 import { useLocation } from 'react-router-dom';
@@ -228,30 +228,34 @@ const CategoryForm = ({ dateValue }) => {
               (isDesktopOrTablet && customStylesTablet)
             }
           />
-        </div>
-        <div className={s.amountWrapper}>
-          <NumberFormat
-            className={s.amount}
-            value={amount}
-            suffix={' UAH'}
-            thousandSeparator={' '}
-            fixedDecimalScale={true}
-            allowNegative={false}
-            allowLeadingZeros={false}
-            decimalScale={2}
-            onValueChange={handleChangeAmountInput}
-            placeholder="0.00 UAH"
-            required
-          />
-
-          <div className={s.btnWrapper}>
-            <button type="submit" className={s.btn}>
-              Input
-            </button>
-            <button type="reset" className={s.btn} onClick={handleResetClick}>
-              Clear
-            </button>
+          <div className={s.amountWrapper}>
+            <NumberFormat
+              className={s.amount}
+              value={amount}
+              suffix={' UAH'}
+              thousandSeparator={' '}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              allowLeadingZeros={false}
+              decimalScale={2}
+              onValueChange={handleChangeAmountInput}
+              placeholder="0.00 UAH"
+              required
+            />
+            <div className={s.iconWrapper}>
+              <svg className={s.icon} width="32" height="32">
+                <use href={sprite + '#icon-calculator'}></use>
+              </svg>
+            </div>
           </div>
+        </div>
+        <div className={s.btnWrapper}>
+          <button type="sudmit" className={s.btn}>
+            Input
+          </button>
+          <button type="reset" className={s.btn} onClick={handleResetClick}>
+            Clear
+          </button>
         </div>
       </form>
     </div>
