@@ -15,13 +15,17 @@ const BalanceNavigation = () => {
   }, [location.pathname, navigate]);
 
   return (
-    <div>
+    <div className={s.boxNav}>
+      {/* <button className={s.navButton}> */}
       <NavLink to="/balance/expenses" className={setActiveLinkClass}>
         expenses
       </NavLink>
+      {/* </button> */}
+      {/* <button className={s.navButton}> */}
       <NavLink to="/balance/incomes" className={setActiveLinkClass}>
         incomes
       </NavLink>
+      {/* </button> */}
     </div>
   );
 };
