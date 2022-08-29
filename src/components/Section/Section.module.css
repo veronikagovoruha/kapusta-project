@@ -1,7 +1,7 @@
 .boxSection {
   /* position: absolute; */
   height: 100vh;
-  background-image: url(../../assets/images/background_image_2_mob.png);
+  background-image: url(../../assets/images/Group38.svg);
   background-position-x: 110px;
   background-position-y: 730px;
   background-size: auto;
@@ -22,7 +22,7 @@
   background-size: auto, auto, contain;
   background-repeat: no-repeat, no-repeat, no-repeat;
 
-  background-image: url(../../assets/images/background_image_1_tab.png),
+  background-image: url(../../assets/images/GroupHeader.svg),
     url(../../assets/images/background_image_2_mob.png);
 
   background-position-x: 30px;
@@ -31,8 +31,8 @@
 
 @media screen and (min-width: 768px) {
   .section {
-    background-image: url(../../assets/images/background_image_1_desk.png),
-      url(../../assets/images/background_image_2_tab.png);
+    /* background-image: url(../../assets/images/background_image_1_desk.png),
+      url(../../assets/images/background_image_2_tab.png); */
 
     background-position-x: 10px, 103px, 0;
     background-position-y: 28px, 770px, 0;
@@ -40,7 +40,7 @@
   .boxSection {
     /* position: absolute; */
     height: 100vh;
-    background-image: url(../../assets/images/background_image_2_tab.png);
+    /* background-image: url(../../assets/images/background_image_2_tab.png); */
     background-position-x: 114px;
     background-position-y: 740px;
     background-size: auto;
@@ -50,8 +50,8 @@
 
 @media screen and (min-width: 1280px) {
   .section {
-    background-image: url(../../assets/images/background_image_1_desk.png),
-      url(../../assets/images/background_image_2_desk.png);
+    /* background-image: url(../../assets/images/background_image_1_desk.png),
+      url(../../assets/images/background_image_2_desk.png); */
 
     background-position-x: 10px, 230px, 0;
     background-position-y: 28px, 602px, 0;
@@ -71,7 +71,7 @@
   /* fill: green; */
 
   background-position-x: 0;
-  background-position-y: 573px;
+  background-position-y: 605px;
   background-size: auto;
   background-repeat: repeat-x;
 }
@@ -140,11 +140,14 @@
 .title {
   padding-top: 86px;
   padding-left: 0;
-
+  margin-left: 20px;
   font-family: Roboto;
   font-weight: 900;
   line-height: 1.17;
   font-size: 40px;
+}
+.subtitle {
+  margin-left: 20px;
 }
 
 @media screen and (min-width: 768px) {
