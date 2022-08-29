@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
-import NumberFormat from 'react-number-format';
 import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
@@ -13,17 +12,12 @@ import s from './CategoryForm.module.css';
 
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
-import { useEffect } from 'react';
 
-const CategoryForm = ({ dateValue }) => {
-  const [date, setDate] = useState(moment(dateValue).format('YYYY-MM-DD'));
+const CategoryForm = () => {
+  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [amount, setAmount] = useState('');
-
-  useEffect(() => {
-    setDate(moment(dateValue).format('YYYY-MM-DD'));
-  }, [dateValue]);
 
   const dispatch = useDispatch();
 
@@ -140,21 +134,17 @@ const CategoryForm = ({ dateValue }) => {
         setSelectedOption(value);
         break;
       case 'amount':
-        setAmount(value);
+        setAmount(parseFloat(value));
         break;
       default:
         break;
     }
   };
 
-  const handleChangeAmountInput = ({ value }) => {
-    setAmount(parseFloat(value));
-  };
-
   const handleResetClick = () => {
     reset();
 
-    // console.log(transactionData);
+    console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -169,23 +159,16 @@ const CategoryForm = ({ dateValue }) => {
       case '/balance/expenses':
         dispatch(addExpenseTransactionThunk(transactionData));
         break;
-      case '/balance/expenses-mob':
-        dispatch(addExpenseTransactionThunk(transactionData));
-        break;
       case '/balance/incomes':
         dispatch(addIncomeTransactionThunk(transactionData));
         break;
-      case '/balance/incomes-mob':
-        dispatch(addIncomeTransactionThunk(transactionData));
-        break;
       default:
-        return;
-      // alert('Please choose Transaction category');
+        alert('Please choose Transaction category');
     }
 
     reset();
 
-    // console.log(transactionData);
+    console.log(transactionData);
   };
 
   const reset = () => {
@@ -199,7 +182,7 @@ const CategoryForm = ({ dateValue }) => {
     <div className={s.formBox}>
       <form className={s.form} onSubmit={handleSubmitClick}>
         <div className={s.inputWrapper}>
-          {!isMobile && <DatePicker getDate={getDate} />}
+          <DatePicker getDate={getDate} />
           <input
             type="text"
             className={s.descr}
@@ -212,11 +195,9 @@ const CategoryForm = ({ dateValue }) => {
           <Select
             defaultValue={selectedOption}
             options={
-              (location.pathname === '/balance/expenses' && optionsExpenses) ||
-              (location.pathname === '/balance/expenses-mob' &&
-                optionsExpenses) ||
-              (location.pathname === '/balance/incomes' && optionsIncomes) ||
-              (location.pathname === '/balance/incomes-mob' && optionsIncomes)
+              location.pathname === '/balance/expenses'
+                ? optionsExpenses
+                : optionsIncomes
             }
             onChange={setSelectedOption}
             className={s.categorySelect}
