@@ -19,31 +19,23 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const accessToken  = searchParams.get("accessToken");
-    const refreshToken  = searchParams.get("refreshToken");
-    const sid  = searchParams.get("sid");
-    if(!!(accessToken && refreshToken && sid)) {
-      dispatch(setAuthInfo({accessToken, refreshToken, sid}));
+    const accessToken = searchParams.get('accessToken');
+    const refreshToken = searchParams.get('refreshToken');
+    const sid = searchParams.get('sid');
+    if (!!(accessToken && refreshToken && sid)) {
+      dispatch(setAuthInfo({ accessToken, refreshToken, sid }));
       dispatch(getCurrentUserThunk());
     }
-  }, [searchParams, dispatch])
+  }, [searchParams, dispatch]);
 
   return (
     <>
       <Header />
-
       <Routes>
         <Route
           path="/home"
           element={<PublicRoute component={HomePage} restricted />}
         />
-        {/* <Route
-          path="/balance/"
-          element={<PrivateRoute component={BalancePage} />}
-        >
-          <Route path="expenses" element={<></>} />
-          <Route path="incomes" element={<></>} />
-        </Route> */}
         <Route
           path="/balance/"
           element={<PrivateRoute component={BalancePage} />}

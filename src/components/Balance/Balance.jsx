@@ -6,6 +6,7 @@ import { getUserBalance } from 'redux/userData/userDataSelectors';
 import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 
 const Balance = () => {
   const dispatch = useDispatch();
@@ -55,11 +56,16 @@ const Balance = () => {
               onValueChange={handleBalanceInput}
               placeholder="0.00 UAH"
             />
-            {location.pathname === '/report' ? (
-              <></>
-            ) : (
+            <MediaQuery maxWidth={1279}>
+              {location.pathname === '/report' ? (
+                <></>
+              ) : (
+                <button className={styles.button}>Confirm</button>
+              )}
+            </MediaQuery>
+            <MediaQuery minWidth={1280}>
               <button className={styles.button}>Confirm</button>
-            )}
+            </MediaQuery>
           </form>
           {isTooltip ? <div className={styles.tooltipArrow}></div> : ''}
           {isTooltip ? (

@@ -15,10 +15,8 @@
   flex-direction: column;
   background: #f5f6fb;
   border-radius: 0px 0px 0px 80px;
-
   background-size: auto, auto, contain;
   background-repeat: no-repeat, no-repeat, no-repeat;
-
   background-image: url(../../assets/images/GroupHeader.svg),
     url(../../assets/images/background_image_2_mob.png);
 
@@ -120,7 +118,6 @@
   .title {
     padding-top: 80px;
     padding-left: 129px;
-
     font-size: 66px;
   }
 }
@@ -129,14 +126,12 @@
   .title {
     padding-top: 308px;
     padding-left: 213px;
-
     font-size: 102px;
   }
 }
 
 .subtitle {
   padding-left: 11px;
-
   font-family: Roboto;
   font-size: 13px;
   font-weight: 700;
@@ -147,7 +142,6 @@
 @media screen and (min-width: 768px) {
   .subtitle {
     padding-left: 192px;
-
     font-size: 16px;
   }
 }

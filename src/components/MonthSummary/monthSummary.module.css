@@ -16,11 +16,7 @@
     height: 50px;
   }
 }
-/* @media screen and (min-width: 980px) {
-  .wrapper {
-   width: 704px;
-  }
-} */
+
 @media screen and (min-width: 1280px) {
   .wrapper {
     width: 1034px;
@@ -110,59 +106,3 @@
   }
 }
 
-/* 
-.wrapper{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background: #FFFFFF;
-
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 30px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.wrapperExpenses{
-    display: flex;
-    align-items: center;
-}
-
-.wrapperIncome{
-    display: flex;
-    align-items: center;
-}
-
-.text{
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;
-    padding-right: 15px;
-    color: #52555F;
-
-    padding-left: 20px;
-}
-
-.text:first-child{
-    padding-left: 0;
-}
-
-.value{
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.04em;
-    padding-right: 20px;
-}
-
-.expenses{
-    color: #E53935;
-}
-
-.income{
-    color: #407946;
-}
-
- */

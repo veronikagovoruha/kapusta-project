@@ -27,9 +27,7 @@
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
-
   margin-bottom: 20px;
-
   color: #52555f;
   @media screen and (max-width: 768px) {
     margin-top: 56px;
@@ -44,29 +42,24 @@
   letter-spacing: 0.04em;
   margin: 0;
   margin-bottom: 20px;
-
   color: #52555f;
 }
 .label {
   display: flex;
   flex-direction: column;
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   margin-bottom: 32px;
-
   letter-spacing: 0.04em;
-
   color: #000000;
 }
 
 .input {
   margin-top: 12px;
   width: 225px;
-
   height: 52px;
   font-size: 20px;
   padding: 1px 15px;
@@ -78,7 +71,6 @@
 .navForm__btnGoogle {
   position: relative;
   padding: 10px 19px;
-  /* margin: 0 auto; */
   border: none;
   margin-bottom: 32px;
   font-family: 'Roboto';
