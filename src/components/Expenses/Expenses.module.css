@@ -49,11 +49,13 @@
     row-gap: 40px;
     column-gap: 15px;
     border-bottom: 1px solid #E0E5EB;
-    padding-bottom: 26px;
+    padding-bottom: 13px;
     justify-content: center;
     /* width: 320px; */
     
 }
+
+
 
  .item{
     display: flex;
@@ -80,6 +82,7 @@
         position: absolute;
         top: 125px;
      }
+     
     
      /* .item:last-child::after{
         content: "";
