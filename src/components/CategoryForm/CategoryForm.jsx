@@ -154,7 +154,7 @@ const CategoryForm = ({ dateValue }) => {
   const handleResetClick = () => {
     reset();
 
-    console.log(transactionData);
+    // console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -184,7 +184,7 @@ const CategoryForm = ({ dateValue }) => {
 
     reset();
 
-    console.log(transactionData);
+    // console.log(transactionData);
   };
 
   const reset = () => {
