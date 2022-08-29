@@ -15,16 +15,20 @@ const WorkSpacePage = () => {
 
   return (
     <Section>
-      <Balance />
-      <ReportsLink />
-      <BalanceNavigation />
-      <MediaQuery maxWidth={767}>
-        <DatePicker getDate={getDate} />
-      </MediaQuery>
-      <MediaQuery minWidth={768}>
-        <CategoryForm dateValue={dateValue} />
-      </MediaQuery>
-      <ExpensesTable />
+      <div className={styles.BalanceBox}>
+        <Balance />
+        <ReportsLink />
+      </div>
+      <div className={s.boxFixedForm}>
+        <BalanceNavigation />
+        <MediaQuery maxWidth={767}>
+          <DatePicker getDate={getDate} />
+        </MediaQuery>
+        <MediaQuery minWidth={768}>
+          <CategoryForm dateValue={dateValue} />
+        </MediaQuery>
+        <ExpensesTable />
+      </div>
     </Section>
   );
 };

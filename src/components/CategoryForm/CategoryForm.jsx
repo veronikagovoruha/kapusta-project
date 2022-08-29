@@ -196,37 +196,39 @@ const CategoryForm = ({ dateValue }) => {
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmitClick}>
-      <div className={s.inputWrapper}>
-        {!isMobile && <DatePicker getDate={getDate} />}
-        <input
-          type="text"
-          className={s.descr}
-          name="description"
-          value={description}
-          placeholder="Product description"
-          required
-          onChange={handleChangeInput}
-        />
-        <Select
-          defaultValue={selectedOption}
-          options={
-            (location.pathname === '/balance/expenses' && optionsExpenses) ||
-            (location.pathname === '/balance/expenses-mob' &&
-              optionsExpenses) ||
-            (location.pathname === '/balance/incomes' && optionsIncomes) ||
-            (location.pathname === '/balance/incomes-mob' && optionsIncomes)
-          }
-          onChange={setSelectedOption}
-          className={s.categorySelect}
-          name="selectedOption"
-          value={selectedOption}
-          placeholder="Product category"
-          styles={
-            (isMobile && customStylesMobile) ||
-            (isDesktopOrTablet && customStylesTablet)
-          }
-        />
+    <div className={s.formBox}>
+      <form className={s.form} onSubmit={handleSubmitClick}>
+        <div className={s.inputWrapper}>
+          {!isMobile && <DatePicker getDate={getDate} />}
+          <input
+            type="text"
+            className={s.descr}
+            name="description"
+            value={description}
+            placeholder="Product description"
+            required
+            onChange={handleChangeInput}
+          />
+          <Select
+            defaultValue={selectedOption}
+            options={
+              (location.pathname === '/balance/expenses' && optionsExpenses) ||
+              (location.pathname === '/balance/expenses-mob' &&
+                optionsExpenses) ||
+              (location.pathname === '/balance/incomes' && optionsIncomes) ||
+              (location.pathname === '/balance/incomes-mob' && optionsIncomes)
+            }
+            onChange={setSelectedOption}
+            className={s.categorySelect}
+            name="selectedOption"
+            value={selectedOption}
+            placeholder="Product category"
+            styles={
+              (isMobile && customStylesMobile) ||
+              (isDesktopOrTablet && customStylesTablet)
+            }
+          />
+        </div>
         <div className={s.amountWrapper}>
           <NumberFormat
             className={s.amount}
@@ -241,22 +243,18 @@ const CategoryForm = ({ dateValue }) => {
             placeholder="0.00 UAH"
             required
           />
-          <div className={s.iconWrapper}>
-            <svg className={s.icon} width="32" height="32">
-              <use href={sprite + '#icon-calculator'}></use>
-            </svg>
+
+          <div className={s.btnWrapper}>
+            <button type="submit" className={s.btn}>
+              Input
+            </button>
+            <button type="reset" className={s.btn} onClick={handleResetClick}>
+              Clear
+            </button>
           </div>
         </div>
-      </div>
-      <div className={s.btnWrapper}>
-        <button type="sudmit" className={s.btn}>
-          Input
-        </button>
-        <button type="reset" className={s.btn} onClick={handleResetClick}>
-          Clear
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
