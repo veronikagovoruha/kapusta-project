@@ -133,12 +133,16 @@ const CategoryForm = () => {
       case 'selectedOption':
         setSelectedOption(value);
         break;
-      case 'amount':
-        setAmount(parseFloat(value));
-        break;
+      // case 'amount':
+      //   setAmount(value);
+      //   break;
       default:
         break;
     }
+  };
+
+  const handleChangeAmountInput = ({ value }) => {
+    setAmount(parseFloat(value));
   };
 
   const handleResetClick = () => {
@@ -159,7 +163,13 @@ const CategoryForm = () => {
       case '/balance/expenses':
         dispatch(addExpenseTransactionThunk(transactionData));
         break;
+      case '/balance/expenses-mob':
+        dispatch(addExpenseTransactionThunk(transactionData));
+        break;
       case '/balance/incomes':
+        dispatch(addIncomeTransactionThunk(transactionData));
+        break;
+      case '/balance/incomes-mob':
         dispatch(addIncomeTransactionThunk(transactionData));
         break;
       default:
@@ -182,7 +192,7 @@ const CategoryForm = () => {
     <div className={s.formBox}>
       <form className={s.form} onSubmit={handleSubmitClick}>
         <div className={s.inputWrapper}>
-          <DatePicker getDate={getDate} />
+          {!isMobile && <DatePicker getDate={getDate} />}
           <input
             type="text"
             className={s.descr}
@@ -195,9 +205,11 @@ const CategoryForm = () => {
           <Select
             defaultValue={selectedOption}
             options={
-              location.pathname === '/balance/expenses'
-                ? optionsExpenses
-                : optionsIncomes
+              (location.pathname === '/balance/expenses' && optionsExpenses) ||
+              (location.pathname === '/balance/expenses-mob' &&
+                optionsExpenses) ||
+              (location.pathname === '/balance/incomes' && optionsIncomes) ||
+              (location.pathname === '/balance/incomes-mob' && optionsIncomes)
             }
             onChange={setSelectedOption}
             className={s.categorySelect}
@@ -219,7 +231,7 @@ const CategoryForm = () => {
               allowNegative={false}
               allowLeadingZeros={false}
               decimalScale={2}
-              onValueChange={handleChangeInput}
+              onValueChange={handleChangeAmountInput}
               placeholder="0.00 UAH"
               required
             />
