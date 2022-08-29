@@ -22,6 +22,8 @@
 
     padding-right: 6px;
     padding-left: 6px;
+
+    min-width: 128px;
 }
 
 .label{
