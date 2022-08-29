@@ -54,8 +54,8 @@ const ReportPage = () => {
   useEffect(() => {
     dispatch(
       getPeriodDataThunk(
-        `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}`
-      )
+        `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}`,
+      ),
     );
   }, [dispatch, date]);
 
@@ -66,7 +66,6 @@ const ReportPage = () => {
   const switcherHandler = direction => {
     const newIndex = Math.abs(switcherIndex + direction) % 2;
     setSwitcherIndex(newIndex);
-    // navigate(`/report/${switcherNames[newIndex]}`);
   };
 
   const switcherValue = switcherNames[switcherIndex];
@@ -76,12 +75,14 @@ const ReportPage = () => {
       <Link to={location.state ?? '/balance'}>
         <ReportLink />
       </Link>
+      {/* <div className={s.BoxSwitcher}> */}
       <Balance />
       <Switcher
         value={switcherMonthValue}
         label="Current period"
         onChange={monthHandler}
       />
+      {/* </div> */}
       <MonthSummary incomes={incomes} expenses={expenses} />
       <Switcher value={switcherValue} onChange={switcherHandler} />
       {switcherValue === 'expenses' ? <Expenses /> : <Income />}

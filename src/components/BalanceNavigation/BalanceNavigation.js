@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 import s from './BalanceNavigation.module.css';
 
 const setActiveLinkClass = ({ isActive }) =>
@@ -9,23 +10,59 @@ const BalanceNavigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   if (location.pathname === '/balance/incomes') return;
+  //   navigate('/balance/expenses');
+  // }, [location.pathname, navigate]);
+
+  // return (
+  //   <div className={s.boxNav}>
+  //     {/* <button className={s.navButton}> */}
+  //     <NavLink to="/balance/expenses" className={setActiveLinkClass}>
+  //       expenses
+  //     </NavLink>
+  //     {/* </button> */}
+  //     {/* <button className={s.navButton}> */}
+  //     <NavLink to="/balance/incomes" className={setActiveLinkClass}>
+  //       incomes
+  //     </NavLink>
+  //     {/* </button> */}
+  //   </div>
+  // );
+
   useEffect(() => {
     if (location.pathname === '/balance/incomes') return;
     navigate('/balance/expenses');
   }, [location.pathname, navigate]);
 
   return (
+    // <div className={s.boxNav}>
+    //   <NavLink to="/balance/expenses" className={setActiveLinkClass}>
+    //     expenses
+    //   </NavLink>
+    //   <div className={s.navButton}></div>
+    //   <NavLink to="/balance/incomes" className={setActiveLinkClass}>
+    //     incomes
+    //   </NavLink>
+    // </div>
     <div className={s.boxNav}>
-      {/* <button className={s.navButton}> */}
-      <NavLink to="/balance/expenses" className={setActiveLinkClass}>
-        expenses
-      </NavLink>
-      {/* </button> */}
-      {/* <button className={s.navButton}> */}
-      <NavLink to="/balance/incomes" className={setActiveLinkClass}>
-        incomes
-      </NavLink>
-      {/* </button> */}
+      <MediaQuery maxWidth={767}>
+        <NavLink to="/balance/expenses-mob" className={setActiveLinkClass}>
+          expenses
+        </NavLink>
+        <div className={s.navButton}></div>
+        <NavLink to="/balance/incomes-mob" className={setActiveLinkClass}>
+          incomes
+        </NavLink>
+      </MediaQuery>
+      <MediaQuery minWidth={768}>
+        <NavLink to="/balance/expenses" className={setActiveLinkClass}>
+          expenses
+        </NavLink>
+        <NavLink to="/balance/incomes" className={setActiveLinkClass}>
+          incomes
+        </NavLink>
+      </MediaQuery>
     </div>
   );
 };

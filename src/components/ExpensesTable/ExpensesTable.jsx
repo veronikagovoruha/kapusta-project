@@ -13,6 +13,7 @@ import translateOptions from '../../utils/options/translateOptions';
 import { getDate } from 'redux/dynamicData/dynamicDataSelector';
 
 function ExpensesTable() {
+  const [color, setColor] = useState('');
   const dispatch = useDispatch();
   const location = useLocation();
   const dataExpenses = useSelector(getExpenseTransactions);
@@ -23,8 +24,10 @@ function ExpensesTable() {
 
   useEffect(() => {
     if (location.pathname === '/balance/incomes') {
+      setColor('grins');
       setCurrentData(dataIncomes);
     } else {
+      setColor('red');
       setCurrentData(dataExpenses);
     }
   }, [dataExpenses, dataIncomes, location.pathname]);
@@ -62,7 +65,9 @@ function ExpensesTable() {
                     </div>
                   </div>
 
-                  <span className={s.sum}>{` - ${amount} UAH`}</span>
+                  <span className={s[color]}>{` ${
+                    color === 'red' ? '-' : ''
+                  } ${amount} UAH`}</span>
                   <button
                     className={s.btn}
                     type="button"
