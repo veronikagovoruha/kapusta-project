@@ -51,10 +51,10 @@ const AuthForm = () => {
     <div className={s.box}>
       <form className={s.navForm}>
         <h2>You can log in with your Google Account:</h2>
-        <button className={s.navForm__btnGoogle} type="submit">
+        <a className={s.navForm__btnGoogle} href="https://kapusta-backend.goit.global/auth/google">
           <svg></svg>
           <span> Google</span>
-        </button>
+        </a>
         <p>Or log in using an email and password, after registering:</p>
 
         <label className={s.label}>
