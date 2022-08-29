@@ -1,3 +1,55 @@
-.activeNavLink {
-    color: orange;
+.navLink {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+  padding: 10px 20px;
+  width: 138px;
+  height: 40px;
+  background: #fafbfd;
+  border: none;
+  border-radius: 20px 20px 0px 0px;
 }
+.activeNavLink {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: transparent;
+  color: #ff751d;
+  padding: 10px 20px;
+  width: 138px;
+  height: 40px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px 20px 0px 0px;
+}
+.boxNav {
+  margin-left: 142px;
+  margin-bottom: 9px;
+  position: absolute;
+  top: -28px;
+  left: -142px;
+}
+/* .navButton {
+  width: 138px;
+  height: 40px;
+  background: #fafbfd;
+  border: none;
+  border-radius: 20px 20px 0px 0px;
+}
+.navButton:hover {
+  background-color: #ffffff;
+} */

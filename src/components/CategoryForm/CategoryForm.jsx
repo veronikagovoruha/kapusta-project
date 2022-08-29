@@ -179,62 +179,64 @@ const CategoryForm = () => {
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmitClick}>
-      <div className={s.inputWrapper}>
-        <DatePicker getDate={getDate} />
-        <input
-          type="text"
-          className={s.descr}
-          name="description"
-          value={description}
-          placeholder="Product description"
-          required
-          onChange={handleChangeInput}
-        />
-        <Select
-          defaultValue={selectedOption}
-          options={
-            location.pathname === '/balance/expenses'
-              ? optionsExpenses
-              : optionsIncomes
-          }
-          onChange={setSelectedOption}
-          className={s.categorySelect}
-          name="selectedOption"
-          value={selectedOption}
-          placeholder="Product category"
-          styles={
-            (isMobile && customStylesMobile) ||
-            (isDesktopOrTablet && customStylesTablet)
-          }
-        />
-        <div className={s.amountWrapper}>
+    <div className={s.formBox}>
+      <form className={s.form} onSubmit={handleSubmitClick}>
+        <div className={s.inputWrapper}>
+          <DatePicker getDate={getDate} />
           <input
-            type="number"
-            className={s.amount}
-            name="amount"
-            value={amount}
-            placeholder="00.00 UAH"
-            pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+            type="text"
+            className={s.descr}
+            name="description"
+            value={description}
+            placeholder="Product description"
             required
             onChange={handleChangeInput}
           />
-          <div className={s.iconWrapper}>
-            <svg className={s.icon} width="32" height="32">
-              <use href={sprite + '#icon-calculator'}></use>
-            </svg>
+          <Select
+            defaultValue={selectedOption}
+            options={
+              location.pathname === '/balance/expenses'
+                ? optionsExpenses
+                : optionsIncomes
+            }
+            onChange={setSelectedOption}
+            className={s.categorySelect}
+            name="selectedOption"
+            value={selectedOption}
+            placeholder="Product category"
+            styles={
+              (isMobile && customStylesMobile) ||
+              (isDesktopOrTablet && customStylesTablet)
+            }
+          />
+          <div className={s.amountWrapper}>
+            <input
+              type="number"
+              className={s.amount}
+              name="amount"
+              value={amount}
+              placeholder="00.00 UAH"
+              pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"
+              required
+              onChange={handleChangeInput}
+            />
+            <div className={s.iconWrapper}>
+              <svg className={s.icon} width="32" height="32">
+                <use href={sprite + '#icon-calculator'}></use>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={s.btnWrapper}>
-        <button type="sudmit" className={s.btn}>
-          Input
-        </button>
-        <button type="reset" className={s.btn} onClick={handleResetClick}>
-          Clear
-        </button>
-      </div>
-    </form>
+        <div className={s.btnWrapper}>
+          <button type="sudmit" className={s.btn}>
+            Input
+          </button>
+          <button type="reset" className={s.btn} onClick={handleResetClick}>
+            Clear
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

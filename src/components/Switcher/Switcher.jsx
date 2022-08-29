@@ -11,13 +11,13 @@ const Switcher = (props) => {
             }
             <div className={styles.wrapperValue}>
             
-                <svg className="icon" width="4" height="10" onClick={() => onChange(-1)}>
+                <svg className={styles.icon} onClick={() => onChange(-1)}>
                     <use href={sprite + '#icon-arrow-left'}></use>
                 </svg>
 
                 <p className={styles.text}>{value}</p>
 
-                <svg className="icon" width="4" height="10" onClick={() => onChange(1)}>
+                <svg className={styles.icon}   onClick={() => onChange(1)}>
                     <use href={sprite + '#icon-icon-right'}></use>
                 </svg>
             </div>

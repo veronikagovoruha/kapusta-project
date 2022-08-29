@@ -86,11 +86,6 @@ const ChartBar = dataForChart => {
 
   const optionsHorisontal = {
     indexAxis: 'y',
-    // elements: {
-    //   bar: {
-    //     borderWidth: 2,
-    //   },
-    // },
     responsive: true,
     plugins: {
       legend: {
@@ -102,8 +97,8 @@ const ChartBar = dataForChart => {
     },
     borderRadius: 10,
     borderColor: 'transparent',
-    maxBarThickness: 20,
-    minBarThickness: 15,
+    maxBarThickness: 25,
+    minBarThickness: 25,
 
     scales: {
       x: {
