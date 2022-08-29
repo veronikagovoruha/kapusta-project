@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const addIncomeTransactionApi = async transaction => {
-  console.log(transaction);
   const { data } = await axios.post('/transaction/income', transaction);
   return data;
 };
@@ -12,7 +11,6 @@ export const getIncomeTransactionApi = async () => {
 };
 
 export const addExpenseTransactionApi = async transaction => {
-  console.log(transaction);
   const { data } = await axios.post('/transaction/expense', transaction);
   return data;
 };

@@ -47,7 +47,6 @@
 @media screen and (min-width: 768px) {
   .wrapper {
     padding: 12px 32px;
-    /* width: 768px; */
   }
   .logout {
     display: none;

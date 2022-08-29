@@ -5,8 +5,6 @@
 
 .wrapperBalance {
   margin: 0 auto;
-  /* padding-top: 40px;
-    padding-bottom: 32px; */
   position: relative;
 }
 
@@ -197,7 +195,6 @@ input::-webkit-inner-spin-button {
   display: flex;
   margin: 0 auto;
   margin-top: 40px;
-  /* width: 1098px; */
   justify-content: center;
   flex-direction: column-reverse;
 }
@@ -210,8 +207,6 @@ input::-webkit-inner-spin-button {
 @media screen and (min-width: 768px) {
   .BalanceBox {
     display: flex;
-    /* margin: 0 auto; */
-    /* margin-top: 40px; */
     width: 680px;
     justify-content: center;
     flex-direction: initial;
@@ -219,8 +214,6 @@ input::-webkit-inner-spin-button {
   .BoxSwitcher {
     display: flex;
     flex-direction: row;
-    /* margin-bottom: 32px; */
-    /* margin-top: 24px; */
   }
   .BoxTabSwitch {
     display: flex;
@@ -229,15 +222,11 @@ input::-webkit-inner-spin-button {
     margin: 0 auto;
     width: 704px;
   }
-  .button {
-    display: none;
-  }
+
 }
 @media screen and (min-width: 980px) {
   .BalanceBox {
     display: flex;
-    /* margin: 0 auto; */
-    /* margin-top: 40px; */
     width: 980px;
     justify-content: center;
   }
@@ -245,11 +234,8 @@ input::-webkit-inner-spin-button {
 @media screen and (min-width: 1280px) {
   .BalanceBox {
     display: flex;
-    /* margin: 0 auto; */
-    /* margin-top: 40px; */
-    margin-left: 275px;
     width: 1098px;
-    justify-content: center;
+    justify-content: flex-end;
   }
   .BoxTabSwitch {
     width: 1034px;

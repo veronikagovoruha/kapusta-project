@@ -15,25 +15,21 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 const ChartBar = dataForChart => {
+  const [arrayDescr, setArrayDescr] = useState();
+  const [arrayTotal, setArrayTotal] = useState();
 
-  const [arrayDescr, setArrayDescr] = useState()
-  const [arrayTotal, setArrayTotal] = useState()
-
-  useEffect(()=> {
-    setArrayDescr(dataForChart.dataForChart.map(descr => {
+  useEffect(() => {
+    setArrayDescr(
+      dataForChart.dataForChart.map(descr => {
         return descr.description;
-      }));
-      setArrayTotal(dataForChart.dataForChart.map(descr => {
-          return descr.total;
-        }))
-  },[dataForChart])
-  // const arrayDescr = dataForChart.dataForChart.map(descr => {
-  //   return descr.description;
-  // });
-
-  // const arrayTotal = dataForChart.dataForChart.map(descr => {
-  //   return descr.total;
-  // });
+      })
+    );
+    setArrayTotal(
+      dataForChart.dataForChart.map(descr => {
+        return descr.total;
+      })
+    );
+  }, [dataForChart]);
 
   ChartJS.register(
     CategoryScale,
@@ -83,7 +79,6 @@ const ChartBar = dataForChart => {
       },
     },
   };
-
   const optionsHorisontal = {
     indexAxis: 'y',
     responsive: true,
@@ -130,11 +125,6 @@ const ChartBar = dataForChart => {
         data: arrayTotal,
         backgroundColor: ['#FF751D', '#FED9BF', '#FED9BF'],
       },
-      // {
-      //   label: 'Dataset 2',
-      //   data: [457,721,464,916,500,275,981],
-      //   backgroundColor: '#FFDAC0',
-      // },
     ],
   };
 

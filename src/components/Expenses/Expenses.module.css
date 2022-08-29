@@ -12,8 +12,6 @@
   .wrapper {
     width: 604px;
     padding: 50px;
-    /* padding-right: 40px; */
-    /* padding-bottom: 20px; */
     border-radius: 30px;
     margin-bottom: 32px;
 
@@ -42,7 +40,6 @@
   column-gap: 15px;
   padding-bottom: 13px;
   justify-content: center;
-  /* width: 320px; */
 }
 
 .item {
