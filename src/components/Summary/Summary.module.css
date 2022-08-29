@@ -27,6 +27,19 @@
       height: 136%;
       overflow-x: hidden;
     }
+
+    .summaryList::-webkit-scrollbar {
+      width: 6.2px;
+      height: 30px;
+    }
+    .summaryList::-webkit-scrollbar-track {
+      background: #f5f6fb;
+    }
+    
+    .summaryList::-webkit-scrollbar-thumb {
+      background: #ff751d;
+      border-radius: 2px;
+    }
   
     .summaryItem {
       padding:0 12px;      
