@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 import s from './BalanceNavigation.module.css';
+import MediaQuery from 'react-responsive';
 
 const setActiveLinkClass = ({ isActive }) =>
   isActive ? `${s.navLink} ${s.activeNavLink}` : s.navLink;
@@ -9,6 +10,26 @@ const setActiveLinkClass = ({ isActive }) =>
 const BalanceNavigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (location.pathname === '/balance/incomes') return;
+  //   navigate('/balance/expenses');
+  // }, [location.pathname, navigate]);
+
+  // return (
+  //   <div className={s.boxNav}>
+  //     {/* <button className={s.navButton}> */}
+  //     <NavLink to="/balance/expenses" className={setActiveLinkClass}>
+  //       expenses
+  //     </NavLink>
+  //     {/* </button> */}
+  //     {/* <button className={s.navButton}> */}
+  //     <NavLink to="/balance/incomes" className={setActiveLinkClass}>
+  //       incomes
+  //     </NavLink>
+  //     {/* </button> */}
+  //   </div>
+  // );
 
   useEffect(() => {
     if (location.pathname === '/balance/incomes') return;

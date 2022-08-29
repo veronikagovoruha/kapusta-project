@@ -8,7 +8,7 @@ import moment from 'moment';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-export default function CreateDatePicker({ children, getDate }) {
+export default function CreateDatePicker({ children }) {
   const [startDate, setStartDate] = useState(new Date());
 
   const dispatch = useDispatch();
@@ -33,9 +33,9 @@ export default function CreateDatePicker({ children, getDate }) {
         selected={startDate}
         onChange={date => {
           setStartDate(date);
-          getDate(date);
+          // getDate(date);
 
-          dispatch(addDynamicDate(moment(date).format('YYYY-MM-DD')));
+          // dispatch(addDynamicDate(moment(date).format('YYYY-MM-DD')));
         }}
         dateFormat="dd.MM.yyyy"
       />

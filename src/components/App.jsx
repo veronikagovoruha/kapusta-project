@@ -48,7 +48,6 @@ const App = () => {
           path="/balance/incomes-mob"
           element={<PrivateRoute component={InputTransactionPage} />}
         />
-
         <Route
           path="/report"
           element={<PrivateRoute component={ReportPage} />}

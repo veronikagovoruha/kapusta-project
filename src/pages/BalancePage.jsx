@@ -1,30 +1,3 @@
-// import Section from 'components/Section/Section';
-// import Balance from 'components/Balance';
-// import CategoryForm from 'components/CategoryForm/CategoryForm';
-// import ExpensesTable from 'components/ExpensesTable/ExpensesTable';
-// import ReportsLink from 'components/ReportsLink';
-// import BalanceNavigation from 'components/BalanceNavigation/BalanceNavigation';
-// import s from '../components/CategoryForm/CategoryForm.module.css';
-// import styles from '../components/Balance/balance.module.css';
-
-// const WorkSpacePage = () => {
-//   return (
-//     <Section>
-//       <div className={styles.BalanceBox}>
-//         <Balance />
-//         <ReportsLink />
-//       </div>
-//       <div className={s.boxFixedForm}>
-//         <BalanceNavigation />
-//         <CategoryForm />
-//         <ExpensesTable />
-//       </div>
-//     </Section>
-//   );
-// };
-
-// export default WorkSpacePage;
-
 import MediaQuery from 'react-responsive';
 import Section from 'components/Section/Section';
 import Balance from 'components/Balance';
@@ -33,14 +6,14 @@ import CategoryForm from 'components/CategoryForm/CategoryForm';
 import ExpensesTable from 'components/ExpensesTable/ExpensesTable';
 import ReportsLink from 'components/ReportsLink';
 import BalanceNavigation from 'components/BalanceNavigation/BalanceNavigation';
-import { useState } from 'react';
+// import { useState } from 'react';
 import styles from '../components/Balance/balance.module.css';
 import s from '../components/CategoryForm/CategoryForm.module.css';
 
 const WorkSpacePage = () => {
-  const [dateValue, setDateValue] = useState(new Date());
+  // const [dateValue, setDateValue] = useState(new Date());
 
-  const getDate = date => setDateValue(date);
+  // const getDate = date => setDateValue(date);
 
   return (
     <Section>
@@ -51,12 +24,16 @@ const WorkSpacePage = () => {
       <div className={s.boxFixedForm}>
         <BalanceNavigation />
         <MediaQuery maxWidth={767}>
-          <DatePicker getDate={getDate} />
-          {/* <BalanceNavigation /> */}
+          <DatePicker />
         </MediaQuery>
         <MediaQuery minWidth={768}>
-          <CategoryForm dateValue={dateValue} />
+          <CategoryForm />
+          {/* <DatePicker getDate={getDate} /> */}
+          {/* <BalanceNavigation /> */}
         </MediaQuery>
+        {/* <MediaQuery minWidth={768}>
+          <CategoryForm dateValue={dateValue} />
+        </MediaQuery> */}
         <ExpensesTable />
       </div>
     </Section>
