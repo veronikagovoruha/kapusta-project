@@ -34,13 +34,10 @@ function ExpensesTable() {
 
   const removeTransaction = id => dispatch(removeTransactionThunk(id));
 
-
-
   const filterTransactionsByDate = () => {
     return currentData.filter(transaction => transaction.date.includes(date));
   };
   const fiteredTransactions = filterTransactionsByDate();
-
 
   return (
     <div className={s.flexBox}>
@@ -53,33 +50,36 @@ function ExpensesTable() {
         </h3>
         <div className={s.container}>
           <ul className={s['inform-list']}>
-            {currentData.map(({ amount, category, date, description, _id }) => (
-              <li key={_id} className={s.inform}>
-                <div className={s['wrap-modil']}>
-                  <span className={s['desc-mobil']}>{description}</span>
+            {fiteredTransactions.map(
+              ({ amount, category, date, description, _id }) => (
+                <li key={_id} className={s.inform}>
+                  <div className={s['wrap-modil']}>
+                    <span className={s['desc-mobil']}>{description}</span>
 
-                  <div className={s.flex}>
-                    <span className={s.date}>{date}</span>
-                    <span className={s.desc}>{description}</span>
-                    <span className={s.categ}>{category}</span>
+                    <div className={s.flex}>
+                      <span className={s.date}>{date}</span>
+                      <span className={s.desc}>{description}</span>
+                      <span className={s.categ}>
+                        {translateOptions[category].name}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <span className={s[color]}>{` ${
-                  color === 'red' ? '-' : ''
-                } ${amount} UAH`}</span>
-                <button
-                  className={s.btn}
-                  type="button"
-                  onClick={() => removeTransaction(_id)}>
-                  <svg width="18" height="18">
-                    <use href={sprit + '#icon-delete'}></use>
-                  </svg>
-                </button>
-              </li>
-            ))}
-
-           
+                  <span className={s[color]}>{` ${
+                    color === 'red' ? '-' : ''
+                  } ${amount} UAH`}</span>
+                  <button
+                    className={s.btn}
+                    type="button"
+                    onClick={() => removeTransaction(_id)}
+                  >
+                    <svg width="18" height="18">
+                      <use href={sprit + '#icon-delete'}></use>
+                    </svg>
+                  </button>
+                </li>
+              )
+            )}
           </ul>
         </div>
       </div>

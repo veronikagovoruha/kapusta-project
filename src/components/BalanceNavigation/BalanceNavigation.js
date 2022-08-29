@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 import s from './BalanceNavigation.module.css';
-import MediaQuery from 'react-responsive';
 
 const setActiveLinkClass = ({ isActive }) =>
   isActive ? `${s.navLink} ${s.activeNavLink}` : s.navLink;
