@@ -9,14 +9,14 @@ import { useLocation } from 'react-router-dom';
 import { useRef } from 'react';
 
 const Summary = () => {
-  // let arr = [];
+  let arr = [];
   const location = useLocation();
   const dispatch = useDispatch();
   const expensesItems = useSelector(getExpenseTransactions);
   const incomeItems = useSelector(getIncomeTransactions);
   const expenses = useSelector(selectors.getExpenseMonthStats);
   const incomes = useSelector(selectors.getIncomeMonthStats);
-  let arr = Object.entries(expenses, incomes);
+  const currentDate = useRef(new Date().getMonth());
 
   useEffect(() => {
     dispatch(getExpenseTransactionThunk());
@@ -27,12 +27,6 @@ const Summary = () => {
     dispatch(getIncomeTransactionThunk());
   }, [incomeItems.length, dispatch]
   )
-
-
-  const currentDate = useRef(new Date().getMonth());
-  const filteredArray = arr.filter(
-    (el1, index) => index <= currentDate.current
-  );
 
   switch (location.pathname) {
     case '/balance/expenses':
@@ -45,6 +39,11 @@ const Summary = () => {
       return
         ;
   }
+  
+  const filteredArray = arr.filter(
+    (el1, index) => index <= currentDate.current
+  );
+
 
   return (
     <div className={styles.summaryContainer}>
