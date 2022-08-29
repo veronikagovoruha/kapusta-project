@@ -62,6 +62,7 @@
   .inputWrapper {
     flex-direction: row;
     margin: 0;
+    /* min-width: 624px; */
   }
 }
 @media screen and (min-width: 980px) {
@@ -84,12 +85,14 @@
 }
 
 .descr {
-  width: 260px;
-  height: 40px;
-  margin-bottom: -2px;
-  margin-left: 0;
-  padding: 0;
-  padding-left: 20px;
+    width: 260px;
+    height: 40px;    
+    margin-bottom: -2px;
+    margin-left: 0;
+    padding: 0;
+    padding-left: 18px;
+      /* padding-left: 20px; */
+
 
   border: 2px solid #fff;
   border-top-left-radius: 16px;
@@ -102,6 +105,8 @@
   font-weight: 400;
   line-height: 1.17;
   letter-spacing: 0.02em;
+
+    text-transform: none;
 }
 
 .descr::placeholder {
@@ -112,9 +117,197 @@
   letter-spacing: 0.02em;
 
   color: #c7ccdc;
-
-  text-transform: none;
 }
+
+    @media screen and (min-width: 768px) {
+       .descr {
+            width: 148px;
+            margin-right: -2px;
+            margin-bottom: 0;
+            margin-left: 32px;
+
+            background-color: #FFF;
+            border: 2px solid #F6F7FC;
+            border-top-right-radius: 0;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+       .descr {
+            width: 260px;
+    }
+}
+
+.categorySelect {
+    width: 284px;
+    height: 40px;
+    margin-bottom: 32px;
+    padding: 0;
+    padding-left: 18px;
+
+    border: 2px solid #fff;
+    border-bottom-right-radius: 16px;
+
+    background-color: #F5F6FB;
+}
+
+    @media screen and (min-width: 768px) {
+       .categorySelect {
+            width: 172px;
+            height: 44px;
+            margin-right: -2px;
+            margin-bottom: 0;
+
+            background-color: #FFF;
+            border: 2px solid #F6F7FC;
+            border-bottom-right-radius: 0;
+    }
+}
+
+    @media screen and (min-width: 1280px) {
+       .categorySelect {
+            width: 172px;
+    }
+}
+
+.amountWrapper {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+
+    width:179px;
+    height: 40px;
+
+    border: 2px solid #fff;
+    border-radius: 22px;
+   
+    background-color: #F5F6FB;
+}
+
+    @media screen and (min-width: 768px) {
+       .amountWrapper {
+            width:152px;
+
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+
+            background-color: #FFF;
+            border: 2px solid #F6F7FC;
+    }
+}
+
+
+    @media screen and (min-width: 1280px) {
+       .amountWrapper {
+            width:170px;
+            margin-right: 32px;
+    }
+}
+
+.amount {
+    width:100%;
+    padding-right: 10px;
+
+    text-align: right;
+    border:none;
+    background-color: #F5F6FB;
+
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+}
+
+@media screen and (min-width: 768px) {
+       .amount {
+            padding-right: 8px;
+
+            background-color: #FFF;
+    }
+}
+
+.iconWrapper {
+    position: relative;
+    width: 58px;
+    height: 44px;
+
+    border-left: 2px solid #fff;
+}
+
+@media screen and (min-width: 768px) {
+       .iconWrapper {
+           width: 48px;
+           border-left: 0;
+    }
+}
+
+.icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+
+    width: 20px;
+    height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+       .icon {
+           left: 0;
+            transform:  translateY(-50%);
+    }
+}
+
+.btnWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn {
+    width: 132px;
+    height: 40px;
+
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: #52555F;
+
+    background-color: #F5F6FB;
+    box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+    border-radius: 16px;
+    border: 0;
+
+    transition: color background-color 500ms linear,
+}
+
+.btn:hover,
+.btn:focus
+ {
+    color: #FFF;
+    background-color:#FF751D;
+}
+
+.btn:not(:last-child) {
+    margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+       .btn:not(:last-child) {
+           margin-right: 16px;
+}
+}
+
+@media screen and (min-width: 768px) {
+       .btn {
+           width: 125px;
+           background-color: #FFF;
+}
+}
+
+
 
 @media screen and (min-width: 768px) {
   .descr {
@@ -127,6 +320,7 @@
     border: 2px solid #f6f7fc;
     border-top-right-radius: 0;
   }
+
 }
 
 @media screen and (min-width: 1280px) {
