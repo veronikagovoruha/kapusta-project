@@ -179,7 +179,8 @@ const CategoryForm = ({ dateValue }) => {
         dispatch(addIncomeTransactionThunk(transactionData));
         break;
       default:
-        alert('Please choose Transaction category');
+        return;
+      // alert('Please choose Transaction category');
     }
 
     reset();
