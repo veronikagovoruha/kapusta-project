@@ -1,26 +1,24 @@
-.chartDiv{
-    width: 300px;
-    padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #ffffff;
+.chartDiv {
+  width: 300px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
 }
 
-@media screen and (min-width:768px) {
-    .chartDiv{
-        width: 704px;
-        padding-left: 34px;
-        padding-right: 34px;
-        border-radius: 30px;
-    }
- }
+@media screen and (min-width: 768px) {
+  .chartDiv {
+    width: 604px;
+    padding: 50px;
+    /* padding-left: 34px;
+        padding-right: 34px; */
+    border-radius: 30px;
+  }
+}
 
- @media screen and (min-width:1280px) {
-    .chartDiv{
-        width: 1034px;
-        border-radius: 30px;
-        padding-left: 138px;
-        padding-right: 138px;
-    }
- }
- 
+@media screen and (min-width: 1280px) {
+  .chartDiv {
+    width: 934px;
+    padding: 50px;
+  }
+}

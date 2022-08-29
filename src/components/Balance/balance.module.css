@@ -160,7 +160,7 @@ input::-webkit-inner-spin-button {
   .wrapperBalance {
     display: flex;
     align-items: baseline;
-    /* margin-left: 65px; */
+    margin-right: 102px;
   }
 
   .text {
@@ -189,7 +189,7 @@ input::-webkit-inner-spin-button {
 
 @media screen and (min-width: 1280px) {
   .wrapperBalance {
-    margin: 0 auto;
+    margin-right: 190px;
   }
 }
 
@@ -201,6 +201,12 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   flex-direction: column-reverse;
 }
+.BoxSwitcher {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 32px;
+  margin-top: 24px;
+}
 @media screen and (min-width: 768px) {
   .BalanceBox {
     display: flex;
@@ -209,6 +215,22 @@ input::-webkit-inner-spin-button {
     width: 680px;
     justify-content: center;
     flex-direction: initial;
+  }
+  .BoxSwitcher {
+    display: flex;
+    flex-direction: row;
+    /* margin-bottom: 32px; */
+    /* margin-top: 24px; */
+  }
+  .BoxTabSwitch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 704px;
+  }
+  .button {
+    display: none;
   }
 }
 @media screen and (min-width: 980px) {
@@ -228,5 +250,14 @@ input::-webkit-inner-spin-button {
     margin-left: 275px;
     width: 1098px;
     justify-content: center;
+  }
+  .BoxTabSwitch {
+    width: 1034px;
+  }
+  .inputWrapper form {
+    display: flex;
+  }
+  .button {
+    display: block;
   }
 }
