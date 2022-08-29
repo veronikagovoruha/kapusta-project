@@ -13,6 +13,7 @@ const App = () => {
   return (
     <>
       <Header />
+
       <Routes>
         <Route
           path="/home"

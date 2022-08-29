@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './balance.module.css';
+import styles from './Balance.module.css';
 import NumberFormat from 'react-number-format';
 import { getUserBalance } from 'redux/userData/userDataSelectors';
 import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
@@ -11,14 +11,14 @@ const Balance = () => {
   const balanceExists = stateBalance > 0;
   let [isTooltip, setIsTooltip] = useState(!balanceExists);
   let [balance, setBalance] = useState(
-    balanceExists ? stateBalance : undefined
+    balanceExists ? stateBalance : undefined,
   );
 
   const submitBalance = useCallback(
     balance => {
       dispatch(addUserBalanceThunk({ newBalance: balance }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleBalanceInput = ({ formattedValue, value }) => {

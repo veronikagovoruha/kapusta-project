@@ -11,40 +11,41 @@ function ExpensesTable() {
   const removeTransaction = id => dispatch(removeTransactionThunk(id));
 
   return (
-    <div className={s.table}>
-      <h3 className={s.categori}>
-        <span className={s.dates}>Date</span>
-        <span className={s.description}>Description</span>
-        <span className={s.category}>category</span>
-        <span className={s.sums}>Sum</span> <span></span>
-      </h3>
-      <div className={s.container}>
-        <ul className={s['inform-list']}>
-          {data.map(({ amount, category, date, description, _id }) => (
-            <li key={_id} className={s.inform}>
-              <div className={s['wrap-modil']}>
-                <span className={s['desc-mobil']}>{description}</span>
+    <div className={s.flexBox}>
+      <div className={s.table}>
+        <h3 className={s.categori}>
+          <span className={s.dates}>Date</span>
+          <span className={s.description}>Description</span>
+          <span className={s.category}>category</span>
+          <span className={s.sums}>Sum</span> <span></span>
+        </h3>
+        <div className={s.container}>
+          <ul className={s['inform-list']}>
+            {data.map(({ amount, category, date, description, _id }) => (
+              <li key={_id} className={s.inform}>
+                <div className={s['wrap-modil']}>
+                  <span className={s['desc-mobil']}>{description}</span>
 
-                <div className={s.flex}>
-                  <span className={s.date}>{date}</span>
-                  <span className={s.desc}>{description}</span>
-                  <span className={s.categ}>{category}</span>
+                  <div className={s.flex}>
+                    <span className={s.date}>{date}</span>
+                    <span className={s.desc}>{description}</span>
+                    <span className={s.categ}>{category}</span>
+                  </div>
                 </div>
-              </div>
-              <span className={s.sum}>{` - ${amount} грн`}</span>
-              <button
-                className={s.btn}
-                type="button"
-                onClick={() => removeTransaction(_id)}
-              >
-                <svg width="18" height="18">
-                  <use href={sprit + '#icon-delete'}></use>
-                </svg>
-              </button>
-            </li>
-          ))}
+                <span className={s.sum}>{` - ${amount} грн`}</span>
+                <button
+                  className={s.btn}
+                  type="button"
+                  onClick={() => removeTransaction(_id)}
+                >
+                  <svg width="18" height="18">
+                    <use href={sprit + '#icon-delete'}></use>
+                  </svg>
+                </button>
+              </li>
+            ))}
 
-          {/* <div className={s['empty-line']}>
+            {/* <div className={s['empty-line']}>
             <li className={s.inform}>
               <div className={s['wrap-modil']}>
                 <span className={s['desc-mobil']}></span>
@@ -182,8 +183,10 @@ function ExpensesTable() {
               </button>
             </li>
           </div> */}
-        </ul>
+          </ul>
+        </div>
       </div>
+      <div className={s.plugBox}></div>
     </div>
   );
 }
