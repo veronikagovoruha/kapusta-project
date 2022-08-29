@@ -32,6 +32,7 @@
   background-image: url('../../assets/icons/close.svg');
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
 
 .title {
@@ -40,11 +41,9 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
-
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
-
   color: #52555f;
   margin: 0;
   margin-bottom: 20px;
@@ -59,7 +58,6 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
@@ -71,6 +69,7 @@
   color: #ffffff;
   background: #ff751d;
   border-radius: 16px;
+  cursor: pointer;
 }
 .btn {
   background: transparent;
@@ -78,15 +77,13 @@
   height: 44px;
   border: 2px solid #f5f6fb;
   border-radius: 16px;
-
+  cursor: pointer;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: #52555f;
 }

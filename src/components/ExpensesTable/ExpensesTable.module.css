@@ -133,6 +133,7 @@
   background: transparent;
   border: none;
   margin-right: 5px;
+  cursor: pointer;
 }
 .empty-line {
   display: none;
