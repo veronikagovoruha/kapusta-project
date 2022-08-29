@@ -1,19 +1,11 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import s from './Expenses.module.css';
-import { getCurrentUserThunk } from '../../redux/userData/userDataOperations';
-import sprite from '../../assets/icons/sprite.svg';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import translateOptions from '../../utils/options/translateOptions';
 import ChartBar from '../chartBar/ChartBar';
-import { useState } from 'react';
+import sprite from '../../assets/icons/sprite.svg';
+import s from './Expenses.module.css';
 
 const Expenses = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCurrentUserThunk());
-  }, [dispatch]);
-
   const categories = useSelector(
     state => state.periodData.expenses.expensesData
   );

@@ -1,12 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './balance.module.css';
 import NumberFormat from 'react-number-format';
-import { getUserBalance } from 'redux/userData/userDataSelectors';
-import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
-import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
+import { getUserBalance } from 'redux/userData/userDataSelectors';
+import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
+import styles from './balance.module.css';
 
 const Balance = () => {
   const dispatch = useDispatch();

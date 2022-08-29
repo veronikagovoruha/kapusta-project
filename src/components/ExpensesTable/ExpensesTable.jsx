@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Summary from 'components/Summary/Summary';
 import { removeTransactionThunk } from 'redux/transactions/transactionsOperations';
-import translateOptions from '../../utils/options/translateOptions';
 import { getDate } from 'redux/dynamicData/dynamicDataSelector';
 import { useDataByDevice } from 'hooks/useDataByDevice';
-import s from './ExpensesTable.module.css';
+import translateOptions from '../../utils/options/translateOptions';
 import sprit from '../../assets/icons/sprite.svg';
+import s from './ExpensesTable.module.css';
 
 function ExpensesTable() {
   const dispatch = useDispatch();
