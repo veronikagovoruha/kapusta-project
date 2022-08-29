@@ -4,6 +4,7 @@
     height: 278px;
     /* margin-top: 30px; */
   }
+
   @media screen and (min-width: 768px) {
     .summaryContainer {
       margin-top: 40px;
@@ -38,19 +39,10 @@
     padding: 0;
     text-align: center;
     list-style: none;
-    /* height: 136%; */
-    /* overflow-x: hidden; */
     height: 86%;
     overflow-x: hidden;
-    border-radius: 0px 0px 20px 0px;
+    border-radius: 0 0 20px 0;
   }
-  /* .plugBox {
-  margin-top: 50px;
-  width: 213px;
-  height: 276px;
-  background: #52555f;
-  border-radius: 20px;
-} */
 
   .summaryItem {
     display: flex;
