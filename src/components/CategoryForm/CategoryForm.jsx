@@ -9,7 +9,7 @@ import {
 import DatePicker from '../DatePickerForm/DatePicker';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
-
+import NumberFormat from 'react-number-format';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
 
@@ -144,7 +144,7 @@ const CategoryForm = () => {
   const handleResetClick = () => {
     reset();
 
-    console.log(transactionData);
+    // console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -168,7 +168,7 @@ const CategoryForm = () => {
 
     reset();
 
-    console.log(transactionData);
+    // console.log(transactionData);
   };
 
   const reset = () => {
@@ -219,7 +219,7 @@ const CategoryForm = () => {
               allowNegative={false}
               allowLeadingZeros={false}
               decimalScale={2}
-              onValueChange={handleChangeAmountInput}
+              onValueChange={handleChangeInput}
               placeholder="0.00 UAH"
               required
             />
