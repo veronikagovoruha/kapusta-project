@@ -13,12 +13,9 @@
   text-transform: uppercase;
 
   color: #000000;
-  padding: 20px 50px; /* width: 138px; */
-  /* height: 40px; */
-  /* background: #fafbfd; */
+  padding: 20px 50px; 
   background: #f5f6fb;
   border: none;
-  /* border-radius: ; */
 }
 .activeNavLink {
   font-family: 'Roboto';
@@ -34,21 +31,13 @@
   color: #ffffff;
   background: #ff751d;
   padding: 20px 50px;
-  /* width: 138px; */
-  /* height: 40px; */
-
-  /* background-color: #ffffff; */
   border: none;
-  /* border-radius: 20px 20px 0px 0px; */
 }
 
 .boxNav {
-  /* position: absolute;
-  bottom: -162px; */
   display: flex;
   position: fixed;
   bottom: 140px;
-  /* left: 0; */
 }
 @media screen and (min-width: 768px) {
   .navButton {
@@ -60,7 +49,6 @@
     margin-left: 142px;
     margin-bottom: 9px;
     bottom: 0;
-    /* position: absolute; */
     top: -28px;
     left: -142px;
   }
@@ -70,11 +58,9 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-
     text-align: center;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-
     color: #000000;
     padding: 10px 20px;
     width: 138px;
@@ -89,7 +75,6 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-
     text-align: center;
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -104,6 +89,3 @@
   }
 }
 
-/* .navButton:hover {
-  background-color: #ffffff;
-}  */

@@ -65,7 +65,6 @@ function ExpensesTable() {
         </div>
       </div>
       <Summary />
-      {/* <div className={s.plugBox}></div> */}
     </div>
   );
 }

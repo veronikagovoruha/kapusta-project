@@ -1,27 +1,20 @@
 .wrapper {
   background-color: #fff;
   width: 320px;
-  /* padding-left: 20px;
-    padding-right: 20px; */
   margin: 0 auto;
   padding-top: 50px;
   margin-top: -30px;
-
-  /* height: 630px; */
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     width: 704px;
-    /* padding-left: 40px;
-        padding-right: 40px; */
     padding-bottom: 20px;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 32px;
-
     height: 195px;
   }
 }
