@@ -20,7 +20,7 @@ const Balance = () => {
     balance => {
       dispatch(addUserBalanceThunk({ newBalance: Number(balance) }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleBalanceInput = ({ formattedValue, value }) => {
