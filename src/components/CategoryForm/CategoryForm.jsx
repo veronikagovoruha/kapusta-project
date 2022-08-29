@@ -2,28 +2,22 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
-import NumberFormat from 'react-number-format';
 import {
   addExpenseTransactionThunk,
   addIncomeTransactionThunk,
 } from '../../redux/transactions/transactionsOperations';
 import DatePicker from '../DatePickerForm/DatePicker';
-// import sprite from '../../assets/icons/sprite.svg';
+import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
-
+import NumberFormat from 'react-number-format';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
-import { useEffect } from 'react';
 
-const CategoryForm = ({ dateValue }) => {
-  const [date, setDate] = useState(moment(dateValue).format('YYYY-MM-DD'));
+const CategoryForm = () => {
+  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [amount, setAmount] = useState('');
-
-  useEffect(() => {
-    setDate(moment(dateValue).format('YYYY-MM-DD'));
-  }, [dateValue]);
 
   const dispatch = useDispatch();
 
@@ -140,15 +134,11 @@ const CategoryForm = ({ dateValue }) => {
         setSelectedOption(value);
         break;
       case 'amount':
-        setAmount(value);
+        setAmount(parseFloat(value));
         break;
       default:
         break;
     }
-  };
-
-  const handleChangeAmountInput = ({ value }) => {
-    setAmount(parseFloat(value));
   };
 
   const handleResetClick = () => {
@@ -169,18 +159,11 @@ const CategoryForm = ({ dateValue }) => {
       case '/balance/expenses':
         dispatch(addExpenseTransactionThunk(transactionData));
         break;
-      case '/balance/expenses-mob':
-        dispatch(addExpenseTransactionThunk(transactionData));
-        break;
       case '/balance/incomes':
         dispatch(addIncomeTransactionThunk(transactionData));
         break;
-      case '/balance/incomes-mob':
-        dispatch(addIncomeTransactionThunk(transactionData));
-        break;
       default:
-        return;
-      // alert('Please choose Transaction category');
+        alert('Please choose Transaction category');
     }
 
     reset();
@@ -199,7 +182,7 @@ const CategoryForm = ({ dateValue }) => {
     <div className={s.formBox}>
       <form className={s.form} onSubmit={handleSubmitClick}>
         <div className={s.inputWrapper}>
-          {!isMobile && <DatePicker getDate={getDate} />}
+          <DatePicker getDate={getDate} />
           <input
             type="text"
             className={s.descr}
@@ -212,11 +195,9 @@ const CategoryForm = ({ dateValue }) => {
           <Select
             defaultValue={selectedOption}
             options={
-              (location.pathname === '/balance/expenses' && optionsExpenses) ||
-              (location.pathname === '/balance/expenses-mob' &&
-                optionsExpenses) ||
-              (location.pathname === '/balance/incomes' && optionsIncomes) ||
-              (location.pathname === '/balance/incomes-mob' && optionsIncomes)
+              location.pathname === '/balance/expenses'
+                ? optionsExpenses
+                : optionsIncomes
             }
             onChange={setSelectedOption}
             className={s.categorySelect}
@@ -228,30 +209,34 @@ const CategoryForm = ({ dateValue }) => {
               (isDesktopOrTablet && customStylesTablet)
             }
           />
-        </div>
-        <div className={s.amountWrapper}>
-          <NumberFormat
-            className={s.amount}
-            value={amount}
-            suffix={' UAH'}
-            thousandSeparator={' '}
-            fixedDecimalScale={true}
-            allowNegative={false}
-            allowLeadingZeros={false}
-            decimalScale={2}
-            onValueChange={handleChangeAmountInput}
-            placeholder="0.00 UAH"
-            required
-          />
-
-          <div className={s.btnWrapper}>
-            <button type="submit" className={s.btn}>
-              Input
-            </button>
-            <button type="reset" className={s.btn} onClick={handleResetClick}>
-              Clear
-            </button>
+          <div className={s.amountWrapper}>
+            <NumberFormat
+              className={s.amount}
+              value={amount}
+              suffix={' UAH'}
+              thousandSeparator={' '}
+              fixedDecimalScale={true}
+              allowNegative={false}
+              allowLeadingZeros={false}
+              decimalScale={2}
+              onValueChange={handleChangeInput}
+              placeholder="0.00 UAH"
+              required
+            />
+            <div className={s.iconWrapper}>
+              <svg className={s.icon} width="32" height="32">
+                <use href={sprite + '#icon-calculator'}></use>
+              </svg>
+            </div>
           </div>
+        </div>
+        <div className={s.btnWrapper}>
+          <button type="sudmit" className={s.btn}>
+            Input
+          </button>
+          <button type="reset" className={s.btn} onClick={handleResetClick}>
+            Clear
+          </button>
         </div>
       </form>
     </div>
