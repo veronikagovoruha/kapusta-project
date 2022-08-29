@@ -82,7 +82,7 @@ function ExpensesTable() {
       </div>
       {isConfirmModalOpen && (
         <Modal
-          title={'Do you really want to leave?'}
+          title={'Are you sure?'}
           closeModal={closeModal}
           handleResolveModalClick={handleResolveModalClick}
         />
