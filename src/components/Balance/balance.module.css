@@ -199,6 +199,7 @@ input::-webkit-inner-spin-button {
   margin-top: 40px;
   /* width: 1098px; */
   justify-content: center;
+  flex-direction: column-reverse;
 }
 @media screen and (min-width: 768px) {
   .BalanceBox {
@@ -207,6 +208,7 @@ input::-webkit-inner-spin-button {
     /* margin-top: 40px; */
     width: 680px;
     justify-content: center;
+    flex-direction: initial;
   }
 }
 @media screen and (min-width: 980px) {
