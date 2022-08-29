@@ -6,15 +6,17 @@ import { useEffect } from 'react';
 import { getExpenseTransactions, getIncomeTransactions } from '../../redux/transactions/transactionsSelectors';
 import { getExpenseTransactionThunk, getIncomeTransactionThunk } from '../../redux/transactions/transactionsOperations';
 import { useLocation } from 'react-router-dom';
-
-
+import { useRef } from 'react';
 
 const Summary = () => {
+  // let arr = [];
+  const location = useLocation();
   const dispatch = useDispatch();
   const expensesItems = useSelector(getExpenseTransactions);
   const incomeItems = useSelector(getIncomeTransactions);
   const expenses = useSelector(selectors.getExpenseMonthStats);
   const incomes = useSelector(selectors.getIncomeMonthStats);
+  let arr = Object.entries(expenses, incomes);
 
   useEffect(() => {
     dispatch(getExpenseTransactionThunk());
@@ -26,8 +28,11 @@ const Summary = () => {
   }, [incomeItems.length, dispatch]
   )
 
-  const location = useLocation();
-  let arr = [];
+
+  const currentDate = useRef(new Date().getMonth());
+  const filteredArray = arr.filter(
+    (el1, index) => index <= currentDate.current
+  );
 
   switch (location.pathname) {
     case '/balance/expenses':
@@ -45,17 +50,13 @@ const Summary = () => {
     <div className={styles.summaryContainer}>
       <h4 className={styles.summaryTitle}>Summary</h4>
       <ul className={styles.summaryList}>
-        {arr
-          //  .filter(el => el[1] !== 'N/A')       
-          .map(([el1, el2], index) => (
-            // .map((el, index) => (
+        {filteredArray          
+          .map(([el1, el2], index) => (     
             <li key={index} className={styles.summaryItem}>
               <p>{`${translateMonths[el1].name}`}</p>
-              <p className={styles.summaryDescription}>
-                {/* {`${translateMonths[el[0]].name}`}                */}
-                {el2 === 'N/A' ? '00' : el2} .00 UAH
-              </p>
-              {/* <p className={styles.summaryDescription}>{el[1]}</p> */}
+              <p className={styles.summaryDescription}>            
+                {el2 === 'N/A' ? '00' : el2} .00 UAH               
+              </p>           
             </li>
           ))}
       </ul>
