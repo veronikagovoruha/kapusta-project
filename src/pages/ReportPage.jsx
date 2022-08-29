@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useMemo } from 'react';
 import { useEffect } from 'react';
+import styles from '../components/Balance/balance.module.css';
 
 const ReportPage = () => {
   const location = useLocation();
@@ -54,8 +55,8 @@ const ReportPage = () => {
   useEffect(() => {
     dispatch(
       getPeriodDataThunk(
-        `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}`,
-      ),
+        `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}`
+      )
     );
   }, [dispatch, date]);
 
@@ -72,17 +73,19 @@ const ReportPage = () => {
 
   return (
     <Section>
-      <Link to={location.state ?? '/balance'}>
-        <ReportLink />
-      </Link>
-      {/* <div className={s.BoxSwitcher}> */}
-      <Balance />
-      <Switcher
-        value={switcherMonthValue}
-        label="Current period"
-        onChange={monthHandler}
-      />
-      {/* </div> */}
+      <div className={styles.BoxTabSwitch}>
+        <Link to={location.state ?? '/balance'}>
+          <ReportLink />
+        </Link>
+        <div className={styles.BoxSwitcher}>
+          <Balance />
+          <Switcher
+            value={switcherMonthValue}
+            label="Current period"
+            onChange={monthHandler}
+          />
+        </div>
+      </div>
       <MonthSummary incomes={incomes} expenses={expenses} />
       <Switcher value={switcherValue} onChange={switcherHandler} />
       {switcherValue === 'expenses' ? <Expenses /> : <Income />}

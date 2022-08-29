@@ -1,154 +1,120 @@
+.wrapper {
+  background-color: #ffffff;
+  width: 320px;
+  margin: 0 auto;
+  padding-top: 60px;
+  margin-top: -30px;
 
-
-.wrapper{
-    background-color: #ffffff;
-    width: 320px;
-    margin: 0 auto;
-    padding-top: 60px;
-    margin-top: -30px;
-    
-    
-    max-height: 630px;
+  max-height: 630px;
 }
 
-@media screen and (min-width:768px) {
-    .wrapper{
-        width: 704px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 20px;
-        border-radius: 30px;
-        margin-bottom: 32px;
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 604px;
+    padding: 50px;
+    border-radius: 30px;
+    margin-bottom: 32px;
 
-        max-height: 348px;
-    }
- }
+    max-height: 348px;
+  }
+}
 
- @media screen and (min-width:1280px) {
-    .wrapper{
-        /* width: 1034px; */
-        padding-left: 205px;
-        padding-right: 205px;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
-    }
- }
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    width: 934px;
+    padding: 50px;
+    margin-bottom: 40px;
+  }
+}
 
- .svg{
-    width: 56px;
-    height: 56px;
-    margin-bottom: 5px;
- }
+.svg {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 5px;
+}
 
- .list{
-    display: grid;
-    grid-template-columns: 84px 84px 84px;
-    row-gap: 40px;
-    column-gap: 15px;
-    padding-bottom: 13px;
-    justify-content: center;
-    /* width: 320px; */
-    
+.list {
+  display: grid;
+  grid-template-columns: 84px 84px 84px;
+  row-gap: 40px;
+  column-gap: 15px;
+  padding-bottom: 13px;
+  justify-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 84px;
+}
+
+.sum {
+  margin-bottom: 5px;
+  color: #52555f;
 }
 
 
 
- .item{
+.categorieName {
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.16;
+  color: #52555f;
+}
+
+.svg {
+  fill: #071f41;
+  position: relative;
+  z-index: 2;
+}
+
+.svg:hover {
+  fill: #ff751d;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    width: 84px;
-    
+    flex-wrap: wrap;
+    padding-bottom: 0;
+  }
+
+  .item {
+    width: calc((100% - 102px) / 6);
+  }
+}
+
+.span {
+  width: 52px;
+  height: 47px;
+  background-color: #f5f6fb;
+  position: absolute;
+  border-radius: 20px;
+  top: 33px;
+  left: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .span {
+    left: 15px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+   .span {
+     left: 42px;
+   }
  }
 
- .sum{
-    margin-bottom: 5px;
-    color: #52555F;
- }
+.svg:hover ~ .span {
+  background-color: #ffdac0;
+}
 
- /* @media screen and (max-width:767px) { */
-    /* .item:not(:last-child):after{
-        content: "";
-        display: block;
-        height: 1px;
-        width: 128%;
-        background-color: #E0E5EB;
-        position: absolute;
-        top: 125px;
-     } */
-     
-    
-     /* .item:last-child::after{
-        content: "";
-        display: block;
-        height: 1px;
-        width: 320px;
-        background-color: #E0E5EB;
-        position: absolute;
-        top: 125px;
-     } */
-
-/* } */
-
-
-
- .categorieName{
-    text-transform: uppercase;
-    font-size: 12px;
-    line-height: 1.16;
-    color: #52555F;
- }
-
- .svg{
-    fill: #071F41;
-    position: relative;
-    z-index: 2;
- }
-
- .svg:hover{
-    fill: #FF751D;
- }
-
-
-
-  @media screen and (min-width:768px) {
-    .list{
-        display: flex;
-        flex-wrap: wrap;  
-        padding-bottom: 0;
-    }
-
-    .item{
-        width: calc((100% - 102px) / 6);
-    }
- }
-
- .span{
-    width: 52px;
-    height: 47px;
-    background-color: #F5F6FB;
-    position: absolute;
-    border-radius: 20px;
-    top: 33px;
-    left: 16px;
- }
-
- @media screen and (min-width: 768px) {
-    .span{
-        left: 23px;
-    }
-    
- }
-
- .svg:hover ~.span{
-    background-color: #FFDAC0;
- }
-
-
- .warn{
-   color: #52555F;
-   text-align: center;
-   text-transform: uppercase;
- }
+.warn {
+  color: #52555f;
+  text-align: center;
+  text-transform: uppercase;
+}

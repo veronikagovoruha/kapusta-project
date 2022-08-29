@@ -33,9 +33,6 @@ export default function CreateDatePicker({ children }) {
         selected={startDate}
         onChange={date => {
           setStartDate(date);
-          // getDate(date);
-
-          // dispatch(addDynamicDate(moment(date).format('YYYY-MM-DD')));
         }}
         dateFormat="dd.MM.yyyy"
       />

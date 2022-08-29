@@ -17,12 +17,10 @@ const Expenses = () => {
   const categories = useSelector(
     state => state.periodData.expenses.expensesData
   );
-  //    console.log(categories);
 
   useEffect(() => {
     if (categories.length !== 0) {
       const ar = categories[0];
-      // console.log(ar);
       setChartData(ar.transactions.transactionsData);
     }
   }, [categories]);

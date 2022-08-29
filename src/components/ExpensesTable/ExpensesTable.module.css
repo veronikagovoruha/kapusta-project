@@ -13,14 +13,12 @@
 }
 .table {
   box-sizing: border-box;
-  /* max-width: 280px; */
 }
 
 .categori {
   width: 746px;
   height: 38px;
   display: none;
-
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
   background-color: #f5f6fb;
@@ -35,24 +33,20 @@
 }
 .inform-list {
   box-sizing: border-box;
-
   max-height: 143px;
   max-width: 280px;
-
   overflow-y: scroll;
 }
 .inform {
   height: 40px;
   display: flex;
   align-items: center;
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 8px;
   line-height: 1.12;
   letter-spacing: 0.04em;
-
   color: #52555f;
 }
 .inform:not(:last-child) {
@@ -93,12 +87,9 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-
   align-items: center;
   letter-spacing: 0.04em;
-
   color: #52555f;
-
   width: 150px;
   margin-bottom: 3px;
 }
@@ -107,7 +98,6 @@
 }
 .categ {
   width: 82px;
-
   margin-right: 12px;
 }
 .red {
@@ -118,7 +108,6 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-
   align-items: center;
   text-align: right;
   letter-spacing: 0.04em;
@@ -133,7 +122,6 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-
   align-items: center;
   text-align: right;
   letter-spacing: 0.04em;
@@ -144,6 +132,7 @@
   height: 18px;
   background: transparent;
   border: none;
+  margin-right: 5px;
 }
 .empty-line {
   display: none;
@@ -152,9 +141,6 @@
 @media screen and (min-width: 768px) {
   .table {
     box-sizing: border-box;
-    /* width: 624px; */
-    /* margin: 50px; */
-    /* margin-right: 75px; */
   }
   .wrap-modil {
     display: flex;
@@ -171,7 +157,6 @@
   .inform-list {
     max-height: 340px;
     min-width: 624px;
-
     border-top: 2px solid #f5f6fb;
     border-bottom: 2px solid #f5f6fb;
     border-left: 2px solid #f5f6fb;
@@ -185,11 +170,8 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 1.16;
-    /* identical to box height */
-
     align-items: center;
     letter-spacing: 0.04em;
-
     color: #52555f;
   }
 
@@ -254,7 +236,6 @@
     display: block;
   }
   .container {
-    /* height: 344px; */
     width: 624px;
   }
 }
@@ -340,10 +321,8 @@
 }
 
 .flexBox {
-  /* display: flex; */
   margin-right: 0;
   margin-top: 60px;
-  /* width: 1034px; */
 }
 @media screen and (min-width: 768px) {
   .flexBox {
@@ -351,20 +330,14 @@
     margin-right: 0;
     margin-top: 48px;
     justify-content: space-between;
-    /* width: 1034px; */
   }
 }
 @media screen and (min-width: 980px) {
   .flexBox {
     display: flex;
-    /* margin-right: 0;
-    margin-top: 60px;
-    justify-content: space-between;
-    width: 1034px; */
   }
 }
 .plugBox {
-  /* margin-top: 50px; */
   width: 213px;
   height: 276px;
   background: #52555f;
@@ -373,18 +346,10 @@
 @media screen and (min-width: 768px) {
   .plugBox {
     margin-top: 40px;
-    /* width: 213px;
-  height: 276px;
-  background: #52555f;
-  border-radius: 20px; */
   }
 }
 @media screen and (min-width: 980px) {
   .plugBox {
     margin-top: 0;
-    /* width: 213px;
-  height: 276px;
-  background: #52555f;
-  border-radius: 20px; */
   }
 }

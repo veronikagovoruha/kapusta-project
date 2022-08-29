@@ -1,41 +1,22 @@
-import s from './ExpensesTable.module.css';
-import sprit from '../../assets/icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getExpenseTransactions,
-  getIncomeTransactions,
-} from 'redux/transactions/transactionsSelectors';
-import { removeTransactionThunk } from 'redux/transactions/transactionsOperations';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Summary from 'components/Summary/Summary';
+import { removeTransactionThunk } from 'redux/transactions/transactionsOperations';
 import translateOptions from '../../utils/options/translateOptions';
 import { getDate } from 'redux/dynamicData/dynamicDataSelector';
+import { useDataByDevice } from 'hooks/useDataByDevice';
+import s from './ExpensesTable.module.css';
+import sprit from '../../assets/icons/sprite.svg';
 
 function ExpensesTable() {
-  const [color, setColor] = useState('');
   const dispatch = useDispatch();
-  const location = useLocation();
-  const dataExpenses = useSelector(getExpenseTransactions);
-  const dataIncomes = useSelector(getIncomeTransactions);
+
   const date = useSelector(getDate);
-
-  const [currentData, setCurrentData] = useState([]);
-
-  useEffect(() => {
-    if (location.pathname === '/balance/incomes') {
-      setColor('grins');
-      setCurrentData(dataIncomes);
-    } else {
-      setColor('red');
-      setCurrentData(dataExpenses);
-    }
-  }, [dataExpenses, dataIncomes, location.pathname]);
+  const transactions = useDataByDevice();
 
   const removeTransaction = id => dispatch(removeTransactionThunk(id));
 
   const filterTransactionsByDate = () => {
-    return currentData.filter(transaction => transaction.date.includes(date));
+    return transactions.filter(transaction => transaction.date.includes(date));
   };
   const fiteredTransactions = filterTransactionsByDate();
 
@@ -51,7 +32,7 @@ function ExpensesTable() {
         <div className={s.container}>
           <ul className={s['inform-list']}>
             {fiteredTransactions.map(
-              ({ amount, category, date, description, _id }) => (
+              ({ amount, category, date, description, _id, color }) => (
                 <li key={_id} className={s.inform}>
                   <div className={s['wrap-modil']}>
                     <span className={s['desc-mobil']}>{description}</span>
@@ -84,7 +65,6 @@ function ExpensesTable() {
         </div>
       </div>
       <Summary />
-      {/* <div className={s.plugBox}></div> */}
     </div>
   );
 }
