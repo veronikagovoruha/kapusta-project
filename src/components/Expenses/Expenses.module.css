@@ -3,8 +3,6 @@
 .wrapper{
     background-color: #ffffff;
     width: 320px;
-    /* padding-left: 20px; */
-    /* padding-right: 20px; */
     margin: 0 auto;
     padding-top: 60px;
     margin-top: -30px;
@@ -45,10 +43,8 @@
  .list{
     display: grid;
     grid-template-columns: 84px 84px 84px;
-    /* justify-content: space-around;  */
     row-gap: 40px;
     column-gap: 15px;
-    /* border-bottom: 1px solid #E0E5EB; */
     padding-bottom: 13px;
     justify-content: center;
     /* width: 320px; */
