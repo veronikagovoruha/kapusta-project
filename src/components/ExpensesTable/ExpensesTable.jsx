@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import Summary from 'components/Summary/Summary';
 
 function ExpensesTable() {
+  const [color, setColor] = useState('');
   const dispatch = useDispatch();
   const location = useLocation();
   const dataExpenses = useSelector(getExpenseTransactions);
@@ -20,14 +21,16 @@ function ExpensesTable() {
 
   useEffect(() => {
     if (location.pathname === '/balance/incomes') {
+      setColor('grins');
       setCurrentData(dataIncomes);
     } else {
+      setColor('red');
       setCurrentData(dataExpenses);
     }
   }, [dataExpenses, dataIncomes, location.pathname]);
 
   const removeTransaction = id => dispatch(removeTransactionThunk(id));
-
+  console.log(currentData);
   return (
     <div className={s.flexBox}>
       <div className={s.table}>
@@ -51,7 +54,9 @@ function ExpensesTable() {
                   </div>
                 </div>
 
-                <span className={s.sum}>{` - ${amount} UAH`}</span>
+                <span className={s[color]}>{` ${
+                  color === 'red' ? '-' : ''
+                } ${amount} UAH`}</span>
                 <button
                   className={s.btn}
                   type="button"
