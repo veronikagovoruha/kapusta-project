@@ -13,7 +13,7 @@ const WorkSpacePage = () => {
       <ReportsLink />
       <BalanceNavigation />
       <CategoryForm />
-      <ExpensesTable />
+      <ExpensesTable />     
     </Section>
   );
 };
