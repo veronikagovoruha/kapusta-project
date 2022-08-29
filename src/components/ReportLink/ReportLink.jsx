@@ -1,5 +1,5 @@
 import sprite from '../../assets/icons/sprite.svg';
-import styles from './reportLink.module.css';
+import styles from "./reportLink.module.css"
 
 const ReportLink = () => {
   return (

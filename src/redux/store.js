@@ -21,7 +21,7 @@ import dynamicDataReducer from './dynamicData/dynamicDataReducer';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken', 'sid'],
+  whitelist: ['accessToken', 'refreshToken', 'sid'],
 };
 
 const store = configureStore({
