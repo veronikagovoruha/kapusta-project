@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
-import { logInThunk, logOutThunk, registerThunk } from './authOperations';
+import { logInThunk, logOutThunk, registerThunk, refreshToken } from './authOperations';
 
 const initialState = {
   accessToken: null,
@@ -33,6 +33,22 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     [registerThunk.rejected](state, { payload }) {
+      state.isLoading = false;
+      state.error = payload;
+    },
+
+    [refreshToken.pending]: (state) => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    [refreshToken.fulfilled]: (state, { payload }) => {
+      const { newAccessToken, newRefreshToken, newSid } = payload;
+      state.isLoading = false;
+      state.accessToken = newAccessToken;
+      state.refreshToken = newRefreshToken;
+      state.sid = newSid;
+    },
+    [refreshToken.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
     },

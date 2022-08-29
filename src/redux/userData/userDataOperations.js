@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { addUserBalance, getCurrentUserApi } from 'services/userApi';
+import { errorHandler } from 'redux/error/errorHandler';
 
 export const getCurrentUserThunk = createAsyncThunk(
   'user/refresh',
-  async (_, { getState, rejectWithValue }) => {
+  async (_, { getState, rejectWithValue, dispatch }) => {
     const state = getState();
     const persistedToken = state.auth.accessToken;
 
@@ -15,6 +16,7 @@ export const getCurrentUserThunk = createAsyncThunk(
       const data = await getCurrentUserApi(persistedToken);
       return data;
     } catch (error) {
+      dispatch(errorHandler({ error, cb: getCurrentUserThunk }));
       return rejectWithValue(error.message);
     }
   }
@@ -22,11 +24,12 @@ export const getCurrentUserThunk = createAsyncThunk(
 
 export const addUserBalanceThunk = createAsyncThunk(
   'user/balance',
-  async (newBalance, { rejectWithValue }) => {
+  async (newBalance, { rejectWithValue, dispatch }) => {
     try {
       const data = await addUserBalance(newBalance);
       return data;
     } catch (error) {
+      dispatch(errorHandler({ error, cb: () => addUserBalanceThunk(newBalance) }));
       return rejectWithValue(error.message);
     }
   }

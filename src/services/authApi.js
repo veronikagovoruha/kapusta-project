@@ -16,6 +16,18 @@ export const registerApi = async userData => {
   return data;
 };
 
+export const refreshTokenApi = async (sid, refreshToken) => {
+  const { data } = await axios.post('/auth/refresh', 
+  {sid}, 
+  {
+    headers: {
+      'Authorization': `Bearer ${refreshToken}`
+    }
+  });
+  saveToken.set(data.newAccessToken);
+  return data;
+};
+
 export const logInApi = async userData => {
   const { data } = await axios.post('/auth/login', userData);
   saveToken.set(data.accessToken);
