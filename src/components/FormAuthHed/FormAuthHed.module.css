@@ -1,13 +1,6 @@
 .navForm {
-  /* position: fixed; */
-  /* top: 173px;
-  left: 763px;
-  width: 260px; */
-  /* height: 552px; */
   width: 240px;
   padding: 40px 20px;
-  position: static;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,12 +8,17 @@
   margin-bottom: 30px;
   margin: 0 auto;
   margin-top: 50px;
-
   background: #ffffff;
-
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
+  
 }
+    @media screen and (max-width: 1279px) {
+      .navForm{
+        position: static;
+      }
+      
+    }
 
 .navForm h2 {
   font-family: 'Roboto';
@@ -140,8 +138,6 @@
 @media screen and (min-width: 768px) {
   .navForm {
     width: 260px;
-    /* padding: 40px 20px; */
-    /* position: static; */
     padding: 56px 83px;
   }
   .input {
@@ -150,16 +146,14 @@
 }
 @media screen and (min-width: 1280px) {
   .navForm {
-    position: fixed;
-    top: 173px;
-    left: 763px;
     width: 260px;
     margin: 0;
-    /* position: static; */
-    /* margin: 0 auto;
-    margin-top: 80px; */
   }
   .input {
     width: 225px;
+  }
+  .box {
+    margin-left: 157px;
+    margin-top: 117px;
   }
 }

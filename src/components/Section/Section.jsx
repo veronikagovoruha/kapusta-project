@@ -14,10 +14,10 @@ const Section = ({ children }) => {
       <div className={!isAuth ? s.section : s.sectionAuth}>
         {/* <div className={s.container}> */}
         {!isAuth && (
-          <>
+          <div>
             <h1 className={s.title}>Kapu&#36;ta</h1>
             <p className={s.subtitle}>Smart Finance</p>
-          </>
+          </div>
         )}
         {children}
         {/* </div> */}

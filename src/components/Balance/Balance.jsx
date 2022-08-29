@@ -5,12 +5,14 @@ import NumberFormat from 'react-number-format';
 import { getUserBalance } from 'redux/userData/userDataSelectors';
 import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Balance = () => {
   const dispatch = useDispatch();
   const stateBalance = useSelector(getUserBalance);
   const [isTooltip, setIsTooltip] = useState(stateBalance <= 0);
   const [balance, setBalance] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     setBalance(stateBalance.toFixed(2).toString());
@@ -20,7 +22,7 @@ const Balance = () => {
     balance => {
       dispatch(addUserBalanceThunk({ newBalance: Number(balance) }));
     },
-    [dispatch],
+    [dispatch]
   );
 
   const handleBalanceInput = ({ formattedValue, value }) => {
@@ -53,9 +55,12 @@ const Balance = () => {
               onValueChange={handleBalanceInput}
               placeholder="0.00 UAH"
             />
-            <button className={styles.button}>Confirm</button>
+            {location.pathname === '/report' ? (
+              <></>
+            ) : (
+              <button className={styles.button}>Confirm</button>
+            )}
           </form>
-
           {isTooltip ? <div className={styles.tooltipArrow}></div> : ''}
           {isTooltip ? (
             <div className={styles.tooltipContainment}>

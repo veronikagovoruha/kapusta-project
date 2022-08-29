@@ -6,7 +6,7 @@
     width: 230px;
     height: 278px;
     display: block;
-    /* margin-top: 30px; */
+    margin-top: 30px;
   }
   
     .summaryTitle {
@@ -79,10 +79,6 @@
   @media screen and (min-width: 980px) {
     .summaryContainer {
       margin-top: 0;
-      /* width: 213px;
- 
-  background: #52555f;
-  border-radius: 20px; */
     }
   }
 
@@ -139,8 +135,3 @@
   }
 }
 
-/* @media screen and (max-width: 768px) {
-  .summaryContainer {
-    display: none;
-  }
-} */
