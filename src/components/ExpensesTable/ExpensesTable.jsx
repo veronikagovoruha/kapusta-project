@@ -1,12 +1,29 @@
 import s from './ExpensesTable.module.css';
 import sprit from '../../assets/icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { getExpenseTransactions } from 'redux/transactions/transactionsSelectors';
+import {
+  getExpenseTransactions,
+  getIncomeTransactions,
+} from 'redux/transactions/transactionsSelectors';
 import { removeTransactionThunk } from 'redux/transactions/transactionsOperations';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function ExpensesTable() {
   const dispatch = useDispatch();
-  const data = useSelector(getExpenseTransactions);
+  const location = useLocation();
+  const dataExpenses = useSelector(getExpenseTransactions);
+  const dataIncomes = useSelector(getIncomeTransactions);
+
+  const [currentData, setCurrentData] = useState([]);
+
+  useEffect(() => {
+    if (location.pathname === '/balance/incomes') {
+      setCurrentData(dataIncomes);
+    } else {
+      setCurrentData(dataExpenses);
+    }
+  }, [dataExpenses, dataIncomes, location.pathname]);
 
   const removeTransaction = id => dispatch(removeTransactionThunk(id));
 
@@ -21,7 +38,7 @@ function ExpensesTable() {
         </h3>
         <div className={s.container}>
           <ul className={s['inform-list']}>
-            {data.map(({ amount, category, date, description, _id }) => (
+            {currentData.map(({ amount, category, date, description, _id }) => (
               <li key={_id} className={s.inform}>
                 <div className={s['wrap-modil']}>
                   <span className={s['desc-mobil']}>{description}</span>
@@ -32,7 +49,8 @@ function ExpensesTable() {
                     <span className={s.categ}>{category}</span>
                   </div>
                 </div>
-                <span className={s.sum}>{` - ${amount} грн`}</span>
+
+                <span className={s.sum}>{` - ${amount} UAH`}</span>
                 <button
                   className={s.btn}
                   type="button"

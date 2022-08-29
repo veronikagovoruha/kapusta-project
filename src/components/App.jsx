@@ -5,13 +5,14 @@ import Header from './Header';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
+
 const HomePage = lazy(() => import('pages/HomePage'));
 const BalancePage = lazy(() => import('pages/BalancePage'));
 const ReportPage = lazy(() => import('pages/ReportPage'));
 
 const App = () => {
   return (
-    <>
+    <> 
       <Header />
 
       <Routes>

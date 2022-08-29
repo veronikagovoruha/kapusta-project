@@ -4,26 +4,30 @@ import styles from './balance.module.css';
 import NumberFormat from 'react-number-format';
 import { getUserBalance } from 'redux/userData/userDataSelectors';
 import { addUserBalanceThunk } from 'redux/userData/userDataOperations';
+import { useEffect } from 'react';
 
 const Balance = () => {
   const dispatch = useDispatch();
   const stateBalance = useSelector(getUserBalance);
-  const balanceExists = stateBalance > 0;
-  let [isTooltip, setIsTooltip] = useState(!balanceExists);
-  let [balance, setBalance] = useState(
-    balanceExists ? stateBalance : undefined
-  );
+  const [isTooltip, setIsTooltip] = useState(stateBalance <= 0);
+  const [balance, setBalance] = useState(0);
+
+  useEffect(() => {
+    setBalance(stateBalance.toFixed(2).toString());
+  }, [stateBalance]);
 
   const submitBalance = useCallback(
     balance => {
-      dispatch(addUserBalanceThunk({ newBalance: balance }));
+      dispatch(addUserBalanceThunk({ newBalance: Number(balance) }));
     },
     [dispatch]
   );
 
   const handleBalanceInput = ({ formattedValue, value }) => {
-    setIsTooltip(!formattedValue > 0);
-    setBalance(value);
+    if (value !== balance) {
+      setIsTooltip(!formattedValue > 0);
+      setBalance(value);
+    }
   };
 
   const handleSubmit = e => {

@@ -1,9 +1,14 @@
+
+
 .wrapper{
     background-color: #fff;
     width: 320px;
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
     margin: 0 auto;
+    padding-top: 50px;
+    margin-top: -30px;
+    
 
 
     /* height: 630px; */
@@ -44,6 +49,7 @@
  .list{
     display: flex;
    justify-content:space-around;
+   width: 320px;
     
 }
 
@@ -104,4 +110,10 @@
 
  .svg:hover ~.span{
     background-color: #FFDAC0;
+ }
+
+ .warn{
+   color: #52555F;
+   text-align: center;
+   text-transform: uppercase;
  }
