@@ -65,7 +65,7 @@
   padding: 1px 15px;
   border-radius: 30px;
   border: none;
-  outline-color: rgb(38, 255, 0);
+  outline-color: green;
   background: #f6f7fb;
 }
 .navForm__btnGoogle {
@@ -121,9 +121,8 @@
   margin-left: 10px;
 }
 .navForm__btn:hover,
-.navForm__btnGoogle:hover {
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
-    0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+.navForm__btnGoogle:hover { 
+  box-shadow: 0 4px 21px 0 green;
   text-align: center;
 }
 
