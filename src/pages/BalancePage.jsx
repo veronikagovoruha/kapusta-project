@@ -5,7 +5,7 @@ import ExpensesTable from 'components/ExpensesTable/ExpensesTable';
 import ReportsLink from 'components/ReportsLink';
 import BalanceNavigation from 'components/BalanceNavigation/BalanceNavigation';
 import s from '../components/CategoryForm/CategoryForm.module.css';
-import styles from '../components/Balance/Balance.module.css';
+import styles from '../components/Balance/balance.module.css';
 
 const WorkSpacePage = () => {
   return (
