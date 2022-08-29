@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 import s from './BalanceNavigation.module.css';
 import MediaQuery from 'react-responsive';
 
@@ -36,11 +37,21 @@ const BalanceNavigation = () => {
   }, [location.pathname, navigate]);
 
   return (
+    // <div className={s.boxNav}>
+    //   <NavLink to="/balance/expenses" className={setActiveLinkClass}>
+    //     expenses
+    //   </NavLink>
+    //   <div className={s.navButton}></div>
+    //   <NavLink to="/balance/incomes" className={setActiveLinkClass}>
+    //     incomes
+    //   </NavLink>
+    // </div>
     <div className={s.boxNav}>
       <MediaQuery maxWidth={767}>
         <NavLink to="/balance/expenses-mob" className={setActiveLinkClass}>
           expenses
         </NavLink>
+        <div className={s.navButton}></div>
         <NavLink to="/balance/incomes-mob" className={setActiveLinkClass}>
           incomes
         </NavLink>

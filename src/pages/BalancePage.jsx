@@ -28,7 +28,12 @@ const WorkSpacePage = () => {
         </MediaQuery>
         <MediaQuery minWidth={768}>
           <CategoryForm />
+          {/* <DatePicker getDate={getDate} /> */}
+          {/* <BalanceNavigation /> */}
         </MediaQuery>
+        {/* <MediaQuery minWidth={768}>
+          <CategoryForm dateValue={dateValue} />
+        </MediaQuery> */}
         <ExpensesTable />
       </div>
     </Section>
