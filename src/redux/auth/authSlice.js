@@ -16,6 +16,12 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setAuthInfo: (store, { payload }) => ({
+        ...store,
+        ...payload
+      }),
+  },
 
   extraReducers: {
     [registerThunk.pending](state) {
@@ -70,5 +76,7 @@ const authSlice = createSlice({
     },
   },
 });
+
+export const { setAuthInfo } = authSlice.actions;
 
 export default authSlice.reducer;

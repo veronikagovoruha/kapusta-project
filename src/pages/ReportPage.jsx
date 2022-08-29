@@ -66,7 +66,6 @@ const ReportPage = () => {
   const switcherHandler = direction => {
     const newIndex = Math.abs(switcherIndex + direction) % 2;
     setSwitcherIndex(newIndex);
-    // navigate(`/report/${switcherNames[newIndex]}`);
   };
 
   const switcherValue = switcherNames[switcherIndex];
