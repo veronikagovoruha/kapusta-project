@@ -7,6 +7,8 @@ import ExpensesTable from 'components/ExpensesTable/ExpensesTable';
 import ReportsLink from 'components/ReportsLink';
 import BalanceNavigation from 'components/BalanceNavigation/BalanceNavigation';
 import { useState } from 'react';
+import styles from '../components/Balance/balance.module.css';
+import s from '../components/CategoryForm/CategoryForm.module.css';
 
 const WorkSpacePage = () => {
   const [dateValue, setDateValue] = useState(new Date());

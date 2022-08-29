@@ -8,7 +8,7 @@ import {
   addIncomeTransactionThunk,
 } from '../../redux/transactions/transactionsOperations';
 import DatePicker from '../DatePickerForm/DatePicker';
-import sprite from '../../assets/icons/sprite.svg';
+// import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
 
 import { useLocation } from 'react-router-dom';
