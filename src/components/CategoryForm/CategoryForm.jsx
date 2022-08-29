@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
 import {
@@ -11,10 +11,10 @@ import sprite from '../../assets/icons/sprite.svg';
 import s from './CategoryForm.module.css';
 import NumberFormat from 'react-number-format';
 import { useLocation } from 'react-router-dom';
-import moment from 'moment';
+import { getDate } from '../../redux/dynamicData/dynamicDataSelector';
 
 const CategoryForm = () => {
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
+  const date = useSelector(getDate);
   const [description, setDescription] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [amount, setAmount] = useState('');
@@ -113,10 +113,6 @@ const CategoryForm = () => {
     }),
   };
 
-  const getDate = date => {
-    setDate(moment(date).format('YYYY-MM-DD'));
-  };
-
   const transactionData = {
     description,
     amount,
@@ -133,9 +129,6 @@ const CategoryForm = () => {
       case 'selectedOption':
         setSelectedOption(value);
         break;
-      // case 'amount':
-      //   setAmount(value);
-      //   break;
       default:
         break;
     }
@@ -147,8 +140,6 @@ const CategoryForm = () => {
 
   const handleResetClick = () => {
     reset();
-
-    // console.log(transactionData);
   };
 
   const handleSubmitClick = e => {
@@ -177,12 +168,9 @@ const CategoryForm = () => {
     }
 
     reset();
-
-    // console.log(transactionData);
   };
 
   const reset = () => {
-    setDate(moment().format('YYYY-MM-DD'));
     setDescription('');
     setSelectedOption('');
     setAmount('');
@@ -192,7 +180,7 @@ const CategoryForm = () => {
     <div className={s.formBox}>
       <form className={s.form} onSubmit={handleSubmitClick}>
         <div className={s.inputWrapper}>
-          {!isMobile && <DatePicker getDate={getDate} />}
+          {!isMobile && <DatePicker />}
           <input
             type="text"
             className={s.descr}
