@@ -59,28 +59,7 @@
   color: #52555f;
 }
 
-/* @media screen and (max-width:767px) { */
-/* .item:not(:last-child):after{
-        content: "";
-        display: block;
-        height: 1px;
-        width: 128%;
-        background-color: #E0E5EB;
-        position: absolute;
-        top: 125px;
-     } */
 
-/* .item:last-child::after{
-        content: "";
-        display: block;
-        height: 1px;
-        width: 320px;
-        background-color: #E0E5EB;
-        position: absolute;
-        top: 125px;
-     } */
-
-/* } */
 
 .categorieName {
   text-transform: uppercase;
@@ -123,9 +102,15 @@
 
 @media screen and (min-width: 768px) {
   .span {
-    left: 23px;
+    left: 15px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+   .span {
+     left: 42px;
+   }
+ }
 
 .svg:hover ~ .span {
   background-color: #ffdac0;
