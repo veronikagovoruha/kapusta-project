@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import translateOptions from '../../utils/options/translateOptions';
 import ChartBar from '../chartBar/ChartBar';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './Expenses.module.css';
 
-const Expenses = () => {
-  const categories = useSelector(
-    state => state.periodData.expenses.expensesData
-  );
+const Expenses = ({categories}) => {
+  // const categories = useSelector(
+  //   state => state.periodData.expenses.expensesData
+  // );
 
   useEffect(() => {
     if (categories.length !== 0) {
