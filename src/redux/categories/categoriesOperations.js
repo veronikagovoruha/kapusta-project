@@ -12,7 +12,9 @@ export const getIncomeCategoriesThunk = createAsyncThunk(
       const data = await getIncomeCategoriesApi();
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: getIncomeCategoriesThunk }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getIncomeCategoriesThunk }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -25,7 +27,9 @@ export const getExpenseCategoriesThunk = createAsyncThunk(
       const data = await getExpenseCategoriesApi();
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: getExpenseCategoriesThunk }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getExpenseCategoriesThunk }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }

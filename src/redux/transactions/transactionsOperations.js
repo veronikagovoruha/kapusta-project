@@ -15,7 +15,9 @@ export const addIncomeTransactionThunk = createAsyncThunk(
       const data = await addIncomeTransactionApi(transaction);
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: () => addIncomeTransactionThunk(transaction) }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: () => addIncomeTransactionThunk(transaction)}));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -28,7 +30,9 @@ export const getIncomeTransactionThunk = createAsyncThunk(
       const data = await getIncomeTransactionApi();
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: getIncomeTransactionThunk }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getIncomeTransactionThunk }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -41,7 +45,9 @@ export const addExpenseTransactionThunk = createAsyncThunk(
       const data = await addExpenseTransactionApi(transaction);
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: () => addExpenseTransactionThunk(transaction) }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: () => addExpenseTransactionThunk(transaction) }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -54,7 +60,9 @@ export const getExpenseTransactionThunk = createAsyncThunk(
       const data = await getExpenseTransactionApi();
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: getExpenseTransactionThunk }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getExpenseTransactionThunk }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -67,7 +75,9 @@ export const removeTransactionThunk = createAsyncThunk(
       await removeTransactionApi(id);
       return id;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: () => removeTransactionThunk(id) }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: () => removeTransactionThunk(id) }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }

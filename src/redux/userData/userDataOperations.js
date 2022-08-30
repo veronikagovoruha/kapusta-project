@@ -16,7 +16,9 @@ export const getCurrentUserThunk = createAsyncThunk(
       const data = await getCurrentUserApi(persistedToken);
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: getCurrentUserThunk }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: getCurrentUserThunk }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
@@ -29,7 +31,9 @@ export const addUserBalanceThunk = createAsyncThunk(
       const data = await addUserBalance(newBalance);
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: () => addUserBalanceThunk(newBalance) }));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: () => addUserBalanceThunk(newBalance) }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }

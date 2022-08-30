@@ -9,7 +9,9 @@ export const getPeriodDataThunk = createAsyncThunk(
       const data = await getPeriodDataApi(period);
       return data;
     } catch (error) {
-      dispatch(errorHandler({ error, cb: () => { return getPeriodDataThunk(period) }}));
+      setTimeout(() => {
+        dispatch(errorHandler({ error, cb: () => getPeriodDataThunk(period) }));
+      }, 0);
       return rejectWithValue(error.message);
     }
   }
