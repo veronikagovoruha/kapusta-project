@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import Expenses from 'components/Expenses/Expenses';
-import Income from 'components/Income/Income';
 import Section from 'components/Section/Section';
 import ReportLink from 'components/ReportLink';
 import Switcher from '../components/Switcher/Switcher';
@@ -28,8 +27,9 @@ const ReportPage = () => {
   const categories = useSelector(
     state => state.periodData.expenses.expensesData
   );
-  const categories2 = useSelector(state => state.periodData.incomes.incomesData);
- 
+  const categories2 = useSelector(
+    state => state.periodData.incomes.incomesData
+  );
 
   const monthNames = useMemo(() => {
     return [
@@ -92,7 +92,11 @@ const ReportPage = () => {
       </div>
       <MonthSummary incomes={incomes} expenses={expenses} />
       <Switcher value={switcherValue} onChange={switcherHandler} />
-      {switcherValue === 'expenses' ? <Expenses categories={categories} /> : <Expenses categories={categories2} />}
+      {switcherValue === 'expenses' ? (
+        <Expenses categories={categories} />
+      ) : (
+        <Expenses categories={categories2} />
+      )}
     </Section>
   );
 };
