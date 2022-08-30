@@ -2,6 +2,7 @@ import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes, useSearchParams } from 'react-router-dom';
 import { setAuthInfo } from 'redux/auth/authSlice';
+import { getCurrentUserThunk } from 'redux/userData/userDataOperations';
 import Header from './Header';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -21,6 +22,7 @@ const App = () => {
     const sid = searchParams.get('sid');
     if (!!(accessToken && refreshToken && sid)) {
       dispatch(setAuthInfo({ accessToken, refreshToken, sid }));
+      dispatch(getCurrentUserThunk());
     }
   }, [searchParams, dispatch]);
 
