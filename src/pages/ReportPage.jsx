@@ -25,6 +25,12 @@ const ReportPage = () => {
   const incomes = useSelector(getPeriodDataTotalIncomes);
   const expenses = useSelector(getPeriodDataTotalExpenses);
 
+  const categories = useSelector(
+    state => state.periodData.expenses.expensesData
+  );
+  const categories2 = useSelector(state => state.periodData.incomes.incomesData);
+ 
+
   const monthNames = useMemo(() => {
     return [
       'JANUARY',
@@ -86,7 +92,7 @@ const ReportPage = () => {
       </div>
       <MonthSummary incomes={incomes} expenses={expenses} />
       <Switcher value={switcherValue} onChange={switcherHandler} />
-      {switcherValue === 'expenses' ? <Expenses /> : <Income />}
+      {switcherValue === 'expenses' ? <Expenses categories={categories} /> : <Expenses categories={categories2} />}
     </Section>
   );
 };
